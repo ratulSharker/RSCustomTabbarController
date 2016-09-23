@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E711D15E1D84110E0004278C /* Demo3TabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E711D15D1D84110E0004278C /* Demo3TabbarController.m */; };
+		E711D1601D8411310004278C /* demo3.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E711D15F1D8411310004278C /* demo3.storyboard */; };
 		E73EE1D91D760CD80060160F /* demo1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73EE1D41D760CD80060160F /* demo1.storyboard */; };
 		E73EE1DA1D760CD80060160F /* Demo1TabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73EE1D61D760CD80060160F /* Demo1TabbarController.m */; };
 		E73EE1DD1D760D380060160F /* demo2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73EE1DC1D760D380060160F /* demo2.storyboard */; };
@@ -24,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E711D15C1D84110E0004278C /* Demo3TabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo3TabbarController.h; sourceTree = "<group>"; };
+		E711D15D1D84110E0004278C /* Demo3TabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo3TabbarController.m; sourceTree = "<group>"; };
+		E711D15F1D8411310004278C /* demo3.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = demo3.storyboard; sourceTree = "<group>"; };
 		E73EE1D41D760CD80060160F /* demo1.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = demo1.storyboard; sourceTree = "<group>"; };
 		E73EE1D51D760CD80060160F /* Demo1TabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo1TabbarController.h; sourceTree = "<group>"; };
 		E73EE1D61D760CD80060160F /* Demo1TabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo1TabbarController.m; sourceTree = "<group>"; };
@@ -60,6 +65,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E711D15B1D8410BE0004278C /* Demo3 */ = {
+			isa = PBXGroup;
+			children = (
+				E711D15C1D84110E0004278C /* Demo3TabbarController.h */,
+				E711D15D1D84110E0004278C /* Demo3TabbarController.m */,
+				E711D15F1D8411310004278C /* demo3.storyboard */,
+			);
+			path = Demo3;
+			sourceTree = "<group>";
+		};
 		E73EE1D01D760CD80060160F /* Demo1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,8 +98,8 @@
 		E79D0D1E1D798D370033EDB6 /* common */ = {
 			isa = PBXGroup;
 			children = (
-				E79D0D1F1D798D370033EDB6 /* childs.storyboard */,
 				E79D0D201D798D370033EDB6 /* ChildVC.h */,
+				E79D0D1F1D798D370033EDB6 /* childs.storyboard */,
 				E79D0D211D798D370033EDB6 /* ChildVC.m */,
 			);
 			path = common;
@@ -113,6 +128,7 @@
 				E7DC9B5F1D748ACC008DBEC9 /* CustomTabbarConroller */,
 				E73EE1D01D760CD80060160F /* Demo1 */,
 				E73EE1DB1D760CFF0060160F /* Demo2 */,
+				E711D15B1D8410BE0004278C /* Demo3 */,
 				E7DC9B4B1D748AA2008DBEC9 /* AppDelegate.h */,
 				E7DC9B4C1D748AA2008DBEC9 /* AppDelegate.m */,
 				E79D0D241D798D710033EDB6 /* menu.storyboard */,
@@ -206,6 +222,7 @@
 				E79D0D221D798D370033EDB6 /* childs.storyboard in Resources */,
 				E73EE1DD1D760D380060160F /* demo2.storyboard in Resources */,
 				E79D0D251D798D710033EDB6 /* menu.storyboard in Resources */,
+				E711D1601D8411310004278C /* demo3.storyboard in Resources */,
 				E7DC9B551D748AA2008DBEC9 /* Assets.xcassets in Resources */,
 				E73EE1D91D760CD80060160F /* demo1.storyboard in Resources */,
 			);
@@ -219,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7DC9B4D1D748AA2008DBEC9 /* AppDelegate.m in Sources */,
+				E711D15E1D84110E0004278C /* Demo3TabbarController.m in Sources */,
 				E79D0D231D798D370033EDB6 /* ChildVC.m in Sources */,
 				E73EE1E01D7613310060160F /* Demo2TabbarController.m in Sources */,
 				E73EE1DA1D760CD80060160F /* Demo1TabbarController.m in Sources */,

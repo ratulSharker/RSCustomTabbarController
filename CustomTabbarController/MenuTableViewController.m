@@ -10,6 +10,7 @@
 #import "MenuTableCell.h"
 #import "Demo1TabbarController.h"
 #import "Demo2TabbarController.h"
+#import "Demo3TabbarController.h"
 #import "AppDelegate.h"
 
 #define MENU_ITEM_TITLE_KEY         @"menu.item.title"
@@ -51,6 +52,12 @@
                      MENU_ITEM_HANDLER_SELECTOR : @"showOnDemo2"
                     
                      },
+                 @{
+                     MENU_ITEM_TITLE_KEY: @"Demo 3",
+                     MENU_ITEM_DESCRIPTION_KEY: @"movable tabbar",
+                     MENU_ITEM_NUMBER_OF_VC : [NSNumber numberWithInt:3],
+                     MENU_ITEM_HANDLER_SELECTOR : @"showOnDemo3"
+                     }
                  ];
     
     
@@ -190,6 +197,36 @@
     
     
     [tabbarController setViewControllers:@[first, second, third, fourth]];
+    tabbarController.implementationDelegate = tabbarController;
+    tabbarController.delegate = self;
+    
+    self.navigationController.navigationBarHidden = YES;
+    
+    
+    //
+    //  in the app delegate set the tabbar controller as the
+    //  currently working tabbar controller
+    //
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setCurrentCustomTabbarController:tabbarController];
+    
+    
+    [self.navigationController pushViewController:tabbarController animated:YES];
+}
+
+-(void)showOnDemo3
+{
+    UIStoryboard *childsStory = [UIStoryboard storyboardWithName:@"childs" bundle:[NSBundle mainBundle]];
+    
+    UIViewController *first = [childsStory instantiateViewControllerWithIdentifier:@"firstVC"],
+    *second = [childsStory instantiateViewControllerWithIdentifier:@"secondVC"],
+    *third = [childsStory instantiateViewControllerWithIdentifier:@"thirdVC"];
+    
+    UIStoryboard *tabbarStory = [UIStoryboard storyboardWithName:@"demo3" bundle:[NSBundle mainBundle]];
+    Demo2TabbarController *tabbarController = [tabbarStory instantiateInitialViewController];
+    
+    
+    [tabbarController setViewControllers:@[first, second, third]];
     tabbarController.implementationDelegate = tabbarController;
     tabbarController.delegate = self;
     
