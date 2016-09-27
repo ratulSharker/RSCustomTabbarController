@@ -17,96 +17,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZ3-Os-8G0">
-                                <rect key="frame" x="0.0" y="20" width="320" height="459"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VZ3-Os-8G0">
+                                <rect key="frame" x="0.0" y="20" width="320" height="494"/>
                             </containerView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJV-EL-edg">
-                                <rect key="frame" x="0.0" y="478" width="320" height="90"/>
+                                <rect key="frame" x="0.0" y="512" width="320" height="56"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N5V-JP-whA">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                                         <subviews>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0j-JQ-51h">
-                                                <rect key="frame" x="110" y="8" width="100" height="36"/>
-                                                <color key="backgroundColor" red="0.2156862745" green="0.66274509800000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Button">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="selected" title="SELECTED"/>
-                                                <connections>
-                                                    <action selector="tabbarButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pf1-uU-Acd"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVg-8x-HBp">
-                                                <rect key="frame" x="8" y="8" width="100" height="36"/>
-                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Button">
+                                                <rect key="frame" x="0.0" y="1" width="80" height="54"/>
+                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.49555495689655171" colorSpace="calibratedRGB"/>
+                                                <state key="normal" image="tabbar0normal">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="selected" title="SELECTED"/>
+                                                <state key="selected" image="tabbar0selected"/>
+                                                <state key="highlighted" image="tabbar0selected"/>
                                                 <connections>
                                                     <action selector="tabbarButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YA7-Mt-iad"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIA-u2-Uee">
-                                                <rect key="frame" x="212" y="8" width="100" height="36"/>
-                                                <color key="backgroundColor" red="0.40835790477986328" green="0.87450980389999999" blue="0.27808716604899331" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Button">
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0j-JQ-51h">
+                                                <rect key="frame" x="80" y="1" width="80" height="54"/>
+                                                <color key="backgroundColor" red="0.2156862745" green="0.66274509800000003" blue="0.87843137250000003" alpha="0.50730064655172413" colorSpace="calibratedRGB"/>
+                                                <state key="normal" image="tabbar1normal">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="selected" title="SELECTED"/>
+                                                <state key="selected" image="tabbar1selected"/>
+                                                <state key="highlighted" image="tabbar1selected"/>
+                                                <connections>
+                                                    <action selector="tabbarButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pf1-uU-Acd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIA-u2-Uee">
+                                                <rect key="frame" x="160" y="1" width="80" height="54"/>
+                                                <color key="backgroundColor" red="0.40835790477986328" green="0.87450980389999999" blue="0.27808716604899331" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <state key="normal" image="tabbar2normal">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="selected" image="tabbar2selected"/>
+                                                <state key="highlighted" image="tabbar2selected"/>
                                                 <connections>
                                                     <action selector="tabbarButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TCq-yv-pxT"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i54-96-bSq">
-                                                <rect key="frame" x="162" y="46" width="150" height="36"/>
-                                                <color key="backgroundColor" red="1" green="0.27760591439999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Button">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="selected" title="SELECTED"/>
-                                                <connections>
-                                                    <action selector="tabbarButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S6O-d8-4kb"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LpQ-W0-xrr">
-                                                <rect key="frame" x="8" y="46" width="150" height="36"/>
-                                                <color key="backgroundColor" red="0.94509803920000002" green="0.56862745100000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="36" id="ayN-7c-eFf"/>
-                                                </constraints>
-                                                <state key="normal" title="Button">
+                                                <rect key="frame" x="240" y="1" width="80" height="54"/>
+                                                <color key="backgroundColor" red="0.94509803920000002" green="0.56862745100000001" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <state key="normal" image="tabbar3normal">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <state key="selected" title="SELECTED"/>
+                                                <state key="selected" image="tabbar3selected"/>
+                                                <state key="highlighted" image="tabbar3selected"/>
                                                 <connections>
                                                     <action selector="tabbarButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PB1-fd-nHA"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.27760591439999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="oVg-8x-HBp" firstAttribute="leading" secondItem="N5V-JP-whA" secondAttribute="leading" constant="8" id="201-tA-eDW"/>
-                                            <constraint firstAttribute="bottom" secondItem="i54-96-bSq" secondAttribute="bottom" constant="8" id="3pv-Tp-oSx"/>
-                                            <constraint firstItem="rIA-u2-Uee" firstAttribute="leading" secondItem="Q0j-JQ-51h" secondAttribute="trailing" constant="2" id="9LX-Ra-FbM"/>
-                                            <constraint firstAttribute="trailing" secondItem="i54-96-bSq" secondAttribute="trailing" constant="8" id="9pX-mE-hle"/>
-                                            <constraint firstItem="i54-96-bSq" firstAttribute="leading" secondItem="LpQ-W0-xrr" secondAttribute="trailing" constant="4" id="JWV-ZP-vIO"/>
-                                            <constraint firstItem="rIA-u2-Uee" firstAttribute="top" secondItem="N5V-JP-whA" secondAttribute="top" constant="8" id="Jrw-ni-T5p"/>
-                                            <constraint firstItem="LpQ-W0-xrr" firstAttribute="width" secondItem="i54-96-bSq" secondAttribute="width" id="OpN-9i-d6b"/>
-                                            <constraint firstItem="Q0j-JQ-51h" firstAttribute="leading" secondItem="oVg-8x-HBp" secondAttribute="trailing" constant="2" id="P6e-p8-sUw"/>
-                                            <constraint firstItem="LpQ-W0-xrr" firstAttribute="top" secondItem="oVg-8x-HBp" secondAttribute="bottom" constant="2" id="Pb5-Oo-GTi"/>
-                                            <constraint firstItem="Q0j-JQ-51h" firstAttribute="top" secondItem="N5V-JP-whA" secondAttribute="top" constant="8" id="X3o-9E-hZx"/>
-                                            <constraint firstAttribute="trailing" secondItem="rIA-u2-Uee" secondAttribute="trailing" constant="8" id="Yq8-mN-7ZE"/>
-                                            <constraint firstItem="oVg-8x-HBp" firstAttribute="top" secondItem="N5V-JP-whA" secondAttribute="top" constant="8" id="c8R-oz-v3E"/>
+                                            <constraint firstItem="oVg-8x-HBp" firstAttribute="leading" secondItem="N5V-JP-whA" secondAttribute="leading" id="201-tA-eDW"/>
+                                            <constraint firstItem="rIA-u2-Uee" firstAttribute="leading" secondItem="Q0j-JQ-51h" secondAttribute="trailing" id="9LX-Ra-FbM"/>
+                                            <constraint firstItem="rIA-u2-Uee" firstAttribute="top" secondItem="Q0j-JQ-51h" secondAttribute="top" id="Ds8-AO-QFn"/>
+                                            <constraint firstItem="rIA-u2-Uee" firstAttribute="width" secondItem="LpQ-W0-xrr" secondAttribute="width" id="G0Y-WM-1Uy"/>
+                                            <constraint firstItem="Q0j-JQ-51h" firstAttribute="leading" secondItem="oVg-8x-HBp" secondAttribute="trailing" id="P6e-p8-sUw"/>
+                                            <constraint firstItem="LpQ-W0-xrr" firstAttribute="leading" secondItem="rIA-u2-Uee" secondAttribute="trailing" id="SBK-PG-ErW"/>
+                                            <constraint firstAttribute="trailing" secondItem="LpQ-W0-xrr" secondAttribute="trailing" id="WQR-nZ-UVe"/>
+                                            <constraint firstAttribute="bottom" secondItem="oVg-8x-HBp" secondAttribute="bottom" constant="1" id="YkA-Iu-0mJ"/>
+                                            <constraint firstItem="oVg-8x-HBp" firstAttribute="top" secondItem="N5V-JP-whA" secondAttribute="top" constant="1" id="c8R-oz-v3E"/>
                                             <constraint firstItem="Q0j-JQ-51h" firstAttribute="width" secondItem="rIA-u2-Uee" secondAttribute="width" id="dWg-kJ-0aM"/>
                                             <constraint firstItem="Q0j-JQ-51h" firstAttribute="height" secondItem="rIA-u2-Uee" secondAttribute="height" id="dyh-r1-XFL"/>
                                             <constraint firstItem="oVg-8x-HBp" firstAttribute="width" secondItem="Q0j-JQ-51h" secondAttribute="width" id="i0O-65-AJt"/>
-                                            <constraint firstItem="LpQ-W0-xrr" firstAttribute="leading" secondItem="N5V-JP-whA" secondAttribute="leading" constant="8" id="iCf-b4-far"/>
-                                            <constraint firstItem="LpQ-W0-xrr" firstAttribute="height" secondItem="i54-96-bSq" secondAttribute="height" id="igq-Rf-xRL"/>
                                             <constraint firstItem="oVg-8x-HBp" firstAttribute="height" secondItem="Q0j-JQ-51h" secondAttribute="height" id="l9i-pd-Wus"/>
-                                            <constraint firstItem="i54-96-bSq" firstAttribute="top" secondItem="rIA-u2-Uee" secondAttribute="bottom" constant="2" id="rk5-3c-gnU"/>
-                                            <constraint firstAttribute="bottom" secondItem="LpQ-W0-xrr" secondAttribute="bottom" constant="8" id="tT9-WF-81n"/>
+                                            <constraint firstItem="LpQ-W0-xrr" firstAttribute="top" secondItem="rIA-u2-Uee" secondAttribute="top" id="lBS-Up-jDh"/>
+                                            <constraint firstItem="LpQ-W0-xrr" firstAttribute="bottom" secondItem="rIA-u2-Uee" secondAttribute="bottom" id="oZz-HC-R9L"/>
+                                            <constraint firstItem="Q0j-JQ-51h" firstAttribute="top" secondItem="oVg-8x-HBp" secondAttribute="top" id="r4l-76-vBE"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -114,7 +100,7 @@
                                 <constraints>
                                     <constraint firstItem="N5V-JP-whA" firstAttribute="top" secondItem="yJV-EL-edg" secondAttribute="top" id="E5k-gq-jQe"/>
                                     <constraint firstAttribute="trailing" secondItem="N5V-JP-whA" secondAttribute="trailing" id="KcU-1i-He8"/>
-                                    <constraint firstAttribute="height" constant="90" id="Mji-q1-CXV"/>
+                                    <constraint firstAttribute="height" constant="56" id="Mji-q1-CXV"/>
                                     <constraint firstAttribute="bottom" secondItem="N5V-JP-whA" secondAttribute="bottom" id="Vtd-CJ-jmW"/>
                                     <constraint firstItem="N5V-JP-whA" firstAttribute="leading" secondItem="yJV-EL-edg" secondAttribute="leading" id="aXs-7G-TuE"/>
                                 </constraints>
@@ -137,7 +123,6 @@
                         <outlet property="mViewBtn1" destination="Q0j-JQ-51h" id="GG2-rZ-7zy"/>
                         <outlet property="mViewBtn2" destination="rIA-u2-Uee" id="KMy-jD-nvM"/>
                         <outlet property="mViewBtn3" destination="LpQ-W0-xrr" id="dlu-WT-ORs"/>
-                        <outlet property="mViewBtn4" destination="i54-96-bSq" id="83d-U7-fhR"/>
                         <outlet property="viewControllerContainer" destination="VZ3-Os-8G0" id="dCs-wq-qbP"/>
                         <outletCollection property="tabbarContainerHeight" destination="Mji-q1-CXV" id="1N8-3s-uxn"/>
                         <outletCollection property="tabbarWidgetHolderTop" destination="E5k-gq-jQe" id="bdq-VT-SWr"/>
@@ -145,7 +130,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="345" y="313"/>
+            <point key="canvasLocation" x="377" y="329"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabbar0normal" width="50" height="50"/>
+        <image name="tabbar0selected" width="50" height="50"/>
+        <image name="tabbar1normal" width="50" height="50"/>
+        <image name="tabbar1selected" width="50" height="50"/>
+        <image name="tabbar2normal" width="50" height="50"/>
+        <image name="tabbar2selected" width="50" height="50"/>
+        <image name="tabbar3normal" width="50" height="50"/>
+        <image name="tabbar3selected" width="50" height="50"/>
+    </resources>
 </document>

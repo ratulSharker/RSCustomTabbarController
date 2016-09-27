@@ -18,11 +18,14 @@
 		E79D0D251D798D710033EDB6 /* menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E79D0D241D798D710033EDB6 /* menu.storyboard */; };
 		E79D0D281D798D8E0033EDB6 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E79D0D271D798D8E0033EDB6 /* MenuTableViewController.m */; };
 		E79D0D2B1D799D090033EDB6 /* MenuTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E79D0D2A1D799D090033EDB6 /* MenuTableCell.m */; };
+		E7B195381D9A495E00422214 /* JumpInTabbarTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B195371D9A495E00422214 /* JumpInTabbarTransitionAnimation.m */; };
 		E7DC9B4A1D748AA2008DBEC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DC9B491D748AA2008DBEC9 /* main.m */; };
 		E7DC9B4D1D748AA2008DBEC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DC9B4C1D748AA2008DBEC9 /* AppDelegate.m */; };
 		E7DC9B551D748AA2008DBEC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7DC9B541D748AA2008DBEC9 /* Assets.xcassets */; };
 		E7DC9B581D748AA2008DBEC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7DC9B561D748AA2008DBEC9 /* LaunchScreen.storyboard */; };
 		E7DC9B621D748AEA008DBEC9 /* CustomTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DC9B611D748AEA008DBEC9 /* CustomTabbarController.m */; };
+		E7F2AF171D996B40007F23B0 /* FadingTabbarTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F2AF161D996B40007F23B0 /* FadingTabbarTransitionAnimation.m */; };
+		E7F2AF1A1D996B91007F23B0 /* SlidingTabbarTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F2AF191D996B91007F23B0 /* SlidingTabbarTransitionAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,8 @@
 		E79D0D271D798D8E0033EDB6 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		E79D0D291D799D090033EDB6 /* MenuTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableCell.h; sourceTree = "<group>"; };
 		E79D0D2A1D799D090033EDB6 /* MenuTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableCell.m; sourceTree = "<group>"; };
+		E7B195361D9A495E00422214 /* JumpInTabbarTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumpInTabbarTransitionAnimation.h; sourceTree = "<group>"; };
+		E7B195371D9A495E00422214 /* JumpInTabbarTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JumpInTabbarTransitionAnimation.m; sourceTree = "<group>"; };
 		E7DC9B451D748AA2008DBEC9 /* CustomTabbarController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomTabbarController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7DC9B491D748AA2008DBEC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E7DC9B4B1D748AA2008DBEC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -52,6 +57,10 @@
 		E7DC9B591D748AA2008DBEC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7DC9B601D748AEA008DBEC9 /* CustomTabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabbarController.h; sourceTree = "<group>"; };
 		E7DC9B611D748AEA008DBEC9 /* CustomTabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabbarController.m; sourceTree = "<group>"; };
+		E7F2AF151D996B40007F23B0 /* FadingTabbarTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadingTabbarTransitionAnimation.h; sourceTree = "<group>"; };
+		E7F2AF161D996B40007F23B0 /* FadingTabbarTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadingTabbarTransitionAnimation.m; sourceTree = "<group>"; };
+		E7F2AF181D996B91007F23B0 /* SlidingTabbarTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingTabbarTransitionAnimation.h; sourceTree = "<group>"; };
+		E7F2AF191D996B91007F23B0 /* SlidingTabbarTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidingTabbarTransitionAnimation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,10 +164,24 @@
 		E7DC9B5F1D748ACC008DBEC9 /* CustomTabbarConroller */ = {
 			isa = PBXGroup;
 			children = (
+				E7F2AF141D996B40007F23B0 /* sample transition animations */,
 				E7DC9B601D748AEA008DBEC9 /* CustomTabbarController.h */,
 				E7DC9B611D748AEA008DBEC9 /* CustomTabbarController.m */,
 			);
 			path = CustomTabbarConroller;
+			sourceTree = "<group>";
+		};
+		E7F2AF141D996B40007F23B0 /* sample transition animations */ = {
+			isa = PBXGroup;
+			children = (
+				E7F2AF151D996B40007F23B0 /* FadingTabbarTransitionAnimation.h */,
+				E7F2AF161D996B40007F23B0 /* FadingTabbarTransitionAnimation.m */,
+				E7F2AF181D996B91007F23B0 /* SlidingTabbarTransitionAnimation.h */,
+				E7F2AF191D996B91007F23B0 /* SlidingTabbarTransitionAnimation.m */,
+				E7B195361D9A495E00422214 /* JumpInTabbarTransitionAnimation.h */,
+				E7B195371D9A495E00422214 /* JumpInTabbarTransitionAnimation.m */,
+			);
+			path = "sample transition animations";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,7 +263,10 @@
 				E79D0D231D798D370033EDB6 /* ChildVC.m in Sources */,
 				E73EE1E01D7613310060160F /* Demo2TabbarController.m in Sources */,
 				E73EE1DA1D760CD80060160F /* Demo1TabbarController.m in Sources */,
+				E7F2AF1A1D996B91007F23B0 /* SlidingTabbarTransitionAnimation.m in Sources */,
+				E7B195381D9A495E00422214 /* JumpInTabbarTransitionAnimation.m in Sources */,
 				E79D0D281D798D8E0033EDB6 /* MenuTableViewController.m in Sources */,
+				E7F2AF171D996B40007F23B0 /* FadingTabbarTransitionAnimation.m in Sources */,
 				E7DC9B621D748AEA008DBEC9 /* CustomTabbarController.m in Sources */,
 				E7DC9B4A1D748AA2008DBEC9 /* main.m in Sources */,
 				E79D0D2B1D799D090033EDB6 /* MenuTableCell.m in Sources */,

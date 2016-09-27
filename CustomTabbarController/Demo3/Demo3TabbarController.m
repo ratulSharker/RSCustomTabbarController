@@ -7,6 +7,7 @@
 //
 
 #import "Demo3TabbarController.h"
+#import "FadingTabbarTransitionAnimation.h"
 
 #define DRAGGING_TOP_DISTANCE       8
 #define DRAGGING_LEADING_DISTANCE   8
@@ -58,6 +59,11 @@
                   ];
     
     //
+    //  providing appropriate transition animation
+    //
+    super.transitionAnimationDelegate = [FadingTabbarTransitionAnimation new];
+    
+    //
     //  we want to execute the super view did load
     //  just after the tags been set
     //
@@ -102,10 +108,14 @@
         //simple cases
         tabbarArr[oldSelectedIndex].backgroundColor = [UIColor lightGrayColor];
         tabbarArr[newSelectedIndex].backgroundColor = [UIColor whiteColor];
+        
+        btnArr[oldSelectedIndex].selected = NO;
+        btnArr[newSelectedIndex].selected = YES;
     }
     else
     {
         tabbarArr[newSelectedIndex].backgroundColor = [UIColor whiteColor];
+        btnArr[newSelectedIndex].selected = YES;
         
     }
 }

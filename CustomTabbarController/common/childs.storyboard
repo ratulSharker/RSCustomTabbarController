@@ -26,12 +26,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello world 0th" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JRl-Pt-i5x">
                                 <rect key="frame" x="20" y="249" width="280" height="71"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPR-BM-RtU">
                                 <rect key="frame" x="20" y="211" width="280" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="0.4919719827586207" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Back to Demo List"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -43,7 +42,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.9882352941176471" green="0.46274509803921571" blue="0.47843137254901963" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="qK4-th-3pu" firstAttribute="top" secondItem="Nbw-CX-Dz0" secondAttribute="bottom" constant="20" id="3np-H4-s6n"/>
                             <constraint firstAttribute="leading" secondItem="JRl-Pt-i5x" secondAttribute="leading" constant="-20" id="7Hy-jI-WLc"/>
@@ -82,12 +81,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello world 1st" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nK2-JT-kPS">
                                 <rect key="frame" x="20" y="248" width="280" height="71"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7P-kg-09J">
                                 <rect key="frame" x="20" y="210" width="280" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="0.49197198279999999" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Back to Demo List"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -99,7 +97,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.2156862745" green="0.66274509800000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.58431372549019611" green="0.81568627450980391" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="nK2-JT-kPS" secondAttribute="trailing" constant="20" id="BLj-2Y-ZEQ"/>
                             <constraint firstItem="sIw-Sz-WOY" firstAttribute="centerX" secondItem="xFj-Kq-5jf" secondAttribute="centerX" id="JcE-jY-Y3Y"/>
@@ -138,12 +136,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello world 2nd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXK-e5-SUc">
                                 <rect key="frame" x="20" y="249" width="280" height="71"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTz-td-ozD">
                                 <rect key="frame" x="20" y="211" width="280" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="0.49197198279999999" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Back to Demo List"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -155,7 +152,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.4083579048" green="0.87450980389999999" blue="0.278087166" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.68627450980392157" green="0.94509803921568625" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="yXK-e5-SUc" secondAttribute="trailing" constant="20" id="2MG-XC-XAP"/>
                             <constraint firstItem="yXK-e5-SUc" firstAttribute="top" secondItem="lTz-td-ozD" secondAttribute="bottom" constant="8" id="7c2-so-2Ko"/>
@@ -194,12 +191,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello world 4th" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQ4-4d-bBg">
                                 <rect key="frame" x="20" y="248" width="280" height="71"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FyK-7J-7K1">
                                 <rect key="frame" x="20" y="210" width="280" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="0.49197198279999999" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Back to Demo List"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -211,7 +207,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.55713693819999999" blue="0.16736371559999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.77254901960784317" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="leading" secondItem="cQ4-4d-bBg" secondAttribute="leading" constant="-20" id="9AO-6m-VGc"/>
                             <constraint firstItem="xZy-CW-tlc" firstAttribute="top" secondItem="XcJ-Wk-xzX" secondAttribute="bottom" constant="20" id="Cys-e1-CVs"/>
@@ -250,12 +246,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello world 5th" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ri-A9-tOe">
                                 <rect key="frame" x="20" y="248" width="280" height="71"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0c-i1-Ay4">
                                 <rect key="frame" x="20" y="210" width="280" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="0.49197198279999999" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Back to Demo List"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

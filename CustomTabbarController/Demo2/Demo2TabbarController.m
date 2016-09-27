@@ -7,6 +7,7 @@
 //
 
 #import "Demo2TabbarController.h"
+#import "JumpInTabbarTransitionAnimation.h"
 
 @interface Demo2TabbarController ()
 {
@@ -54,6 +55,10 @@
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES
                                             withAnimation:UIStatusBarAnimationFade];
+    
+    
+    super.transitionAnimationDelegate = [JumpInTabbarTransitionAnimation new];
+    
     
     [super viewDidLoad];
 }

@@ -20,14 +20,26 @@
 {
     [super viewDidLoad];
     
-    selectedIndex = 0;
     
     
-    [self setSelectedViewCotnrollerAtIndex:selectedIndex];
+    
     
     if(self.delegate && [self.delegate respondsToSelector:@selector(customTabbarControllerViewDidLoaded:)])
     {
-        [self.delegate customTabbarControllerViewDidLoaded:self];
+        BOOL shouldLoadDefault = [self.delegate customTabbarControllerViewDidLoaded:self];
+        
+        if(shouldLoadDefault)
+        {
+            selectedIndex = CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX;
+            [self setSelectedViewCotnrollerAtIndex:selectedIndex];
+        }
+    }
+    else
+    {
+        //  CustomTabbarControllerViewDidLoaded delegate is not
+        //  implemented, so we will load the default view controller
+        selectedIndex = CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX;
+        [self setSelectedViewCotnrollerAtIndex:selectedIndex];
     }
 }
 
@@ -48,8 +60,7 @@
         //
         [self.implementationDelegate newSelectedTabbarIndex:index whereOldIndexWas:selectedIndex];
         
-        //it's valid index man
-        selectedIndex = index;
+        
         [self manageViewControllerToBeInFrontContainer:index];
     }
     else
@@ -145,27 +156,74 @@
         NSLog(@"TARGET VIEWController bound %@", NSStringFromCGRect(targetViewController.view.frame));
         NSLog(@"CONTAINER BOUND %@", NSStringFromCGRect(self.implementationDelegate.viewControllerContainer.frame));
         NSLog(@"SELF.VIEW.BOUND %@", NSStringFromCGRect(self.view.frame));
+        
+        
         //  first of all check that is this viewController's view is in the
         //  container view
         if(targetViewController.parentViewController != self)
         {
-            //  though at a time only one child viewcontroller
-            //  will be in existence, but we should remove all
-            //  for sake of generality
-            for(UIViewController *childVC in self.childViewControllers)
-            {
-                [childVC willMoveToParentViewController:nil];
-                [childVC.view removeFromSuperview];
-                [childVC removeFromParentViewController];
-            }
             
-            
-            //  now add the current view controller as the
-            //  child view controller
-            targetViewController.view.frame = self.implementationDelegate.viewControllerContainer.bounds;
+            //
+            //  adding the new view controller
+            //
             [self addChildViewController:targetViewController];
             [self.implementationDelegate.viewControllerContainer addSubview:targetViewController.view];
             [targetViewController didMoveToParentViewController:self];
+            
+            NSMutableSet <UIViewController*> *previousViewControllers = [[NSMutableSet alloc] initWithArray:self.childViewControllers];
+            [previousViewControllers removeObject:targetViewController];
+            
+            //
+            //  forming the completion block
+            //
+            CustomTabbarGeneralPurposeBlock completionBlock = ^{
+                //  though at a time only one child viewcontroller
+                //  will be in existence, but we should remove all
+                //  for sake of generality
+                for(UIViewController *childVC in previousViewControllers)
+                {
+                    [childVC willMoveToParentViewController:nil];
+                    [childVC.view removeFromSuperview];
+                    [childVC removeFromParentViewController];
+                }
+                
+                //
+                //  store the new selected index, for later use and consistency
+                //
+                selectedIndex = index;
+                
+                //
+                //  for surity
+                //
+                targetViewController.view.frame = self.implementationDelegate.viewControllerContainer.bounds;
+                
+            };
+            
+            if(self.transitionAnimationDelegate &&
+               [self.transitionAnimationDelegate respondsToSelector:@selector(customTabbarController:
+                                                                              willSwitchToViewContorller:
+                                                                              FromViewController:
+                                                                              withFinalFrame:
+                                                                              oldSelectedIndex:
+                                                                              newSelectedIndex:
+                                                                              withAnimationCompletionBlock:)])
+            {
+
+                
+                [self.transitionAnimationDelegate customTabbarController:self
+                                              willSwitchToViewContorller:targetViewController
+                                                      FromViewController:previousViewControllers
+                                                          withFinalFrame:self.implementationDelegate.viewControllerContainer.bounds
+                                                        oldSelectedIndex:selectedIndex
+                                                        newSelectedIndex:index
+                                            withAnimationCompletionBlock:completionBlock];
+            }
+            else
+            {
+                completionBlock();
+            }
+            
+
         }
     }
     else

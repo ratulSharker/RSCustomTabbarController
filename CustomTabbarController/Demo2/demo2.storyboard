@@ -28,8 +28,12 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTr-5c-Wrl">
                                                 <rect key="frame" x="1" y="1" width="183" height="183"/>
-                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.97647058823529409" green="0.41568627450980394" blue="0.44705882352941179" alpha="1" colorSpace="calibratedRGB"/>
                                                 <inset key="titleEdgeInsets" minX="30" minY="30" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="70" minY="70" maxX="0.0" maxY="0.0"/>
+                                                <state key="normal" image="tabbar0normal"/>
+                                                <state key="selected" image="tabbar0selected"/>
+                                                <state key="highlighted" image="tabbar0selected"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="95"/>
@@ -74,11 +78,14 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yCC-xX-pow">
                                                 <rect key="frame" x="8" y="0.0" width="192" height="192"/>
-                                                <color key="backgroundColor" red="0.2156862745" green="0.66274509800000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.5607843137254902" green="0.79607843137254897" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                                                 <inset key="titleEdgeInsets" minX="0.0" minY="30" maxX="30" maxY="0.0"/>
-                                                <state key="normal">
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="70" maxX="70" maxY="0.0"/>
+                                                <state key="normal" image="tabbar1normal">
                                                     <color key="titleColor" red="0.2156862745" green="0.66274509800000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" image="tabbar1selected"/>
+                                                <state key="highlighted" image="tabbar1selected"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="95"/>
@@ -121,13 +128,16 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fts-rQ-Kxs">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="192"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Af4-R5-xHW">
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Af4-R5-xHW">
                                                 <rect key="frame" x="8" y="8" width="192" height="190"/>
-                                                <color key="backgroundColor" red="0.4083579048" green="0.87450980389999999" blue="0.278087166" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.6705882352941176" green="0.95686274509803926" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
                                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="30"/>
-                                                <state key="normal">
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="70" maxY="70"/>
+                                                <state key="normal" image="tabbar2normal">
                                                     <color key="titleColor" red="0.2156862745" green="0.66274509800000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" image="tabbar2selected"/>
+                                                <state key="highlighted" image="tabbar2selected"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="95"/>
@@ -172,11 +182,14 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j9W-H0-kkK">
                                                 <rect key="frame" x="0.0" y="8" width="192" height="192"/>
-                                                <color key="backgroundColor" red="1" green="0.55713693819999999" blue="0.16736371559999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.95686274509803926" green="0.76078431372549016" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                <inset key="contentEdgeInsets" minX="70" minY="0.0" maxX="0.0" maxY="70"/>
                                                 <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="30"/>
-                                                <state key="normal">
+                                                <state key="normal" image="tabbar3normal">
                                                     <color key="titleColor" red="0.2156862745" green="0.66274509800000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" image="tabbar3selected"/>
+                                                <state key="highlighted" image="tabbar3selected"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="95"/>
@@ -264,4 +277,14 @@
             <point key="canvasLocation" x="720" y="345"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabbar0normal" width="50" height="50"/>
+        <image name="tabbar0selected" width="50" height="50"/>
+        <image name="tabbar1normal" width="50" height="50"/>
+        <image name="tabbar1selected" width="50" height="50"/>
+        <image name="tabbar2normal" width="50" height="50"/>
+        <image name="tabbar2selected" width="50" height="50"/>
+        <image name="tabbar3normal" width="50" height="50"/>
+        <image name="tabbar3selected" width="50" height="50"/>
+    </resources>
 </document>

@@ -42,8 +42,8 @@
                  @{
                      MENU_ITEM_TITLE_KEY : @"Demo 1",
                      MENU_ITEM_DESCRIPTION_KEY : @"A simple trivial tabbar example",
-                     MENU_ITEM_NUMBER_OF_VC : [NSNumber numberWithInteger:5],
-                     MENU_ITEM_HANDLER_SELECTOR : @"showOnDemo1"
+                     MENU_ITEM_NUMBER_OF_VC : [NSNumber numberWithInteger:4],
+                     MENU_ITEM_HANDLER_SELECTOR : NSStringFromSelector(@selector(showOnDemo1))
                      },
                  @{
                      MENU_ITEM_TITLE_KEY : @"Demo 2",
@@ -159,14 +159,13 @@
     UIViewController *first = [childsStory instantiateViewControllerWithIdentifier:@"firstVC"],
     *second = [childsStory instantiateViewControllerWithIdentifier:@"secondVC"],
     *third = [childsStory instantiateViewControllerWithIdentifier:@"thirdVC"],
-    *fourth = [childsStory instantiateViewControllerWithIdentifier:@"fourthVC"],
-    *fifth = [childsStory instantiateViewControllerWithIdentifier:@"fifthVC"];
+    *fourth = [childsStory instantiateViewControllerWithIdentifier:@"fourthVC"];
     
     UIStoryboard *tabbarStory = [UIStoryboard storyboardWithName:@"demo1" bundle:[NSBundle mainBundle]];
     Demo1TabbarController *tabbarController = [tabbarStory instantiateInitialViewController];
     
     
-    [tabbarController setViewControllers:@[first, second, third, fourth, fifth]];
+    [tabbarController setViewControllers:@[first, second, third, fourth]];
     tabbarController.implementationDelegate = tabbarController;
     tabbarController.delegate = self;
     
@@ -246,12 +245,34 @@
 
 
 #pragma mark CustomTabbarDelegate
-- (void)customTabbarControllerViewDidLoaded:(CustomTabbarController *)tabBarController
+- (BOOL)customTabbarControllerViewDidLoaded:(CustomTabbarController *)tabBarController
 {
     //
     //  just for now select the first view controller
     //
-    [tabBarController setSelectedViewCotnrollerAtIndex:initialSelectedTabbarIndex];
+    if(initialSelectedTabbarIndex == CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX)
+    {
+        //
+        //  CustomTabbarController will automatically load the default if we
+        //  return YES.
+        //
+        //  if you dont want to select arbitrary view controller at first, you should
+        //  return YES, so that the default implementation try to load the default
+        //  view controller at hand. returning NO here will cause to initially empty
+        //  container.
+        //
+        //
+        return YES;
+    }
+    else
+    {
+        //
+        //  prohibiting the customTabbarController to load the default
+        //  by retunring NO
+        //
+        [tabBarController setSelectedViewCotnrollerAtIndex:initialSelectedTabbarIndex];
+        return NO;
+    }
 }
 
 @end
