@@ -13,9 +13,6 @@
 		E7AAFBCD1DA0B2F800F22F21 /* childs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7AAFBAA1DA0B2F800F22F21 /* childs.storyboard */; };
 		E7AAFBCE1DA0B2F800F22F21 /* ChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBAC1DA0B2F800F22F21 /* ChildVC.m */; };
 		E7AAFBCF1DA0B2F800F22F21 /* RSCustomTabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBAF1DA0B2F800F22F21 /* RSCustomTabbarController.m */; };
-		E7AAFBD01DA0B2F800F22F21 /* FadingTabbarTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBB21DA0B2F800F22F21 /* FadingTabbarTransitionAnimation.m */; };
-		E7AAFBD11DA0B2F800F22F21 /* JumpInTabbarTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBB41DA0B2F800F22F21 /* JumpInTabbarTransitionAnimation.m */; };
-		E7AAFBD21DA0B2F800F22F21 /* SlidingTabbarTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBB61DA0B2F800F22F21 /* SlidingTabbarTransitionAnimation.m */; };
 		E7AAFBD31DA0B2F800F22F21 /* demo1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7AAFBB81DA0B2F800F22F21 /* demo1.storyboard */; };
 		E7AAFBD41DA0B2F800F22F21 /* Demo1TabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBBA1DA0B2F800F22F21 /* Demo1TabbarController.m */; };
 		E7AAFBD51DA0B2F800F22F21 /* demo2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7AAFBBC1DA0B2F800F22F21 /* demo2.storyboard */; };
@@ -27,6 +24,9 @@
 		E7AAFBDB1DA0B2F800F22F21 /* menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7AAFBC51DA0B2F800F22F21 /* menu.storyboard */; };
 		E7AAFBDC1DA0B2F800F22F21 /* MenuTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBC71DA0B2F800F22F21 /* MenuTableCell.m */; };
 		E7AAFBDD1DA0B2F800F22F21 /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBC91DA0B2F800F22F21 /* MenuTableViewController.m */; };
+		E7AAFBE61DA0F07400F22F21 /* FadingTabbarTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBE11DA0F07400F22F21 /* FadingTabbarTransitionAnimation.m */; };
+		E7AAFBE71DA0F07400F22F21 /* JumpInTabbarTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBE31DA0F07400F22F21 /* JumpInTabbarTransitionAnimation.m */; };
+		E7AAFBE81DA0F07400F22F21 /* SlidingTabbarTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBE51DA0F07400F22F21 /* SlidingTabbarTransitionAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,12 +39,6 @@
 		E7AAFBAC1DA0B2F800F22F21 /* ChildVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildVC.m; sourceTree = "<group>"; };
 		E7AAFBAE1DA0B2F800F22F21 /* RSCustomTabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCustomTabbarController.h; sourceTree = "<group>"; };
 		E7AAFBAF1DA0B2F800F22F21 /* RSCustomTabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCustomTabbarController.m; sourceTree = "<group>"; };
-		E7AAFBB11DA0B2F800F22F21 /* FadingTabbarTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadingTabbarTransitionAnimation.h; sourceTree = "<group>"; };
-		E7AAFBB21DA0B2F800F22F21 /* FadingTabbarTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadingTabbarTransitionAnimation.m; sourceTree = "<group>"; };
-		E7AAFBB31DA0B2F800F22F21 /* JumpInTabbarTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumpInTabbarTransitionAnimation.h; sourceTree = "<group>"; };
-		E7AAFBB41DA0B2F800F22F21 /* JumpInTabbarTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JumpInTabbarTransitionAnimation.m; sourceTree = "<group>"; };
-		E7AAFBB51DA0B2F800F22F21 /* SlidingTabbarTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingTabbarTransitionAnimation.h; sourceTree = "<group>"; };
-		E7AAFBB61DA0B2F800F22F21 /* SlidingTabbarTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidingTabbarTransitionAnimation.m; sourceTree = "<group>"; };
 		E7AAFBB81DA0B2F800F22F21 /* demo1.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = demo1.storyboard; sourceTree = "<group>"; };
 		E7AAFBB91DA0B2F800F22F21 /* Demo1TabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo1TabbarController.h; sourceTree = "<group>"; };
 		E7AAFBBA1DA0B2F800F22F21 /* Demo1TabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo1TabbarController.m; sourceTree = "<group>"; };
@@ -61,6 +55,15 @@
 		E7AAFBC71DA0B2F800F22F21 /* MenuTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableCell.m; sourceTree = "<group>"; };
 		E7AAFBC81DA0B2F800F22F21 /* MenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewController.h; sourceTree = "<group>"; };
 		E7AAFBC91DA0B2F800F22F21 /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
+		E7AAFBDE1DA0F03100F22F21 /* RSCustomTabbarTransitionAnimationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSCustomTabbarTransitionAnimationDelegate.h; sourceTree = "<group>"; };
+		E7AAFBE01DA0F07400F22F21 /* FadingTabbarTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadingTabbarTransitionAnimation.h; sourceTree = "<group>"; };
+		E7AAFBE11DA0F07400F22F21 /* FadingTabbarTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadingTabbarTransitionAnimation.m; sourceTree = "<group>"; };
+		E7AAFBE21DA0F07400F22F21 /* JumpInTabbarTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JumpInTabbarTransitionAnimation.h; sourceTree = "<group>"; };
+		E7AAFBE31DA0F07400F22F21 /* JumpInTabbarTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JumpInTabbarTransitionAnimation.m; sourceTree = "<group>"; };
+		E7AAFBE41DA0F07400F22F21 /* SlidingTabbarTransitionAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidingTabbarTransitionAnimation.h; sourceTree = "<group>"; };
+		E7AAFBE51DA0F07400F22F21 /* SlidingTabbarTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidingTabbarTransitionAnimation.m; sourceTree = "<group>"; };
+		E7AAFBE91DA0F0E000F22F21 /* RSCustomTabbarImplementationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSCustomTabbarImplementationDelegate.h; sourceTree = "<group>"; };
+		E7AAFBEA1DA0F1B600F22F21 /* RSCustomTabbarDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSCustomTabbarDelegate.h; sourceTree = "<group>"; };
 		E7DC9B451D748AA2008DBEC9 /* RSCustomTabbarController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSCustomTabbarController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -78,15 +81,16 @@
 		E7AAFBA31DA0B2F800F22F21 /* RSCustomTabbarController */ = {
 			isa = PBXGroup;
 			children = (
+				E7AAFBAD1DA0B2F800F22F21 /* CustomTabbarConroller */,
+				E7AAFBA91DA0B2F800F22F21 /* common */,
+				E7AAFBDF1DA0F07400F22F21 /* Demo Transition Animation */,
+				E7AAFBB71DA0B2F800F22F21 /* Demo1 */,
+				E7AAFBBB1DA0B2F800F22F21 /* Demo2 */,
+				E7AAFBBF1DA0B2F800F22F21 /* Demo3 */,
 				E7AAFBA41DA0B2F800F22F21 /* AppDelegate.h */,
 				E7AAFBA51DA0B2F800F22F21 /* AppDelegate.m */,
 				E7AAFBA61DA0B2F800F22F21 /* Assets.xcassets */,
 				E7AAFBA71DA0B2F800F22F21 /* LaunchScreen.storyboard */,
-				E7AAFBA91DA0B2F800F22F21 /* common */,
-				E7AAFBAD1DA0B2F800F22F21 /* CustomTabbarConroller */,
-				E7AAFBB71DA0B2F800F22F21 /* Demo1 */,
-				E7AAFBBB1DA0B2F800F22F21 /* Demo2 */,
-				E7AAFBBF1DA0B2F800F22F21 /* Demo3 */,
 				E7AAFBC31DA0B2F800F22F21 /* Info.plist */,
 				E7AAFBC41DA0B2F800F22F21 /* main.m */,
 				E7AAFBC51DA0B2F800F22F21 /* menu.storyboard */,
@@ -113,22 +117,11 @@
 			children = (
 				E7AAFBAE1DA0B2F800F22F21 /* RSCustomTabbarController.h */,
 				E7AAFBAF1DA0B2F800F22F21 /* RSCustomTabbarController.m */,
-				E7AAFBB01DA0B2F800F22F21 /* sample transition animations */,
+				E7AAFBDE1DA0F03100F22F21 /* RSCustomTabbarTransitionAnimationDelegate.h */,
+				E7AAFBE91DA0F0E000F22F21 /* RSCustomTabbarImplementationDelegate.h */,
+				E7AAFBEA1DA0F1B600F22F21 /* RSCustomTabbarDelegate.h */,
 			);
 			path = CustomTabbarConroller;
-			sourceTree = "<group>";
-		};
-		E7AAFBB01DA0B2F800F22F21 /* sample transition animations */ = {
-			isa = PBXGroup;
-			children = (
-				E7AAFBB11DA0B2F800F22F21 /* FadingTabbarTransitionAnimation.h */,
-				E7AAFBB21DA0B2F800F22F21 /* FadingTabbarTransitionAnimation.m */,
-				E7AAFBB31DA0B2F800F22F21 /* JumpInTabbarTransitionAnimation.h */,
-				E7AAFBB41DA0B2F800F22F21 /* JumpInTabbarTransitionAnimation.m */,
-				E7AAFBB51DA0B2F800F22F21 /* SlidingTabbarTransitionAnimation.h */,
-				E7AAFBB61DA0B2F800F22F21 /* SlidingTabbarTransitionAnimation.m */,
-			);
-			path = "sample transition animations";
 			sourceTree = "<group>";
 		};
 		E7AAFBB71DA0B2F800F22F21 /* Demo1 */ = {
@@ -159,6 +152,19 @@
 				E7AAFBC21DA0B2F800F22F21 /* Demo3TabbarController.m */,
 			);
 			path = Demo3;
+			sourceTree = "<group>";
+		};
+		E7AAFBDF1DA0F07400F22F21 /* Demo Transition Animation */ = {
+			isa = PBXGroup;
+			children = (
+				E7AAFBE01DA0F07400F22F21 /* FadingTabbarTransitionAnimation.h */,
+				E7AAFBE11DA0F07400F22F21 /* FadingTabbarTransitionAnimation.m */,
+				E7AAFBE21DA0F07400F22F21 /* JumpInTabbarTransitionAnimation.h */,
+				E7AAFBE31DA0F07400F22F21 /* JumpInTabbarTransitionAnimation.m */,
+				E7AAFBE41DA0F07400F22F21 /* SlidingTabbarTransitionAnimation.h */,
+				E7AAFBE51DA0F07400F22F21 /* SlidingTabbarTransitionAnimation.m */,
+			);
+			path = "Demo Transition Animation";
 			sourceTree = "<group>";
 		};
 		E7DC9B3C1D748AA2008DBEC9 = {
@@ -254,13 +260,13 @@
 			files = (
 				E7AAFBDC1DA0B2F800F22F21 /* MenuTableCell.m in Sources */,
 				E7AAFBDA1DA0B2F800F22F21 /* main.m in Sources */,
-				E7AAFBD11DA0B2F800F22F21 /* JumpInTabbarTransitionAnimation.m in Sources */,
+				E7AAFBE81DA0F07400F22F21 /* SlidingTabbarTransitionAnimation.m in Sources */,
 				E7AAFBD81DA0B2F800F22F21 /* Demo3TabbarController.m in Sources */,
 				E7AAFBDD1DA0B2F800F22F21 /* MenuTableViewController.m in Sources */,
 				E7AAFBD61DA0B2F800F22F21 /* Demo2TabbarController.m in Sources */,
-				E7AAFBD01DA0B2F800F22F21 /* FadingTabbarTransitionAnimation.m in Sources */,
-				E7AAFBD21DA0B2F800F22F21 /* SlidingTabbarTransitionAnimation.m in Sources */,
+				E7AAFBE71DA0F07400F22F21 /* JumpInTabbarTransitionAnimation.m in Sources */,
 				E7AAFBD41DA0B2F800F22F21 /* Demo1TabbarController.m in Sources */,
+				E7AAFBE61DA0F07400F22F21 /* FadingTabbarTransitionAnimation.m in Sources */,
 				E7AAFBCA1DA0B2F800F22F21 /* AppDelegate.m in Sources */,
 				E7AAFBCE1DA0B2F800F22F21 /* ChildVC.m in Sources */,
 				E7AAFBCF1DA0B2F800F22F21 /* RSCustomTabbarController.m in Sources */,

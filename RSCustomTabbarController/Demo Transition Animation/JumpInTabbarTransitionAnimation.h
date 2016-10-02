@@ -7,8 +7,7 @@
 //  Released under an MIT license: http://opensource.org/licenses/MIT
 //
 
-#import <Foundation/Foundation.h>
-#import "RSCustomTabbarController.h"
+#import "RSCustomTabbarTransitionAnimationDelegate.h"
 
 @interface JumpInTabbarTransitionAnimation : NSObject <RSCustomTabbarTransitionAnimationDelegate>
 

@@ -7,7 +7,8 @@
 //  Released under an MIT license: http://opensource.org/licenses/MIT
 //
 
-#import "RSCustomTabbarController.h"
+#import "RSCustomTabbarTransitionAnimationDelegate.h"
+
 
 @interface FadingTabbarTransitionAnimation : NSObject <RSCustomTabbarTransitionAnimationDelegate>
 
