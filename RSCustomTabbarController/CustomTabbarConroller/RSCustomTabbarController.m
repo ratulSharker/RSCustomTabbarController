@@ -165,6 +165,9 @@
             //
             [self addChildViewController:targetViewController];
             [self.implementationDelegate.viewControllerContainer addSubview:targetViewController.view];
+            targetViewController.view.frame = self.implementationDelegate.viewControllerContainer.bounds;
+            [targetViewController.view setNeedsLayout];
+            [targetViewController.view layoutIfNeeded];
             [targetViewController didMoveToParentViewController:self];
             
             NSMutableSet <UIViewController*> *previousViewControllers = [[NSMutableSet alloc] initWithArray:self.childViewControllers];
