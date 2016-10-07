@@ -9,10 +9,17 @@
 
 #import <UIKit/UIKit.h>
 
-
 #import "RSCustomTabbarTransitionAnimationDelegate.h"
 #import "RSCustomTabbarImplementationDelegate.h"
 #import "RSCustomTabbarDelegate.h"
+
+
+@class RSCustomTabbarController;
+
+//
+//
+//
+typedef void (^RSCustomTabbarPendingBlock)();
 
 
 //
@@ -30,10 +37,15 @@
 @property id<RSCustomTabbarTransitionAnimationDelegate>   transitionAnimationDelegate;
 @property id<RSCustomTabbarDelegate>                      delegate;
 
+
+-(void)addPendingBlockIntendedToBeExecutedAfterViewDidLoad:(RSCustomTabbarGeneralPurposeBlock)block;
+-(void)setShouldSelectDefaultViewController:(BOOL)shouldSelect;
 -(void)setViewControllers:(NSArray*)vcs;
 -(void)setSelectedViewCotnrollerAtIndex:(NSUInteger)index;
 -(void)setTabbarVisibility:(BOOL)visible animated:(BOOL)animated;
 
+
+-(BOOL)isViewLoaded;
 -(UIViewController *)getViewControllerAtIndex:(NSUInteger)index;
 -(UIViewController *)getSelectedViewController;
 -(NSInteger)getSelectedIndex;

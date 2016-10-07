@@ -180,6 +180,46 @@
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate setCurrentCustomTabbarController:tabbarController];
     
+    if(initialSelectedTabbarIndex != CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX)
+    {
+        //
+        //  make a pending block which will
+        //  select the initial selected view controller
+        //
+        RSCustomTabbarPendingBlock pendingBlock = ^{
+            [tabbarController setSelectedViewCotnrollerAtIndex:initialSelectedTabbarIndex];
+        };
+        
+        
+        //  do it manually
+        if([tabbarController isViewLoaded])
+        {
+            //
+            //  view of the tabbar is not loaded yet
+            //  so just add a pending block
+            //
+            [tabbarController setShouldSelectDefaultViewController:NO];
+            [tabbarController addPendingBlockIntendedToBeExecutedAfterViewDidLoad:pendingBlock];
+            
+        }
+        else
+        {
+            //
+            //  view of the tabbar is already loaded
+            //  so execute the pending block by yourself
+            //
+            //  this case is not gonna be occur, unless you
+            //  cache the tabbar controller or used it more than once
+            //
+            pendingBlock();
+        }
+    }
+    else
+    {
+        //  just let it go :P
+        [tabbarController setShouldSelectDefaultViewController:YES];
+    }
+    
     [self.navigationController pushViewController:tabbarController animated:YES];
 }
 
@@ -210,6 +250,45 @@
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate setCurrentCustomTabbarController:tabbarController];
     
+    if(initialSelectedTabbarIndex != CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX)
+    {
+        //
+        //  make a pending block which will
+        //  select the initial selected view controller
+        //
+        RSCustomTabbarPendingBlock pendingBlock = ^{
+            [tabbarController setSelectedViewCotnrollerAtIndex:initialSelectedTabbarIndex];
+        };
+        
+        
+        //  do it manually
+        if([tabbarController isViewLoaded])
+        {
+            //
+            //  view of the tabbar is not loaded yet
+            //  so just add a pending block
+            //
+            [tabbarController setShouldSelectDefaultViewController:NO];
+            [tabbarController addPendingBlockIntendedToBeExecutedAfterViewDidLoad:pendingBlock];
+            
+        }
+        else
+        {
+            //
+            //  view of the tabbar is already loaded
+            //  so execute the pending block by yourself
+            //
+            //  this case is not gonna be occur, unless you
+            //  cache the tabbar controller or used it more than once
+            //
+            pendingBlock();
+        }
+    }
+    else
+    {
+        //  just let it go :P
+        [tabbarController setShouldSelectDefaultViewController:YES];
+    }
     
     [self.navigationController pushViewController:tabbarController animated:YES];
 }
@@ -224,7 +303,6 @@
     
     UIStoryboard *tabbarStory = [UIStoryboard storyboardWithName:@"demo3" bundle:[NSBundle mainBundle]];
     Demo2TabbarController *tabbarController = [tabbarStory instantiateInitialViewController];
-    
     
     [tabbarController setViewControllers:@[first, second, third]];
     tabbarController.implementationDelegate = tabbarController;
@@ -241,39 +319,54 @@
     [appDelegate setCurrentCustomTabbarController:tabbarController];
     
     
+    if(initialSelectedTabbarIndex != CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX)
+    {
+        //
+        //  make a pending block which will
+        //  select the initial selected view controller
+        //
+        RSCustomTabbarPendingBlock pendingBlock = ^{
+            [tabbarController setSelectedViewCotnrollerAtIndex:initialSelectedTabbarIndex];
+        };
+        
+        
+        //  do it manually
+        if([tabbarController isViewLoaded])
+        {
+            //
+            //  view of the tabbar is not loaded yet
+            //  so just add a pending block
+            //
+            [tabbarController setShouldSelectDefaultViewController:NO];
+            [tabbarController addPendingBlockIntendedToBeExecutedAfterViewDidLoad:pendingBlock];
+            
+        }
+        else
+        {
+            //
+            //  view of the tabbar is already loaded
+            //  so execute the pending block by yourself
+            //
+            //  this case is not gonna be occur, unless you
+            //  cache the tabbar controller or used it more than once
+            //
+            pendingBlock();
+        }
+    }
+    else
+    {
+        //  just let it go :P
+        [tabbarController setShouldSelectDefaultViewController:YES];
+    }
+    
     [self.navigationController pushViewController:tabbarController animated:YES];
 }
 
 
 #pragma mark CustomTabbarDelegate
-- (BOOL)customTabbarControllerViewDidLoaded:(RSCustomTabbarController *)tabBarController
+- (void)customTabbarControllerViewDidLoaded:(RSCustomTabbarController *)tabBarController
 {
-    //
-    //  just for now select the first view controller
-    //
-    if(initialSelectedTabbarIndex == CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX)
-    {
-        //
-        //  RSCustomTabbarController will automatically load the default if we
-        //  return YES.
-        //
-        //  if you dont want to select arbitrary view controller at first, you should
-        //  return YES, so that the default implementation try to load the default
-        //  view controller at hand. returning NO here will cause to initially empty
-        //  container.
-        //
-        //
-        return YES;
-    }
-    else
-    {
-        //
-        //  prohibiting the customTabbarController to load the default
-        //  by retunring NO
-        //
-        [tabBarController setSelectedViewCotnrollerAtIndex:initialSelectedTabbarIndex];
-        return NO;
-    }
+    NSLog(@"We are just confirmed that, our default custom tabbar is been loaded");
 }
 
 @end

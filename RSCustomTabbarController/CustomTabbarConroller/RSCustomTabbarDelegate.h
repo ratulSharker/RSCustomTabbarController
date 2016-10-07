@@ -34,7 +34,7 @@
 //  If this delegate is not implemented then, RSCustomTabbarController will load the
 //  view controller denote by the CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX
 //
-- (BOOL)customTabbarControllerViewDidLoaded:(RSCustomTabbarController *)tabBarController;
+- (void)customTabbarControllerViewDidLoaded:(RSCustomTabbarController *)tabBarController;
 
 
 

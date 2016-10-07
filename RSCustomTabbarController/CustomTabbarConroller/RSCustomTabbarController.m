@@ -11,8 +11,11 @@
 
 @implementation RSCustomTabbarController
 {
-    NSArray *viewControllers;
+    NSArray<UIViewController*> *viewControllers;
     NSInteger selectedIndex;
+    
+    BOOL shouldLoadDefaultViewController;
+    NSMutableArray<RSCustomTabbarGeneralPurposeBlock> *viewDidLoadPendingBlocks;
 }
 
 
@@ -21,27 +24,68 @@
 {
     [super viewDidLoad];
     
-    if(self.delegate && [self.delegate respondsToSelector:@selector(customTabbarControllerViewDidLoaded:)])
+    
+    if(shouldLoadDefaultViewController)
     {
-        BOOL shouldLoadDefault = [self.delegate customTabbarControllerViewDidLoaded:self];
-        
-        if(shouldLoadDefault)
-        {
-            selectedIndex = CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX;
-            [self setSelectedViewCotnrollerAtIndex:selectedIndex];
-        }
-    }
-    else
-    {
-        //  RSCustomTabbarControllerViewDidLoaded delegate is not
-        //  implemented, so we will load the default view controller
         selectedIndex = CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX;
         [self setSelectedViewCotnrollerAtIndex:selectedIndex];
     }
+    else
+    {
+        NSLog(@"default view controller is not loaded");
+    }
+    
+    
+    if(self.delegate && [self.delegate respondsToSelector:@selector(customTabbarControllerViewDidLoaded:)])
+    {
+        [self.delegate customTabbarControllerViewDidLoaded:self];
+    }
+    else
+    {
+        NSLog(@"RSCustomTabbarController view did load delegate not implemented");
+    }
+    
+    //
+    //  execute any pending block
+    //
+    if(viewDidLoadPendingBlocks && viewDidLoadPendingBlocks.count)
+    {
+        for(RSCustomTabbarGeneralPurposeBlock pendingBlock in viewDidLoadPendingBlocks)
+        {
+            pendingBlock();
+        }
+        
+        [viewDidLoadPendingBlocks removeAllObjects];
+    }
+    
 }
 
 
 #pragma mark public functionality
+
+-(void)addPendingBlockIntendedToBeExecutedAfterViewDidLoad:(RSCustomTabbarGeneralPurposeBlock)block
+{
+    if(!viewDidLoadPendingBlocks)
+    {
+        //
+        //  tracker is not initiated yet, but want to track.
+        //  so it's high time to initiate it
+        //
+        viewDidLoadPendingBlocks = [[NSMutableArray alloc] init];
+    }
+    
+    //
+    //  now we got initiated tracker :D ,
+    //  just track the pending blocks
+    //
+    [viewDidLoadPendingBlocks addObject:block];
+}
+
+-(void)setShouldSelectDefaultViewController:(BOOL)shouldSelect
+{
+    shouldLoadDefaultViewController = shouldSelect;
+}
+
 -(void)setViewControllers:(NSArray*)vcs
 {
     viewControllers = vcs;
@@ -114,6 +158,11 @@
             }];
         }
     }
+}
+
+-(BOOL)isViewLoaded
+{
+    return super.isViewLoaded;
 }
 
 -(UIViewController *)getViewControllerAtIndex:(NSUInteger)index
