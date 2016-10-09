@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E7556C2B1DA924D40024B8A5 /* BrowserChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E7556C2A1DA924D40024B8A5 /* BrowserChildVC.m */; };
 		E7AAFBCA1DA0B2F800F22F21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBA51DA0B2F800F22F21 /* AppDelegate.m */; };
 		E7AAFBCB1DA0B2F800F22F21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7AAFBA61DA0B2F800F22F21 /* Assets.xcassets */; };
 		E7AAFBCC1DA0B2F800F22F21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7AAFBA71DA0B2F800F22F21 /* LaunchScreen.storyboard */; };
@@ -27,9 +28,14 @@
 		E7AAFBE61DA0F07400F22F21 /* FadingTabbarTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBE11DA0F07400F22F21 /* FadingTabbarTransitionAnimation.m */; };
 		E7AAFBE71DA0F07400F22F21 /* JumpInTabbarTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBE31DA0F07400F22F21 /* JumpInTabbarTransitionAnimation.m */; };
 		E7AAFBE81DA0F07400F22F21 /* SlidingTabbarTransitionAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBE51DA0F07400F22F21 /* SlidingTabbarTransitionAnimation.m */; };
+		E7B0A22E1DA825BD00BF5AE3 /* demo4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7B0A22D1DA825BD00BF5AE3 /* demo4.storyboard */; };
+		E7B0A2311DA825EA00BF5AE3 /* Demo4TabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B0A2301DA825EA00BF5AE3 /* Demo4TabbarController.m */; };
+		E7B0A2341DA84F7D00BF5AE3 /* Demo4TabbarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B0A2331DA84F7D00BF5AE3 /* Demo4TabbarCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E7556C291DA924D40024B8A5 /* BrowserChildVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserChildVC.h; sourceTree = "<group>"; };
+		E7556C2A1DA924D40024B8A5 /* BrowserChildVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserChildVC.m; sourceTree = "<group>"; };
 		E7AAFBA41DA0B2F800F22F21 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E7AAFBA51DA0B2F800F22F21 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E7AAFBA61DA0B2F800F22F21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,6 +70,11 @@
 		E7AAFBE51DA0F07400F22F21 /* SlidingTabbarTransitionAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidingTabbarTransitionAnimation.m; sourceTree = "<group>"; };
 		E7AAFBE91DA0F0E000F22F21 /* RSCustomTabbarImplementationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSCustomTabbarImplementationDelegate.h; sourceTree = "<group>"; };
 		E7AAFBEA1DA0F1B600F22F21 /* RSCustomTabbarDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSCustomTabbarDelegate.h; sourceTree = "<group>"; };
+		E7B0A22D1DA825BD00BF5AE3 /* demo4.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = demo4.storyboard; sourceTree = "<group>"; };
+		E7B0A22F1DA825EA00BF5AE3 /* Demo4TabbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo4TabbarController.h; sourceTree = "<group>"; };
+		E7B0A2301DA825EA00BF5AE3 /* Demo4TabbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo4TabbarController.m; sourceTree = "<group>"; };
+		E7B0A2321DA84F7D00BF5AE3 /* Demo4TabbarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo4TabbarCell.h; sourceTree = "<group>"; };
+		E7B0A2331DA84F7D00BF5AE3 /* Demo4TabbarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo4TabbarCell.m; sourceTree = "<group>"; };
 		E7DC9B451D748AA2008DBEC9 /* RSCustomTabbarController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSCustomTabbarController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,6 +98,7 @@
 				E7AAFBB71DA0B2F800F22F21 /* Demo1 */,
 				E7AAFBBB1DA0B2F800F22F21 /* Demo2 */,
 				E7AAFBBF1DA0B2F800F22F21 /* Demo3 */,
+				E7B0A22C1DA8259200BF5AE3 /* Demo4 */,
 				E7AAFBA41DA0B2F800F22F21 /* AppDelegate.h */,
 				E7AAFBA51DA0B2F800F22F21 /* AppDelegate.m */,
 				E7AAFBA61DA0B2F800F22F21 /* Assets.xcassets */,
@@ -108,6 +120,8 @@
 				E7AAFBAA1DA0B2F800F22F21 /* childs.storyboard */,
 				E7AAFBAB1DA0B2F800F22F21 /* ChildVC.h */,
 				E7AAFBAC1DA0B2F800F22F21 /* ChildVC.m */,
+				E7556C291DA924D40024B8A5 /* BrowserChildVC.h */,
+				E7556C2A1DA924D40024B8A5 /* BrowserChildVC.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -165,6 +179,18 @@
 				E7AAFBE51DA0F07400F22F21 /* SlidingTabbarTransitionAnimation.m */,
 			);
 			path = "Demo Transition Animation";
+			sourceTree = "<group>";
+		};
+		E7B0A22C1DA8259200BF5AE3 /* Demo4 */ = {
+			isa = PBXGroup;
+			children = (
+				E7B0A22D1DA825BD00BF5AE3 /* demo4.storyboard */,
+				E7B0A22F1DA825EA00BF5AE3 /* Demo4TabbarController.h */,
+				E7B0A2301DA825EA00BF5AE3 /* Demo4TabbarController.m */,
+				E7B0A2321DA84F7D00BF5AE3 /* Demo4TabbarCell.h */,
+				E7B0A2331DA84F7D00BF5AE3 /* Demo4TabbarCell.m */,
+			);
+			path = Demo4;
 			sourceTree = "<group>";
 		};
 		E7DC9B3C1D748AA2008DBEC9 = {
@@ -248,6 +274,7 @@
 				E7AAFBCD1DA0B2F800F22F21 /* childs.storyboard in Resources */,
 				E7AAFBCC1DA0B2F800F22F21 /* LaunchScreen.storyboard in Resources */,
 				E7AAFBD91DA0B2F800F22F21 /* Info.plist in Resources */,
+				E7B0A22E1DA825BD00BF5AE3 /* demo4.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,14 +285,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7556C2B1DA924D40024B8A5 /* BrowserChildVC.m in Sources */,
 				E7AAFBDC1DA0B2F800F22F21 /* MenuTableCell.m in Sources */,
 				E7AAFBDA1DA0B2F800F22F21 /* main.m in Sources */,
+				E7B0A2311DA825EA00BF5AE3 /* Demo4TabbarController.m in Sources */,
 				E7AAFBE81DA0F07400F22F21 /* SlidingTabbarTransitionAnimation.m in Sources */,
 				E7AAFBD81DA0B2F800F22F21 /* Demo3TabbarController.m in Sources */,
 				E7AAFBDD1DA0B2F800F22F21 /* MenuTableViewController.m in Sources */,
 				E7AAFBD61DA0B2F800F22F21 /* Demo2TabbarController.m in Sources */,
 				E7AAFBE71DA0F07400F22F21 /* JumpInTabbarTransitionAnimation.m in Sources */,
 				E7AAFBD41DA0B2F800F22F21 /* Demo1TabbarController.m in Sources */,
+				E7B0A2341DA84F7D00BF5AE3 /* Demo4TabbarCell.m in Sources */,
 				E7AAFBE61DA0F07400F22F21 /* FadingTabbarTransitionAnimation.m in Sources */,
 				E7AAFBCA1DA0B2F800F22F21 /* AppDelegate.m in Sources */,
 				E7AAFBCE1DA0B2F800F22F21 /* ChildVC.m in Sources */,

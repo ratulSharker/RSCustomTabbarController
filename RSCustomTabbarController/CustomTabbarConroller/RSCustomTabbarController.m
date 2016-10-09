@@ -9,6 +9,8 @@
 
 #import "RSCustomTabbarController.h"
 
+#define DEFAULT_SELECTED_INDEX_WHILE_NOTHING_ON_CONTAINER   -1
+
 @implementation RSCustomTabbarController
 {
     NSArray<UIViewController*> *viewControllers;
@@ -24,6 +26,7 @@
 {
     [super viewDidLoad];
     
+    selectedIndex = DEFAULT_SELECTED_INDEX_WHILE_NOTHING_ON_CONTAINER;
     
     if(shouldLoadDefaultViewController)
     {
@@ -89,19 +92,43 @@
 -(void)setViewControllers:(NSArray*)vcs
 {
     viewControllers = vcs;
+    
+    selectedIndex = DEFAULT_SELECTED_INDEX_WHILE_NOTHING_ON_CONTAINER;
+    
+    //
+    //  now lookup for the child view controller
+    //  any of them are in viewcontorllers, if it is
+    //  then update the currently selected according to
+    //  that.
+    //
+    for(NSUInteger index = 0; index < viewControllers.count; index++)
+    {
+        if(viewControllers[index].parentViewController == self)
+        {
+            selectedIndex = index;
+            break;
+        }
+    }
+    
 }
 -(void)setSelectedViewCotnrollerAtIndex:(NSUInteger)index
 {
     if(viewControllers && index < viewControllers.count /*&& index != selectedIndex*/)
     {
+     
+        if(selectedIndex == DEFAULT_SELECTED_INDEX_WHILE_NOTHING_ON_CONTAINER)
+        {
+            //
+            //  first time experience
+            //
+            selectedIndex = index;
+        }
         
         //
         //  appropriate time for calling the tabbar
         //  button state update
         //
         [self.implementationDelegate newSelectedTabbarIndex:index whereOldIndexWas:selectedIndex];
-        
-        
         [self manageViewControllerToBeInFrontContainer:index];
     }
     else
@@ -159,6 +186,90 @@
         }
     }
 }
+
+
+
+-(void)removeViewControllerFromContainerAtIndex:(NSUInteger)index
+{
+    //
+    //  check that the index is valid or not
+    //
+    if(viewControllers && viewControllers.count > index)
+    {
+        [self removeViewControllerFromContainer:viewControllers[index]];
+    }
+    else
+    {
+        NSLog(@"index is too high, in removeViewControllerFromContainerAtIndex");
+    }
+}
+-(void)removeViewControllerFromContainer:(UIViewController*)viewController
+{
+    if(viewController && viewController.parentViewController == self)
+    {
+        RSCustomTabbarGeneralPurposeBlock completionBlock = ^{
+            [viewController willMoveToParentViewController:nil];
+            [viewController.view removeFromSuperview];
+            [viewController removeFromParentViewController];
+            selectedIndex = DEFAULT_SELECTED_INDEX_WHILE_NOTHING_ON_CONTAINER;
+        };
+        
+        if(self.transitionAnimationDelegate &&
+           [self.transitionAnimationDelegate respondsToSelector:@selector(customTabbarController:
+                                                                          willRemoveViewControllers:
+                                                                          withCompletionBlock:)])
+        {
+            [self.transitionAnimationDelegate customTabbarController:self
+                                            willRemoveViewControllers:@[viewController]
+                                                 withCompletionBlock:completionBlock];
+        }
+        else
+        {
+            completionBlock();
+        }
+
+    }
+    else
+    {
+        NSLog(@"view controller is not valid or does not belong to this tab container");
+    }
+}
+
+-(void)removeAllViewControllerFromContainer
+{
+    
+    RSCustomTabbarGeneralPurposeBlock completionBlock = ^{
+        //  though at a time only one child viewcontroller
+        //  will be in existence, but we should remove all
+        //  for sake of generality
+        for(UIViewController *childVC in self.childViewControllers)
+        {
+            [childVC willMoveToParentViewController:nil];
+            [childVC.view removeFromSuperview];
+            [childVC removeFromParentViewController];
+        }
+        selectedIndex = DEFAULT_SELECTED_INDEX_WHILE_NOTHING_ON_CONTAINER;
+    };
+    
+    
+    if(self.transitionAnimationDelegate &&
+       [self.transitionAnimationDelegate respondsToSelector:@selector(customTabbarController:
+                                                                      willRemoveViewControllers:
+                                                                      withCompletionBlock:)])
+    {
+        [self.transitionAnimationDelegate customTabbarController:self
+                                       willRemoveViewControllers:self.childViewControllers
+                                             withCompletionBlock:completionBlock];
+    }
+    else
+    {
+        completionBlock();
+    }
+}
+
+
+
+
 
 -(BOOL)isViewLoaded
 {

@@ -12,6 +12,7 @@
 #import "Demo1TabbarController.h"
 #import "Demo2TabbarController.h"
 #import "Demo3TabbarController.h"
+#import "Demo4TabbarController.h"
 #import "AppDelegate.h"
 
 #define MENU_ITEM_TITLE_KEY         @"menu.item.title"
@@ -58,6 +59,12 @@
                      MENU_ITEM_DESCRIPTION_KEY: @"movable tabbar",
                      MENU_ITEM_NUMBER_OF_VC : [NSNumber numberWithInt:3],
                      MENU_ITEM_HANDLER_SELECTOR : @"showOnDemo3"
+                     },
+                 @{
+                     MENU_ITEM_TITLE_KEY: @"Demo 4",
+                     MENU_ITEM_DESCRIPTION_KEY: @"Browser Like dynamic tabbar",
+                     MENU_ITEM_NUMBER_OF_VC : [NSNumber numberWithInt:1],
+                     MENU_ITEM_HANDLER_SELECTOR : @"showOnDemo4"
                      }
                  ];
     
@@ -192,7 +199,7 @@
         
         
         //  do it manually
-        if([tabbarController isViewLoaded])
+        if(![tabbarController isViewLoaded])
         {
             //
             //  view of the tabbar is not loaded yet
@@ -262,7 +269,7 @@
         
         
         //  do it manually
-        if([tabbarController isViewLoaded])
+        if(![tabbarController isViewLoaded])
         {
             //
             //  view of the tabbar is not loaded yet
@@ -302,7 +309,7 @@
     *third = [childsStory instantiateViewControllerWithIdentifier:@"thirdVC"];
     
     UIStoryboard *tabbarStory = [UIStoryboard storyboardWithName:@"demo3" bundle:[NSBundle mainBundle]];
-    Demo2TabbarController *tabbarController = [tabbarStory instantiateInitialViewController];
+    Demo3TabbarController *tabbarController = [tabbarStory instantiateInitialViewController];
     
     [tabbarController setViewControllers:@[first, second, third]];
     tabbarController.implementationDelegate = tabbarController;
@@ -331,7 +338,7 @@
         
         
         //  do it manually
-        if([tabbarController isViewLoaded])
+        if(![tabbarController isViewLoaded])
         {
             //
             //  view of the tabbar is not loaded yet
@@ -358,6 +365,29 @@
         //  just let it go :P
         [tabbarController setShouldSelectDefaultViewController:YES];
     }
+    
+    [self.navigationController pushViewController:tabbarController animated:YES];
+}
+
+-(void)showOnDemo4
+{
+
+    UIStoryboard *tabbarStory = [UIStoryboard storyboardWithName:@"demo4" bundle:[NSBundle mainBundle]];
+    Demo4TabbarController *tabbarController = [tabbarStory instantiateInitialViewController];
+    
+    tabbarController.implementationDelegate = tabbarController;
+    tabbarController.delegate = self;
+
+    self.navigationController.navigationBarHidden = YES;
+
+    
+    //
+    //  in the app delegate set the tabbar controller as the
+    //  currently working tabbar controller
+    //
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setCurrentCustomTabbarController:tabbarController];
+    
     
     [self.navigationController pushViewController:tabbarController animated:YES];
 }

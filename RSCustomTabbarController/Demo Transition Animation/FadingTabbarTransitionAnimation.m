@@ -27,7 +27,7 @@
     
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     
-    [UIView animateWithDuration:1.0 animations:^{
+    [UIView animateWithDuration:0.6 animations:^{
         
         toViewController.view.alpha = 1.0;
         for(UIViewController *fromViewController in fromViewControllers)
@@ -42,10 +42,30 @@
             completionBlock();
         
         [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-        
-
     }];
-    
 }
+
+-(void)customTabbarController:(RSCustomTabbarController*)tabbarController
+    willRemoveViewControllers:(NSArray<UIViewController*>*)removingViewControllers
+          withCompletionBlock:(RSCustomTabbarGeneralPurposeBlock)completionBlock
+{
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    
+    [UIView animateWithDuration:0.6 animations:^{
+        
+        for(UIViewController *removingViewController in removingViewControllers)
+            removingViewController.view.alpha = 0.0;
+    
+    } completion:^(BOOL finished) {
+        if(completionBlock)
+            completionBlock();
+        
+        for(UIViewController *removingViewController in removingViewControllers)
+            removingViewController.view.alpha = 0.0;
+        
+        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+    }];
+}
+
 
 @end

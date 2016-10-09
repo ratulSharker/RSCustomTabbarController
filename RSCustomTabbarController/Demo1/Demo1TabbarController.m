@@ -56,8 +56,16 @@
 }
 -(void)newSelectedTabbarIndex:(NSUInteger)newSelectedIndex whereOldIndexWas:(NSUInteger)oldSelectedIndex
 {
-    buttonArr[oldSelectedIndex].selected = NO;
-    buttonArr[newSelectedIndex].selected = YES;
+    if(newSelectedIndex == oldSelectedIndex)
+    {
+        //it's for the first time
+        buttonArr[newSelectedIndex].selected = YES;
+    }
+    else
+    {
+        buttonArr[oldSelectedIndex].selected = NO;
+        buttonArr[newSelectedIndex].selected = YES;
+    }
 }
 
 

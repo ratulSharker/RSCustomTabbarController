@@ -36,6 +36,14 @@ typedef void (^RSCustomTabbarGeneralPurposeBlock)();
              newSelectedIndex:(NSUInteger)newIndex
  withAnimationCompletionBlock:(RSCustomTabbarGeneralPurposeBlock)completionBlock;
 
+//
+//  TODO :  another animation delegate needed to be added,
+//  in case of removing view controller from the container
+//
+-(void)customTabbarController:(RSCustomTabbarController*)tabbarController
+    willRemoveViewControllers:(NSArray<UIViewController*>*)removingViewControllers
+          withCompletionBlock:(RSCustomTabbarGeneralPurposeBlock)completionBlock;
+
 @end
 
 

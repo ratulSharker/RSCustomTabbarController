@@ -45,6 +45,11 @@ typedef void (^RSCustomTabbarPendingBlock)();
 -(void)setTabbarVisibility:(BOOL)visible animated:(BOOL)animated;
 
 
+-(void)removeViewControllerFromContainerAtIndex:(NSUInteger)index;
+-(void)removeViewControllerFromContainer:(UIViewController*)viewController;
+-(void)removeAllViewControllerFromContainer;
+
+
 -(BOOL)isViewLoaded;
 -(UIViewController *)getViewControllerAtIndex:(NSUInteger)index;
 -(UIViewController *)getSelectedViewController;
