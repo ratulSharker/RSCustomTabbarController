@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="G5p-79-oxa">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--Demo5 Tabbar Controller-->
+        <scene sceneID="wcZ-Md-wrI">
+            <objects>
+                <viewController id="G5p-79-oxa" customClass="Demo5TabbarController" customModule="RSCustomTabbarController" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Ib-SO-csb"/>
+                        <viewControllerLayoutGuide type="bottom" id="pGn-Bd-qMZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1x3-gY-VfY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="def-ca-LFe">
+                                <rect key="frame" x="0.0" y="-16" width="320" height="584"/>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rP4-sC-yym">
+                                <rect key="frame" x="0.0" y="408" width="160" height="160"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rP4-sC-yym" secondAttribute="height" multiplier="1:1" id="jxj-f5-6zv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pGn-Bd-qMZ" firstAttribute="top" secondItem="rP4-sC-yym" secondAttribute="bottom" id="2dH-D2-mhL"/>
+                            <constraint firstAttribute="trailing" secondItem="def-ca-LFe" secondAttribute="trailing" id="5cq-Uv-9QQ"/>
+                            <constraint firstItem="pGn-Bd-qMZ" firstAttribute="top" secondItem="def-ca-LFe" secondAttribute="bottom" id="AwM-dF-ihb"/>
+                            <constraint firstItem="rP4-sC-yym" firstAttribute="leading" secondItem="1x3-gY-VfY" secondAttribute="leading" id="DYy-tT-5Yp"/>
+                            <constraint firstItem="def-ca-LFe" firstAttribute="top" secondItem="5Ib-SO-csb" secondAttribute="bottom" id="Ohb-uO-w9U"/>
+                            <constraint firstAttribute="width" secondItem="rP4-sC-yym" secondAttribute="height" multiplier="2:1" id="m7z-JP-DSP"/>
+                            <constraint firstItem="def-ca-LFe" firstAttribute="leading" secondItem="1x3-gY-VfY" secondAttribute="leading" id="vJD-iB-lXV"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="viewControllerContainer" destination="def-ca-LFe" id="eoG-Qs-80l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SJH-Dz-A6M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="774" y="315"/>
+        </scene>
+    </scenes>
+</document>

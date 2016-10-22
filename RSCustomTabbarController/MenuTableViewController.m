@@ -13,6 +13,7 @@
 #import "Demo2TabbarController.h"
 #import "Demo3TabbarController.h"
 #import "Demo4TabbarController.h"
+#import "RSCustomTabbarController-SWift.h"      //  this one is for importing swift classes into objective-c
 #import "AppDelegate.h"
 
 #define MENU_ITEM_TITLE_KEY         @"menu.item.title"
@@ -56,7 +57,7 @@
                      },
                  @{
                      MENU_ITEM_TITLE_KEY: @"Demo 3",
-                     MENU_ITEM_DESCRIPTION_KEY: @"movable tabbar",
+                     MENU_ITEM_DESCRIPTION_KEY: @"Movable tabbar",
                      MENU_ITEM_NUMBER_OF_VC : [NSNumber numberWithInt:3],
                      MENU_ITEM_HANDLER_SELECTOR : @"showOnDemo3"
                      },
@@ -65,6 +66,12 @@
                      MENU_ITEM_DESCRIPTION_KEY: @"Browser Like dynamic tabbar",
                      MENU_ITEM_NUMBER_OF_VC : [NSNumber numberWithInt:1],
                      MENU_ITEM_HANDLER_SELECTOR : @"showOnDemo4"
+                     },
+                 @{
+                     MENU_ITEM_TITLE_KEY: @"Demo 5",
+                     MENU_ITEM_DESCRIPTION_KEY: @"Working with Swift",
+                     MENU_ITEM_NUMBER_OF_VC : [NSNumber numberWithInt:1],
+                     MENU_ITEM_HANDLER_SELECTOR : @"showOnDemo5"
                      }
                  ];
     
@@ -392,6 +399,22 @@
     [self.navigationController pushViewController:tabbarController animated:YES];
 }
 
+-(void)showOnDemo5
+{
+    UIStoryboard *tabbarStory = [UIStoryboard storyboardWithName:@"demo5" bundle:[NSBundle mainBundle]];
+    Demo5TabbarController *tabbarController = [tabbarStory instantiateInitialViewController];
+    
+    //
+    //  we haven't configured the delegate implementation yet
+    //
+    //tabbarController.implementationDelegate = tabbarController;
+    //tabbarController.delegate = self;
+    
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setCurrentCustomTabbarController:tabbarController];
+    
+    [self.navigationController pushViewController:tabbarController animated:YES];
+}
 
 #pragma mark CustomTabbarDelegate
 - (void)customTabbarControllerViewDidLoaded:(RSCustomTabbarController *)tabBarController

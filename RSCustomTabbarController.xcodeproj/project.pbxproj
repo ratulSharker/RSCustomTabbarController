@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E71FA6751DBBBF4700EBA7A4 /* Demo5TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71FA6741DBBBF4700EBA7A4 /* Demo5TabbarController.swift */; };
+		E71FA6771DBBC01200EBA7A4 /* demo5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E71FA6761DBBC01200EBA7A4 /* demo5.storyboard */; };
 		E7556C2B1DA924D40024B8A5 /* BrowserChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E7556C2A1DA924D40024B8A5 /* BrowserChildVC.m */; };
 		E7AAFBCA1DA0B2F800F22F21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBA51DA0B2F800F22F21 /* AppDelegate.m */; };
 		E7AAFBCB1DA0B2F800F22F21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7AAFBA61DA0B2F800F22F21 /* Assets.xcassets */; };
@@ -34,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E71FA6731DBBBF4600EBA7A4 /* RSCustomTabbarController-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSCustomTabbarController-Bridging-Header.h"; sourceTree = "<group>"; };
+		E71FA6741DBBBF4700EBA7A4 /* Demo5TabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Demo5TabbarController.swift; sourceTree = "<group>"; };
+		E71FA6761DBBC01200EBA7A4 /* demo5.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = demo5.storyboard; sourceTree = "<group>"; };
 		E7556C291DA924D40024B8A5 /* BrowserChildVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserChildVC.h; sourceTree = "<group>"; };
 		E7556C2A1DA924D40024B8A5 /* BrowserChildVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserChildVC.m; sourceTree = "<group>"; };
 		E7AAFBA41DA0B2F800F22F21 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -89,6 +94,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E772204E1DBB9D060071EF51 /* Demo5 */ = {
+			isa = PBXGroup;
+			children = (
+				E71FA6741DBBBF4700EBA7A4 /* Demo5TabbarController.swift */,
+				E71FA6731DBBBF4600EBA7A4 /* RSCustomTabbarController-Bridging-Header.h */,
+				E71FA6761DBBC01200EBA7A4 /* demo5.storyboard */,
+			);
+			path = Demo5;
+			sourceTree = "<group>";
+		};
 		E7AAFBA31DA0B2F800F22F21 /* RSCustomTabbarController */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +114,7 @@
 				E7AAFBBB1DA0B2F800F22F21 /* Demo2 */,
 				E7AAFBBF1DA0B2F800F22F21 /* Demo3 */,
 				E7B0A22C1DA8259200BF5AE3 /* Demo4 */,
+				E772204E1DBB9D060071EF51 /* Demo5 */,
 				E7AAFBA41DA0B2F800F22F21 /* AppDelegate.h */,
 				E7AAFBA51DA0B2F800F22F21 /* AppDelegate.m */,
 				E7AAFBA61DA0B2F800F22F21 /* Assets.xcassets */,
@@ -267,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7AAFBCB1DA0B2F800F22F21 /* Assets.xcassets in Resources */,
+				E71FA6771DBBC01200EBA7A4 /* demo5.storyboard in Resources */,
 				E7AAFBD51DA0B2F800F22F21 /* demo2.storyboard in Resources */,
 				E7AAFBD31DA0B2F800F22F21 /* demo1.storyboard in Resources */,
 				E7AAFBDB1DA0B2F800F22F21 /* menu.storyboard in Resources */,
@@ -285,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E71FA6751DBBBF4700EBA7A4 /* Demo5TabbarController.swift in Sources */,
 				E7556C2B1DA924D40024B8A5 /* BrowserChildVC.m in Sources */,
 				E7AAFBDC1DA0B2F800F22F21 /* MenuTableCell.m in Sources */,
 				E7AAFBDA1DA0B2F800F22F21 /* main.m in Sources */,
@@ -405,10 +423,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = RSCustomTabbarController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RSCustomTabbarController;
 				PRODUCT_NAME = RSCustomTabbarController;
+				SWIFT_OBJC_BRIDGING_HEADER = "RSCustomTabbarController/Demo5/RSCustomTabbarController-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -416,10 +438,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = RSCustomTabbarController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RSCustomTabbarController;
 				PRODUCT_NAME = RSCustomTabbarController;
+				SWIFT_OBJC_BRIDGING_HEADER = "RSCustomTabbarController/Demo5/RSCustomTabbarController-Bridging-Header.h";
 			};
 			name = Release;
 		};
