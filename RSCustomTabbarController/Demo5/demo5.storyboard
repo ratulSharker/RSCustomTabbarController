@@ -21,13 +21,88 @@
                             <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="def-ca-LFe">
                                 <rect key="frame" x="0.0" y="-16" width="320" height="584"/>
                             </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rP4-sC-yym">
-                                <rect key="frame" x="0.0" y="408" width="160" height="160"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rP4-sC-yym">
+                                <rect key="frame" x="0.0" y="407" width="160" height="160"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AM2-NV-xq9">
+                                        <rect key="frame" x="79" y="2" width="79" height="79"/>
+                                        <color key="backgroundColor" red="0.2156862745" green="0.66274509800000003" blue="0.87843137250000003" alpha="0.50730064659999996" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="tabbar1normal"/>
+                                        <state key="selected" image="tabbar1selected"/>
+                                        <state key="highlighted" image="tabbar1selected"/>
+                                        <connections>
+                                            <action selector="onTabbarButtonPressed:" destination="G5p-79-oxa" eventType="touchUpInside" id="R7h-6M-jY0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ck7-jX-eiv">
+                                        <rect key="frame" x="0.0" y="81" width="79" height="79"/>
+                                        <color key="backgroundColor" red="0.4083579048" green="0.87450980389999999" blue="0.278087166" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="tabbar2normal"/>
+                                        <state key="selected" image="tabbar2selected"/>
+                                        <state key="highlighted" image="tabbar2selected"/>
+                                        <connections>
+                                            <action selector="onTabbarButtonPressed:" destination="G5p-79-oxa" eventType="touchUpInside" id="JTF-XI-FO4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHk-83-KBH">
+                                        <rect key="frame" x="79" y="81" width="79" height="79"/>
+                                        <color key="backgroundColor" red="0.94509803920000002" green="0.56862745100000001" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="tabbar3normal"/>
+                                        <state key="selected" image="tabbar3selected"/>
+                                        <state key="highlighted" image="tabbar3selected"/>
+                                        <connections>
+                                            <action selector="onTabbarButtonPressed:" destination="G5p-79-oxa" eventType="touchUpInside" id="1PH-c2-hTI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGr-gn-E9w">
+                                        <rect key="frame" x="0.0" y="2" width="79" height="79"/>
+                                        <color key="backgroundColor" red="1" green="0.44027235770000001" blue="0.72045624259999996" alpha="0.50999036819999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="tabbar0normal"/>
+                                        <state key="selected" image="tabbar0selected"/>
+                                        <state key="highlighted" image="tabbar0selected"/>
+                                        <connections>
+                                            <action selector="onTabbarButtonPressed:" destination="G5p-79-oxa" eventType="touchUpInside" id="aSN-Ym-FKV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="BHk-83-KBH" firstAttribute="width" secondItem="Ck7-jX-eiv" secondAttribute="width" id="2LY-tl-hJd"/>
+                                    <constraint firstItem="BHk-83-KBH" firstAttribute="top" secondItem="AM2-NV-xq9" secondAttribute="bottom" id="D67-A6-7wC"/>
+                                    <constraint firstItem="Ck7-jX-eiv" firstAttribute="top" secondItem="JGr-gn-E9w" secondAttribute="bottom" id="FoO-ma-k45"/>
+                                    <constraint firstItem="Ck7-jX-eiv" firstAttribute="height" secondItem="JGr-gn-E9w" secondAttribute="height" id="GYu-MH-e5J"/>
+                                    <constraint firstItem="AM2-NV-xq9" firstAttribute="top" secondItem="rP4-sC-yym" secondAttribute="top" constant="2" id="Ok5-Bm-jhy"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ck7-jX-eiv" secondAttribute="bottom" id="bnq-1I-B1q"/>
+                                    <constraint firstItem="AM2-NV-xq9" firstAttribute="height" secondItem="BHk-83-KBH" secondAttribute="height" id="eFE-oS-O0v"/>
+                                    <constraint firstItem="AM2-NV-xq9" firstAttribute="width" secondItem="JGr-gn-E9w" secondAttribute="width" id="ecT-LG-UWO"/>
+                                    <constraint firstAttribute="bottom" secondItem="BHk-83-KBH" secondAttribute="bottom" id="f6m-oZ-jun"/>
+                                    <constraint firstAttribute="width" constant="160" id="gZX-SA-YDf"/>
+                                    <constraint firstItem="AM2-NV-xq9" firstAttribute="leading" secondItem="JGr-gn-E9w" secondAttribute="trailing" id="h4G-hg-7O9"/>
+                                    <constraint firstItem="BHk-83-KBH" firstAttribute="leading" secondItem="Ck7-jX-eiv" secondAttribute="trailing" id="ixD-3i-CxZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="AM2-NV-xq9" secondAttribute="trailing" constant="2" id="jkU-Je-f16"/>
                                     <constraint firstAttribute="width" secondItem="rP4-sC-yym" secondAttribute="height" multiplier="1:1" id="jxj-f5-6zv"/>
+                                    <constraint firstItem="Ck7-jX-eiv" firstAttribute="leading" secondItem="rP4-sC-yym" secondAttribute="leading" id="qCf-lT-Rk6"/>
+                                    <constraint firstItem="JGr-gn-E9w" firstAttribute="leading" secondItem="rP4-sC-yym" secondAttribute="leading" id="t0a-mX-Fxe"/>
+                                    <constraint firstAttribute="trailing" secondItem="BHk-83-KBH" secondAttribute="trailing" constant="2" id="vpX-cx-9X6"/>
+                                    <constraint firstItem="JGr-gn-E9w" firstAttribute="top" secondItem="rP4-sC-yym" secondAttribute="top" constant="2" id="x3S-D2-SgV"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="McD-MX-eFL">
+                                <rect key="frame" x="155" y="390" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="fRG-Qk-4Tn"/>
+                                    <constraint firstAttribute="height" constant="22" id="huh-5Q-aUH"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="onTabbarShowHidePressed:" destination="G5p-79-oxa" eventType="touchUpInside" id="x5F-OS-BdO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -35,13 +110,21 @@
                             <constraint firstAttribute="trailing" secondItem="def-ca-LFe" secondAttribute="trailing" id="5cq-Uv-9QQ"/>
                             <constraint firstItem="pGn-Bd-qMZ" firstAttribute="top" secondItem="def-ca-LFe" secondAttribute="bottom" id="AwM-dF-ihb"/>
                             <constraint firstItem="rP4-sC-yym" firstAttribute="leading" secondItem="1x3-gY-VfY" secondAttribute="leading" id="DYy-tT-5Yp"/>
+                            <constraint firstItem="McD-MX-eFL" firstAttribute="leading" secondItem="rP4-sC-yym" secondAttribute="trailing" constant="-5" id="GdM-LF-XGn"/>
                             <constraint firstItem="def-ca-LFe" firstAttribute="top" secondItem="5Ib-SO-csb" secondAttribute="bottom" id="Ohb-uO-w9U"/>
-                            <constraint firstAttribute="width" secondItem="rP4-sC-yym" secondAttribute="height" multiplier="2:1" id="m7z-JP-DSP"/>
+                            <constraint firstItem="rP4-sC-yym" firstAttribute="top" secondItem="McD-MX-eFL" secondAttribute="bottom" constant="-5" id="uZM-v5-cpH"/>
                             <constraint firstItem="def-ca-LFe" firstAttribute="leading" secondItem="1x3-gY-VfY" secondAttribute="leading" id="vJD-iB-lXV"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="mConstraintTabHolderWidth" destination="gZX-SA-YDf" id="h3d-8X-gwS"/>
+                        <outlet property="mViewTabbarHideShowBtn" destination="McD-MX-eFL" id="foc-B1-Xah"/>
+                        <outlet property="mViewTabbarHolder" destination="rP4-sC-yym" id="G76-4a-k6H"/>
+                        <outlet property="tabbar0" destination="JGr-gn-E9w" id="2Wk-CU-hjG"/>
+                        <outlet property="tabbar1" destination="AM2-NV-xq9" id="cXW-Mh-ZcF"/>
+                        <outlet property="tabbar2" destination="Ck7-jX-eiv" id="d6O-cK-Odq"/>
+                        <outlet property="tabbar3" destination="BHk-83-KBH" id="DOO-Nz-cvn"/>
                         <outlet property="viewControllerContainer" destination="def-ca-LFe" id="eoG-Qs-80l"/>
                     </connections>
                 </viewController>
@@ -49,5 +132,65 @@
             </objects>
             <point key="canvasLocation" x="774" y="315"/>
         </scene>
+        <!--Swift ChildVC-->
+        <scene sceneID="AK3-Vq-rW4">
+            <objects>
+                <viewController storyboardIdentifier="swiftVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N6h-ne-cdb" customClass="SwiftChildVC" customModule="RSCustomTabbarController" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zWQ-Pj-f0U"/>
+                        <viewControllerLayoutGuide type="bottom" id="R1r-so-Hse"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rRY-VM-3ja">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello world Swift" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NQ-id-Yy1">
+                                <rect key="frame" x="20" y="248" width="280" height="71"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QwB-4E-PXO">
+                                <rect key="frame" x="20" y="210" width="280" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Back to Demo List"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backToDemoList:" destination="N6h-ne-cdb" eventType="touchUpInside" id="061-z2-37F"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leading" secondItem="5NQ-id-Yy1" secondAttribute="leading" constant="-20" id="Snz-hc-G2t"/>
+                            <constraint firstAttribute="trailing" secondItem="5NQ-id-Yy1" secondAttribute="trailing" constant="20" id="Wbq-yk-YeP"/>
+                            <constraint firstItem="5NQ-id-Yy1" firstAttribute="centerY" secondItem="rRY-VM-3ja" secondAttribute="centerY" id="dAK-z9-9SV"/>
+                            <constraint firstAttribute="trailing" secondItem="QwB-4E-PXO" secondAttribute="trailing" constant="20" id="mTc-lA-uXz"/>
+                            <constraint firstItem="5NQ-id-Yy1" firstAttribute="top" secondItem="QwB-4E-PXO" secondAttribute="bottom" constant="8" id="xDd-BY-ZQR"/>
+                            <constraint firstAttribute="leading" secondItem="QwB-4E-PXO" secondAttribute="leading" constant="-20" id="zh2-Cm-IW8"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="mViewLabel" destination="5NQ-id-Yy1" id="IFR-gk-Ba3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GrS-cD-3Sj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1307" y="206"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="tabbar0normal" width="50" height="50"/>
+        <image name="tabbar0selected" width="50" height="50"/>
+        <image name="tabbar1normal" width="50" height="50"/>
+        <image name="tabbar1selected" width="50" height="50"/>
+        <image name="tabbar2normal" width="50" height="50"/>
+        <image name="tabbar2selected" width="50" height="50"/>
+        <image name="tabbar3normal" width="50" height="50"/>
+        <image name="tabbar3selected" width="50" height="50"/>
+    </resources>
 </document>

@@ -21,7 +21,10 @@
 #define MENU_ITEM_NUMBER_OF_VC      @"menu.item.number.of.vc"
 #define MENU_ITEM_HANDLER_SELECTOR  @"menu.item.selector"
 
-
+#define VIEW_CONTROLLER_ONE_BACKGROUND_COLOR    [UIColor colorWithRed:252.0/255.0 green:118.0/255.0 blue:122.0/255.0 alpha:1.0]
+#define VIEW_CONTROLLER_TWO_BACKGROUND_COLOR    [UIColor colorWithRed:149.0/255.0 green:208.0/255.0 blue:239.0/255.0 alpha:1.0]
+#define VIEW_CONTROLLER_THREE_BACKGROUND_COLOR  [UIColor colorWithRed:175.0/255.0 green:241.0/255.0 blue:156.0/255.0 alpha:1.0]
+#define VIEW_CONTROLLER_FOUR_BACKGROUND_COLOR   [UIColor colorWithRed:246.0/255.0 green:197.0/255.0 blue:120.0/255.0 alpha:1.0]
 
 @interface MenuTableViewController ()<RSCustomTabbarDelegate>
 
@@ -70,7 +73,7 @@
                  @{
                      MENU_ITEM_TITLE_KEY: @"Demo 5",
                      MENU_ITEM_DESCRIPTION_KEY: @"Working with Swift",
-                     MENU_ITEM_NUMBER_OF_VC : [NSNumber numberWithInt:1],
+                     MENU_ITEM_NUMBER_OF_VC : [NSNumber numberWithInt:4],
                      MENU_ITEM_HANDLER_SELECTOR : @"showOnDemo5"
                      }
                  ];
@@ -404,14 +407,74 @@
     UIStoryboard *tabbarStory = [UIStoryboard storyboardWithName:@"demo5" bundle:[NSBundle mainBundle]];
     Demo5TabbarController *tabbarController = [tabbarStory instantiateInitialViewController];
     
-    //
-    //  we haven't configured the delegate implementation yet
-    //
-    //tabbarController.implementationDelegate = tabbarController;
-    //tabbarController.delegate = self;
+    //  instantiating swift view controllers
+    SwiftChildVC *viewController1 = [tabbarStory instantiateViewControllerWithIdentifier:@"swiftVC"],
+    *viewController2 = [tabbarStory instantiateViewControllerWithIdentifier:@"swiftVC"],
+    *viewController3 = [tabbarStory instantiateViewControllerWithIdentifier:@"swiftVC"],
+    *viewController4 = [tabbarStory instantiateViewControllerWithIdentifier:@"swiftVC"];
+    
+    
+    //  configuring swift view controller
+    viewController1.VCBackgroundColor = VIEW_CONTROLLER_ONE_BACKGROUND_COLOR;
+    viewController2.VCBackgroundColor = VIEW_CONTROLLER_TWO_BACKGROUND_COLOR;
+    viewController3.VCBackgroundColor = VIEW_CONTROLLER_THREE_BACKGROUND_COLOR;
+    viewController4.VCBackgroundColor = VIEW_CONTROLLER_FOUR_BACKGROUND_COLOR;
+    
+    viewController1.VCTitleString = @"Hello world Swift 1st";
+    viewController2.VCTitleString = @"Hello world Swift 2nd";
+    viewController3.VCTitleString = @"Hello world Swift 3rd";
+    viewController4.VCTitleString = @"Hello world Swift 4th";
+    
+    //  configuring the tabbar
+    [tabbarController setViewControllers:@[viewController1,
+                                           viewController2,
+                                           viewController3,
+                                           viewController4]];
+    tabbarController.implementationDelegate = tabbarController;
+    tabbarController.delegate = self;
     
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate setCurrentCustomTabbarController:tabbarController];
+    
+    if(initialSelectedTabbarIndex != CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX)
+    {
+        //
+        //  make a pending block which will
+        //  select the initial selected view controller
+        //
+        RSCustomTabbarPendingBlock pendingBlock = ^{
+            [tabbarController setSelectedViewCotnrollerAtIndex:initialSelectedTabbarIndex];
+        };
+        
+        
+        //  do it manually
+        if(![tabbarController isViewLoaded])
+        {
+            //
+            //  view of the tabbar is not loaded yet
+            //  so just add a pending block
+            //
+            [tabbarController setShouldSelectDefaultViewController:NO];
+            [tabbarController addPendingBlockIntendedToBeExecutedAfterViewDidLoad:pendingBlock];
+            
+        }
+        else
+        {
+            //
+            //  view of the tabbar is already loaded
+            //  so execute the pending block by yourself
+            //
+            //  this case is not gonna be occur, unless you
+            //  cache the tabbar controller or used it more than once
+            //
+            pendingBlock();
+        }
+    }
+    else
+    {
+        //  just let it go :P
+        [tabbarController setShouldSelectDefaultViewController:YES];
+    }
     
     [self.navigationController pushViewController:tabbarController animated:YES];
 }

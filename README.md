@@ -7,7 +7,7 @@ Experience a **[live demonstration](https://appetize.io/app/nqd9py0znzmgar66cxtf
 ## Simple Demonstration
 You can design whatever tabbar controller comes in your mind. Following is some simple demonstration. Many more are yet to come. If you have any unique idea, you would like to implement it for you feel free to contact Sharker.ratul.08@gmail.com
 
-<img src='https://github.com/ratulSharker/CustomTabbarController/blob/master/demo/customtabbar_demo.gif'/>
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/gemBz"></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
 ## Simple tutorial
 

@@ -23,10 +23,12 @@
 @required
 @property UIView *viewControllerContainer;
 
+@optional
 @property NSArray<NSLayoutConstraint*> *tabbarContainerHeight;
 @property NSArray<NSLayoutConstraint*> *tabbarWidgetHolderTop;
-
 -(CGFloat)heightForTabbarController:(RSCustomTabbarController*)tabbarController;
+
+@required
 -(void)newSelectedTabbarIndex:(NSUInteger)newSelectedIndex whereOldIndexWas:(NSUInteger)oldSelectedIndex;
 
 @end

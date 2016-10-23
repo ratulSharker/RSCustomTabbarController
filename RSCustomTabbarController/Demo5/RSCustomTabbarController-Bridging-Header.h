@@ -3,3 +3,5 @@
 //
 
 #import "RSCustomTabbarController.h"
+#import "AppDelegate.h"
+#import "RSCustomTabbarTransitionAnimationDelegate.h"

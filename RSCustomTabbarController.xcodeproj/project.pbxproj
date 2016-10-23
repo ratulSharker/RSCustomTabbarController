@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E7083E251DBCE969001563DA /* PopupTabbarTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7083E241DBCE969001563DA /* PopupTabbarTransitionAnimation.swift */; };
 		E71FA6751DBBBF4700EBA7A4 /* Demo5TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71FA6741DBBBF4700EBA7A4 /* Demo5TabbarController.swift */; };
 		E71FA6771DBBC01200EBA7A4 /* demo5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E71FA6761DBBC01200EBA7A4 /* demo5.storyboard */; };
 		E7556C2B1DA924D40024B8A5 /* BrowserChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E7556C2A1DA924D40024B8A5 /* BrowserChildVC.m */; };
@@ -33,9 +34,11 @@
 		E7B0A22E1DA825BD00BF5AE3 /* demo4.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7B0A22D1DA825BD00BF5AE3 /* demo4.storyboard */; };
 		E7B0A2311DA825EA00BF5AE3 /* Demo4TabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B0A2301DA825EA00BF5AE3 /* Demo4TabbarController.m */; };
 		E7B0A2341DA84F7D00BF5AE3 /* Demo4TabbarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B0A2331DA84F7D00BF5AE3 /* Demo4TabbarCell.m */; };
+		E7E8D4101DBC651400094EB3 /* SwiftChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8D40F1DBC651400094EB3 /* SwiftChildVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E7083E241DBCE969001563DA /* PopupTabbarTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupTabbarTransitionAnimation.swift; sourceTree = "<group>"; };
 		E71FA6731DBBBF4600EBA7A4 /* RSCustomTabbarController-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSCustomTabbarController-Bridging-Header.h"; sourceTree = "<group>"; };
 		E71FA6741DBBBF4700EBA7A4 /* Demo5TabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Demo5TabbarController.swift; sourceTree = "<group>"; };
 		E71FA6761DBBC01200EBA7A4 /* demo5.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = demo5.storyboard; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 		E7B0A2321DA84F7D00BF5AE3 /* Demo4TabbarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo4TabbarCell.h; sourceTree = "<group>"; };
 		E7B0A2331DA84F7D00BF5AE3 /* Demo4TabbarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo4TabbarCell.m; sourceTree = "<group>"; };
 		E7DC9B451D748AA2008DBEC9 /* RSCustomTabbarController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSCustomTabbarController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7E8D40F1DBC651400094EB3 /* SwiftChildVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftChildVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 				E71FA6741DBBBF4700EBA7A4 /* Demo5TabbarController.swift */,
 				E71FA6731DBBBF4600EBA7A4 /* RSCustomTabbarController-Bridging-Header.h */,
 				E71FA6761DBBC01200EBA7A4 /* demo5.storyboard */,
+				E7E8D40F1DBC651400094EB3 /* SwiftChildVC.swift */,
 			);
 			path = Demo5;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				E7AAFBE31DA0F07400F22F21 /* JumpInTabbarTransitionAnimation.m */,
 				E7AAFBE41DA0F07400F22F21 /* SlidingTabbarTransitionAnimation.h */,
 				E7AAFBE51DA0F07400F22F21 /* SlidingTabbarTransitionAnimation.m */,
+				E7083E241DBCE969001563DA /* PopupTabbarTransitionAnimation.swift */,
 			);
 			path = "Demo Transition Animation";
 			sourceTree = "<group>";
@@ -308,6 +314,8 @@
 				E7AAFBDA1DA0B2F800F22F21 /* main.m in Sources */,
 				E7B0A2311DA825EA00BF5AE3 /* Demo4TabbarController.m in Sources */,
 				E7AAFBE81DA0F07400F22F21 /* SlidingTabbarTransitionAnimation.m in Sources */,
+				E7083E251DBCE969001563DA /* PopupTabbarTransitionAnimation.swift in Sources */,
+				E7E8D4101DBC651400094EB3 /* SwiftChildVC.swift in Sources */,
 				E7AAFBD81DA0B2F800F22F21 /* Demo3TabbarController.m in Sources */,
 				E7AAFBDD1DA0B2F800F22F21 /* MenuTableViewController.m in Sources */,
 				E7AAFBD61DA0B2F800F22F21 /* Demo2TabbarController.m in Sources */,
