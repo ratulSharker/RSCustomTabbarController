@@ -276,6 +276,11 @@
     return super.isViewLoaded;
 }
 
+-(NSArray<UIViewController*>*)getViewControllers
+{
+    return viewControllers;
+}
+
 -(UIViewController *)getViewControllerAtIndex:(NSUInteger)index
 {
     if(viewControllers && index < viewControllers.count)
