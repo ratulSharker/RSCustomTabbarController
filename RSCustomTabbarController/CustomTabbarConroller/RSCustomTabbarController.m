@@ -362,6 +362,16 @@
                 //
                 targetViewController.view.frame = self.implementationDelegate.viewControllerContainer.bounds;
                 
+                //
+                //  call the lifecycle viewControllerDidAppear
+                //
+                id<RSCustomTabbarControllerLifecycleDelegte> justAddedVC = (id<RSCustomTabbarControllerLifecycleDelegte>)targetViewController;
+                
+                if([justAddedVC respondsToSelector:@selector(viewControllerDidAppearAnimationFinishedInTabbar:)])
+                {
+                    [justAddedVC viewControllerDidAppearAnimationFinishedInTabbar:self];
+                }
+                
             };
             
             if(self.transitionAnimationDelegate &&

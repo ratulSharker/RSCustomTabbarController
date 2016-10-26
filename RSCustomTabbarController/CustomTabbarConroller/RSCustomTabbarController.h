@@ -12,6 +12,7 @@
 #import "RSCustomTabbarTransitionAnimationDelegate.h"
 #import "RSCustomTabbarImplementationDelegate.h"
 #import "RSCustomTabbarDelegate.h"
+#import "RSCustomTabbarControllerLifecycleDelegte.h"
 
 
 @class RSCustomTabbarController;

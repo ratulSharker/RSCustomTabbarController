@@ -44,6 +44,7 @@
 		E71FA6761DBBC01200EBA7A4 /* demo5.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = demo5.storyboard; sourceTree = "<group>"; };
 		E7556C291DA924D40024B8A5 /* BrowserChildVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserChildVC.h; sourceTree = "<group>"; };
 		E7556C2A1DA924D40024B8A5 /* BrowserChildVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserChildVC.m; sourceTree = "<group>"; };
+		E78E5CAA1DC0AD0D0008113E /* RSCustomTabbarLifecycleDelegte.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSCustomTabbarLifecycleDelegte.h; sourceTree = "<group>"; };
 		E7AAFBA41DA0B2F800F22F21 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E7AAFBA51DA0B2F800F22F21 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E7AAFBA61DA0B2F800F22F21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,6 +156,7 @@
 				E7AAFBDE1DA0F03100F22F21 /* RSCustomTabbarTransitionAnimationDelegate.h */,
 				E7AAFBE91DA0F0E000F22F21 /* RSCustomTabbarImplementationDelegate.h */,
 				E7AAFBEA1DA0F1B600F22F21 /* RSCustomTabbarDelegate.h */,
+				E78E5CAA1DC0AD0D0008113E /* RSCustomTabbarLifecycleDelegte.h */,
 			);
 			path = CustomTabbarConroller;
 			sourceTree = "<group>";
