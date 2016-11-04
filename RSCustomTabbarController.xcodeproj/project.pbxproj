@@ -102,8 +102,8 @@
 		E772204E1DBB9D060071EF51 /* Demo5 */ = {
 			isa = PBXGroup;
 			children = (
-				E71FA6741DBBBF4700EBA7A4 /* Demo5TabbarController.swift */,
 				E71FA6731DBBBF4600EBA7A4 /* RSCustomTabbarController-Bridging-Header.h */,
+				E71FA6741DBBBF4700EBA7A4 /* Demo5TabbarController.swift */,
 				E71FA6761DBBC01200EBA7A4 /* demo5.storyboard */,
 				E7E8D40F1DBC651400094EB3 /* SwiftChildVC.swift */,
 			);

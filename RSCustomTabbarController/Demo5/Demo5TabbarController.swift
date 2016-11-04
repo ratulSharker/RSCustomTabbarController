@@ -105,51 +105,30 @@ class Demo5TabbarController: RSCustomTabbarController, RSCustomTabbarImplementat
             //  be aware need to perform some animation
             if(visible)
             {
-                //need to show
                 mViewTabbarHolder.alpha = 0.0;
                 mViewTabbarHolder.hidden = false;
-                UIView.animateWithDuration(0.5, animations: {
-                    
-                    self.mViewTabbarHolder.alpha = 1.0;
-                    self.mConstraintTabHolderWidth.constant = CGFloat(TABBAR_SHOWN_SIZE);
-                    
-                    self.view.layoutIfNeeded();
-                    
-                    }, completion: { (completed) in
-                });
             }
-            else
-            {
-                //need to hide
-                UIView.animateWithDuration(0.5, animations: { 
-                    self.mViewTabbarHolder.alpha = 0.0;
-                    self.mConstraintTabHolderWidth.constant = CGFloat(TABBAR_HIDDEN_SIZE);
-                    
-                    self.view.layoutIfNeeded();
-                    
-                    }, completion: { (completed) in
-                        self.mViewTabbarHolder.hidden = true;
+            
+            UIView.animateWithDuration(0.5, animations: {
+                
+                self.mViewTabbarHolder.alpha = CGFloat(visible);
+                self.mConstraintTabHolderWidth.constant = CGFloat((visible ? TABBAR_SHOWN_SIZE : TABBAR_HIDDEN_SIZE));
+                
+                self.view.layoutIfNeeded();
+                
+                }, completion: { (completed) in
+                    if(!visible)
+                    {
+                        self.mViewTabbarHolder.hidden = false;
                         self.mViewTabbarHolder.alpha = 1.0;     //  restoring alpha
-                        
-                        
-                })
-            }
+                    }
+            });
         }
         else
         {
             //  just hide or show, no animation needed
-            if(visible)
-            {
-                //need to show
-                mConstraintTabHolderWidth.constant = CGFloat(TABBAR_SHOWN_SIZE);
-                mViewTabbarHolder.hidden = false;
-            }
-            else
-            {
-                //need to hide
-                mConstraintTabHolderWidth.constant = CGFloat(TABBAR_HIDDEN_SIZE);
-                mViewTabbarHolder.hidden = true;
-            }
+            mConstraintTabHolderWidth.constant = CGFloat(visible ? TABBAR_SHOWN_SIZE : TABBAR_HIDDEN_SIZE);
+            mViewTabbarHolder.hidden = !visible;
         }
         
     }
@@ -158,7 +137,6 @@ class Demo5TabbarController: RSCustomTabbarController, RSCustomTabbarImplementat
     //
     // MARK:    RSCustomTabbarImplementationDelegate method
     //
-    
     func newSelectedTabbarIndex(newSelectedIndex: UInt,
                                 whereOldIndexWas oldSelectedIndex: UInt) {
         
@@ -205,7 +183,4 @@ class Demo5TabbarController: RSCustomTabbarController, RSCustomTabbarImplementat
             self.setTabbarVisibility(true, animated: true);
         }
     }
-    
-    
-    
 }

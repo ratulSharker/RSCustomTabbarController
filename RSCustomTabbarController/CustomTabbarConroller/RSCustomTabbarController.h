@@ -56,4 +56,6 @@ typedef void (^RSCustomTabbarPendingBlock)();
 -(UIViewController *)getViewControllerAtIndex:(NSUInteger)index;
 -(UIViewController *)getSelectedViewController;
 -(NSInteger)getSelectedIndex;
+
+-(CGRect)getViewControllerContainerFrame;
 @end

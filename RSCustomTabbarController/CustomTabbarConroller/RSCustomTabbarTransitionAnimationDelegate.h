@@ -29,9 +29,8 @@ typedef void (^RSCustomTabbarGeneralPurposeBlock)();
 @protocol RSCustomTabbarTransitionAnimationDelegate<NSObject>
 
 -(void)customTabbarController:(RSCustomTabbarController*)tabbarController
-               withFinalFrame:(CGRect)finalFrame
-             oldSelectedIndex:(NSUInteger)oldIndex
-             newSelectedIndex:(NSUInteger)newIndex
+          willSwitchFromIndex:(NSUInteger)oldIndex
+            willSwitchToIndex:(NSUInteger)newIndex
  withAnimationCompletionBlock:(RSCustomTabbarGeneralPurposeBlock)completionBlock;
 
 //

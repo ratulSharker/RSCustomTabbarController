@@ -65,7 +65,6 @@
 
 
 #pragma mark public functionality
-
 -(void)addPendingBlockIntendedToBeExecutedAfterViewDidLoad:(RSCustomTabbarGeneralPurposeBlock)block
 {
     if(!viewDidLoadPendingBlocks)
@@ -214,16 +213,8 @@
             selectedIndex = DEFAULT_SELECTED_INDEX_WHILE_NOTHING_ON_CONTAINER;
         };
         
-        if(self.transitionAnimationDelegate &&
-           [self.transitionAnimationDelegate respondsToSelector:@selector(customTabbarController:
-                                                                          willRemoveViewControllers:
-                                                                          withCompletionBlock:)])
-        {
-            [self.transitionAnimationDelegate customTabbarController:self
-                                            willRemoveViewControllers:@[viewController]
-                                                 withCompletionBlock:completionBlock];
-        }
-        else
+        if(![self callTranstionAnimationDelegateWillRemoveViewController:@[viewController]
+                                                     withCompletionBlock:completionBlock])
         {
             completionBlock();
         }
@@ -251,17 +242,9 @@
         selectedIndex = DEFAULT_SELECTED_INDEX_WHILE_NOTHING_ON_CONTAINER;
     };
     
-    
-    if(self.transitionAnimationDelegate &&
-       [self.transitionAnimationDelegate respondsToSelector:@selector(customTabbarController:
-                                                                      willRemoveViewControllers:
-                                                                      withCompletionBlock:)])
-    {
-        [self.transitionAnimationDelegate customTabbarController:self
-                                       willRemoveViewControllers:self.childViewControllers
-                                             withCompletionBlock:completionBlock];
-    }
-    else
+
+    if(![self callTranstionAnimationDelegateWillRemoveViewController:self.childViewControllers
+                                                 withCompletionBlock:completionBlock])
     {
         completionBlock();
     }
@@ -308,6 +291,18 @@
     }
 }
 
+-(CGRect)getViewControllerContainerFrame
+{
+    CGRect frame = CGRectZero;
+    
+    if(self.implementationDelegate && self.implementationDelegate.viewControllerContainer)
+    {
+        frame = self.implementationDelegate.viewControllerContainer.bounds;
+    }
+    
+    return frame;
+}
+
 #pragma mark private functionality
 -(void)manageViewControllerToBeInFrontContainer:(NSUInteger)index
 {
@@ -315,16 +310,10 @@
     {
         UIViewController *targetViewController = viewControllers[index];
         
-        NSLog(@"TARGET VIEWController bound %@", NSStringFromCGRect(targetViewController.view.frame));
-        NSLog(@"CONTAINER BOUND %@", NSStringFromCGRect(self.implementationDelegate.viewControllerContainer.frame));
-        NSLog(@"SELF.VIEW.BOUND %@", NSStringFromCGRect(self.view.frame));
-        
-        
         //  first of all check that is this viewController's view is in the
         //  container view
         if(targetViewController.parentViewController != self)
         {
-            
             //
             //  adding the new view controller
             //
@@ -365,34 +354,20 @@
                 //
                 //  call the lifecycle viewControllerDidAppear
                 //
-                id<RSCustomTabbarControllerLifecycleDelegte> justAddedVC = (id<RSCustomTabbarControllerLifecycleDelegte>)targetViewController;
-                
-                if([justAddedVC respondsToSelector:@selector(viewControllerDidAppearAnimationFinishedInTabbar:)])
-                {
-                    [justAddedVC viewControllerDidAppearAnimationFinishedInTabbar:self];
-                }
+                [self callViewControllerDidAppearAnimationFinishedInTabbarWithViewController:targetViewController];
                 
             };
             
-            if(self.transitionAnimationDelegate &&
-               [self.transitionAnimationDelegate respondsToSelector:@selector(customTabbarController:
-                                                                              withFinalFrame:
-                                                                              oldSelectedIndex:
-                                                                              newSelectedIndex:
-                                                                              withAnimationCompletionBlock:)])
-            {
-                [self.transitionAnimationDelegate customTabbarController:self
-                                                          withFinalFrame:self.implementationDelegate.viewControllerContainer.bounds
-                                                        oldSelectedIndex:selectedIndex
-                                                        newSelectedIndex:index
-                                            withAnimationCompletionBlock:completionBlock];
-            }
-            else
+            
+            //
+            //  if transition animation exists, call it, otherwise call the completion block
+            //
+            if(![self callTransitionAnimationDelegateWillSwitchFrom:selectedIndex
+                                                       willSwitchTo:index
+                                                withCompletionBlock:completionBlock])
             {
                 completionBlock();
             }
-            
-
         }
     }
     else
@@ -400,5 +375,60 @@
         NSLog(@"TOO MUCH TAG VALUE IS SET, WHICH IS OUT OF THE NUMBE OF THE VIEWCONTROLLERS");
     }
 }
+
+#pragma mark delegate caller helper
+-(BOOL)callTransitionAnimationDelegateWillSwitchFrom:(NSUInteger)oldIndex
+                                        willSwitchTo:(NSUInteger)newIndex
+                                 withCompletionBlock:(RSCustomTabbarGeneralPurposeBlock)completionBlock
+{
+    if(self.transitionAnimationDelegate &&
+       [self.transitionAnimationDelegate respondsToSelector:@selector(customTabbarController:
+                                                                      willSwitchFromIndex:
+                                                                      willSwitchToIndex:
+                                                                      withAnimationCompletionBlock:)])
+    {
+        [self.transitionAnimationDelegate customTabbarController:self
+                                                willSwitchFromIndex:oldIndex
+                                               willSwitchToIndex:newIndex
+                                    withAnimationCompletionBlock:completionBlock];
+        
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+-(BOOL)callTranstionAnimationDelegateWillRemoveViewController:(NSArray<UIViewController*>*)vcs
+                                          withCompletionBlock:(RSCustomTabbarGeneralPurposeBlock)completionBlock
+{
+    if(self.transitionAnimationDelegate &&
+       [self.transitionAnimationDelegate respondsToSelector:@selector(customTabbarController:
+                                                                      willRemoveViewControllers:
+                                                                      withCompletionBlock:)])
+    {
+        [self.transitionAnimationDelegate customTabbarController:self
+                                       willRemoveViewControllers:vcs
+                                             withCompletionBlock:completionBlock];
+        
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+-(void)callViewControllerDidAppearAnimationFinishedInTabbarWithViewController:(UIViewController*)targetViewController
+{
+    id<RSCustomTabbarControllerLifecycleDelegte> justAddedVC = (id<RSCustomTabbarControllerLifecycleDelegte>)targetViewController;
+    
+    if([justAddedVC respondsToSelector:@selector(viewControllerDidAppearAnimationFinishedInTabbar:)])
+    {
+        [justAddedVC viewControllerDidAppearAnimationFinishedInTabbar:self];
+    }
+}
+
 
 @end

@@ -24,12 +24,11 @@ class PopupTabbarTransitionAnimation : NSObject, RSCustomTabbarTransitionAnimati
     // MARK: objective-c mapping for the following method implementation
     //
     @objc(customTabbarController:
-    withFinalFrame:
-    oldSelectedIndex:
-    newSelectedIndex:
+    willSwitchFromIndex:
+    willSwitchToIndex:
     withAnimationCompletionBlock:)
     
-    func customTabbarController(tabbarController: RSCustomTabbarController!, withFinalFrame finalFrame: CGRect, oldSelectedIndex oldIndex: UInt, newSelectedIndex newIndex: UInt, withAnimationCompletionBlock completionBlock: RSCustomTabbarGeneralPurposeBlock!) {
+    func customTabbarController(tabbarController: RSCustomTabbarController!, willSwitchFromIndex oldIndex: UInt, willSwitchToIndex newIndex: UInt, withAnimationCompletionBlock completionBlock: RSCustomTabbarGeneralPurposeBlock!) {
 
         //
         //  turning off all user interaction handling by app
@@ -39,9 +38,8 @@ class PopupTabbarTransitionAnimation : NSObject, RSCustomTabbarTransitionAnimati
         UIApplication.sharedApplication().beginIgnoringInteractionEvents();
         
         let toViewController = tabbarController.getViewControllerAtIndex(newIndex);
-        
 
-        toViewController.view.frame = finalFrame;
+        toViewController.view.frame = tabbarController.getViewControllerContainerFrame();
         toViewController.view.layer.transform = CATransform3DMakeScale(0, 0, 0);
         
         UIView.animateWithDuration(0.5, animations: { 

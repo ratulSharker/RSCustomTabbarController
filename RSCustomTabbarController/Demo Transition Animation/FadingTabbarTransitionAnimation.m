@@ -12,10 +12,9 @@
 
 @implementation FadingTabbarTransitionAnimation
 
--(void)customTabbarController:(RSCustomTabbarController*)tabbarController
-               withFinalFrame:(CGRect)finalFrame
-             oldSelectedIndex:(NSUInteger)oldIndex
-             newSelectedIndex:(NSUInteger)newIndex
+-(void)customTabbarController:(RSCustomTabbarController *)tabbarController
+          willSwitchFromIndex:(NSUInteger)oldIndex
+            willSwitchToIndex:(NSUInteger)newIndex
  withAnimationCompletionBlock:(RSCustomTabbarGeneralPurposeBlock)completionBlock
 {
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
@@ -32,7 +31,7 @@
         fromViewController = [tabbarController getViewControllerAtIndex:oldIndex];
     
     toViewController.view.alpha = 0.0;
-    toViewController.view.frame = finalFrame;
+    toViewController.view.frame = [tabbarController getViewControllerContainerFrame];
     
     if(fromViewController)
         fromViewController.view.alpha = 1.0;

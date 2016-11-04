@@ -13,53 +13,23 @@
 @implementation JumpInTabbarTransitionAnimation
 
 
--(void)customTabbarController:(RSCustomTabbarController*)tabbarController
-               withFinalFrame:(CGRect)finalFrame
-             oldSelectedIndex:(NSUInteger)oldIndex
-             newSelectedIndex:(NSUInteger)newIndex
+-(void)customTabbarController:(RSCustomTabbarController *)tabbarController
+          willSwitchFromIndex:(NSUInteger)oldIndex
+            willSwitchToIndex:(NSUInteger)newIndex
  withAnimationCompletionBlock:(RSCustomTabbarGeneralPurposeBlock)completionBlock
 {
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     
     UIViewController *toViewController = [tabbarController getViewControllerAtIndex:newIndex];
+    CGRect finalFrame = [tabbarController getViewControllerContainerFrame];
     
     toViewController.view.alpha = 0.0;
     toViewController.view.frame = finalFrame;
-    
-    switch (newIndex) {
-        case 0:
-        {
-            toViewController.view.center = CGPointMake(CGRectGetMinX(finalFrame), CGRectGetMinY(finalFrame));
-        }
-            break;
-        case 1:
-        {
-            toViewController.view.center = CGPointMake(CGRectGetMaxX(finalFrame), CGRectGetMinY(finalFrame));
-        }
-            break;
-        case 2:
-        {
-            toViewController.view.center = CGPointMake(CGRectGetMaxX(finalFrame), CGRectGetMaxY(finalFrame));
-        }
-            break;
-        case 3:
-        {
-            toViewController.view.center = CGPointMake(CGRectGetMinX(finalFrame), CGRectGetMaxY(finalFrame));
-        }
-            break;
-            
-        default:
-            toViewController.view.center = CGPointMake(CGRectGetMidX(finalFrame), CGRectGetMidY(finalFrame));
-            break;
-    }
+    toViewController.view.center = [self getCenterPointOfRect:finalFrame accordingtoIndex:newIndex];
 
-    
     [toViewController.view layoutIfNeeded];
-    
-    
     CALayer *viewLayer = toViewController.view.layer;
     viewLayer.transform = CATransform3DMakeScale(0, 0, 1);
-    
     
     [UIView animateWithDuration:0.4 animations:^{
         viewLayer.transform = CATransform3DIdentity;
@@ -72,5 +42,40 @@
         
         [[UIApplication sharedApplication] endIgnoringInteractionEvents];
     }];
+}
+
+#pragma mark private helper method
+-(CGPoint)getCenterPointOfRect:(CGRect)frame accordingtoIndex:(NSUInteger)index
+{
+    CGPoint center;
+    
+    switch (index) {
+        case 0:
+        {
+            center = CGPointMake(CGRectGetMinX(frame), CGRectGetMinY(frame));
+        }
+            break;
+        case 1:
+        {
+            center = CGPointMake(CGRectGetMaxX(frame), CGRectGetMinY(frame));
+        }
+            break;
+        case 2:
+        {
+            center = CGPointMake(CGRectGetMaxX(frame), CGRectGetMaxY(frame));
+        }
+            break;
+        case 3:
+        {
+            center = CGPointMake(CGRectGetMinX(frame), CGRectGetMaxY(frame));
+        }
+            break;
+            
+        default:
+            center = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame));
+            break;
+    }
+    
+    return center;
 }
 @end
