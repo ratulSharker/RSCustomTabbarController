@@ -8,17 +8,21 @@
 //
 
 #import "SlidingTabbarTransitionAnimation.h"
+#import "RSCustomTabbarController.h"
 
 @implementation SlidingTabbarTransitionAnimation
 
 -(void)customTabbarController:(RSCustomTabbarController *)tabbarController
-   willSwitchToViewContorller:(UIViewController *)toViewController
-           FromViewController:(NSMutableSet<UIViewController *> *)fromViewControllers
                withFinalFrame:(CGRect)finalFrame
              oldSelectedIndex:(NSUInteger)oldIndex
              newSelectedIndex:(NSUInteger)newIndex
  withAnimationCompletionBlock:(RSCustomTabbarGeneralPurposeBlock)completionBlock
 {
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    
+    UIViewController *toViewController = [tabbarController getViewControllerAtIndex:newIndex];
+    
+    
     toViewController.view.alpha = 0.0;
     toViewController.view.frame = CGRectMake((newIndex > oldIndex) ? finalFrame.size.width : -finalFrame.size.width,
                                              finalFrame.origin.y,
@@ -26,7 +30,7 @@
                                              finalFrame.size.height);
     
     
-    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+
     [UIView animateWithDuration:0.3 animations:^{
        
         toViewController.view.frame = finalFrame;

@@ -127,41 +127,40 @@
     //won't call super here
     if(animated)
     {
+        [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+        
         if(visible)
         {
-            tabbarHolder0.alpha = tabbarHolder1.alpha = tabbarHolder2.alpha = 0.0;
-            tabbarHolder0.hidden = tabbarHolder1.hidden = tabbarHolder2.hidden = NO;
+            [self setAllTabbarHolderVisibility:YES];
+            [self setAllTabbarHolderAlphaLevel:0.0];
         }
         else
         {
-            tabbarHolder0.alpha = tabbarHolder1.alpha = tabbarHolder2.alpha = 1.0;
+            [self setAllTabbarHolderAlphaLevel:1.0];
         }
         
         [UIView animateWithDuration:0.5
                          animations:^{
                              if(visible)
                              {
-                                 tabbarHolder0.alpha = tabbarHolder1.alpha = tabbarHolder2.alpha = 1.0;
+                                 [self setAllTabbarHolderAlphaLevel:1.0];
                              }
                              else
                              {
-                                 tabbarHolder0.alpha = tabbarHolder1.alpha = tabbarHolder2.alpha = 0.0;
+                                 [self setAllTabbarHolderAlphaLevel:0.0];
                              }
 
                          }
                          completion:^(BOOL finished) {
-                             tabbarHolder0.hidden = !visible;
-                             tabbarHolder1.hidden = !visible;
-                             tabbarHolder2.hidden = !visible;
-                             tabbarHolder0.alpha = tabbarHolder1.alpha = tabbarHolder2.alpha = 1.0;
+                             [self setAllTabbarHolderVisibility:visible];
+                             [self setAllTabbarHolderAlphaLevel:1.0];
                              
+                             [[UIApplication sharedApplication] endIgnoringInteractionEvents];
                          }];
     }
     else
     {
-        tabbarHolder0.hidden = !visible;
-        tabbarHolder1.hidden = !visible;
-        tabbarHolder2.hidden = !visible;
+        [self setAllTabbarHolderVisibility:visible];
     }
 }
 
@@ -244,7 +243,15 @@
         default:
             break;
     }
-    
 }
 
+#pragma mark private helper methods
+-(void)setAllTabbarHolderVisibility:(BOOL)visibility
+{
+    tabbarHolder0.hidden = tabbarHolder1.hidden = tabbarHolder2.hidden = !visibility;
+}
+-(void)setAllTabbarHolderAlphaLevel:(CGFloat)alpha
+{
+    tabbarHolder0.alpha = tabbarHolder1.alpha = tabbarHolder2.alpha = alpha;
+}
 @end

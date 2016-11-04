@@ -24,22 +24,23 @@ class PopupTabbarTransitionAnimation : NSObject, RSCustomTabbarTransitionAnimati
     // MARK: objective-c mapping for the following method implementation
     //
     @objc(customTabbarController:
-    willSwitchToViewContorller:
-    FromViewController:
     withFinalFrame:
     oldSelectedIndex:
     newSelectedIndex:
     withAnimationCompletionBlock:)
     
-    func customTabbarController(tabbarController: RSCustomTabbarController!, willSwitchToViewContorller toViewController: UIViewController!, fromViewController fromViewControllers: NSMutableSet!, withFinalFrame finalFrame: CGRect, oldSelectedIndex oldIndex: UInt, newSelectedIndex newIndex: UInt, withAnimationCompletionBlock completionBlock: RSCustomTabbarGeneralPurposeBlock!) {
-        
+    func customTabbarController(tabbarController: RSCustomTabbarController!, withFinalFrame finalFrame: CGRect, oldSelectedIndex oldIndex: UInt, newSelectedIndex newIndex: UInt, withAnimationCompletionBlock completionBlock: RSCustomTabbarGeneralPurposeBlock!) {
+
         //
         //  turning off all user interaction handling by app
-        //  without these, unusual behaviour may appear 
+        //  without these, unusual behaviour may appear
         //  while switching tab too fast
         //
         UIApplication.sharedApplication().beginIgnoringInteractionEvents();
         
+        let toViewController = tabbarController.getViewControllerAtIndex(newIndex);
+        
+
         toViewController.view.frame = finalFrame;
         toViewController.view.layer.transform = CATransform3DMakeScale(0, 0, 0);
         

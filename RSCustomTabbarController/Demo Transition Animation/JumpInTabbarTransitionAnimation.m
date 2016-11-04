@@ -8,20 +8,20 @@
 //
 
 #import "JumpInTabbarTransitionAnimation.h"
-
+#import "RSCustomTabbarController.h"
 
 @implementation JumpInTabbarTransitionAnimation
 
 
 -(void)customTabbarController:(RSCustomTabbarController*)tabbarController
-   willSwitchToViewContorller:(UIViewController*)toViewController
-           FromViewController:(NSMutableSet<UIViewController*>*)fromViewControllers
                withFinalFrame:(CGRect)finalFrame
              oldSelectedIndex:(NSUInteger)oldIndex
              newSelectedIndex:(NSUInteger)newIndex
  withAnimationCompletionBlock:(RSCustomTabbarGeneralPurposeBlock)completionBlock
 {
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    
+    UIViewController *toViewController = [tabbarController getViewControllerAtIndex:newIndex];
     
     toViewController.view.alpha = 0.0;
     toViewController.view.frame = finalFrame;

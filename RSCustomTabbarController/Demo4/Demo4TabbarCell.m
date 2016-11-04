@@ -32,16 +32,31 @@
 
 
 #pragma mark public method
+
+-(void)setNormalOrSelectedImage:(BOOL)isSelected
+{
+    NSString *imgName;
+    
+    if(!isSelected)
+    {
+        imgName = @"browser_tab_normal";
+    }
+    else
+    {
+        imgName = @"browser_tab_selected";
+    }
+    
+    self.mViewImageView.image = [[UIImage imageNamed:imgName] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 24, 0, 26)
+                                                                             resizingMode:UIImageResizingModeStretch];
+}
 -(void)setSelectedImage
 {
-    self.mViewImageView.image = [[UIImage imageNamed:@"browser_tab_selected"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 24, 0, 26)
-                                                                                           resizingMode:UIImageResizingModeStretch];
+    
 }
 
 -(void)setNormalImage
 {
-    self.mViewImageView.image = [[UIImage imageNamed:@"browser_tab_normal"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 24, 0, 26)
-                                                                                           resizingMode:UIImageResizingModeStretch];
+
 }
 
 @end

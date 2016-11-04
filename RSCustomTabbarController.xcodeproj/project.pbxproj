@@ -151,12 +151,12 @@
 		E7AAFBAD1DA0B2F800F22F21 /* CustomTabbarConroller */ = {
 			isa = PBXGroup;
 			children = (
-				E73D3B2B1DC1B24700FE1773 /* RSCustomTabbarControllerLifecycleDelegte.h */,
 				E7AAFBAE1DA0B2F800F22F21 /* RSCustomTabbarController.h */,
 				E7AAFBAF1DA0B2F800F22F21 /* RSCustomTabbarController.m */,
 				E7AAFBDE1DA0F03100F22F21 /* RSCustomTabbarTransitionAnimationDelegate.h */,
 				E7AAFBE91DA0F0E000F22F21 /* RSCustomTabbarImplementationDelegate.h */,
 				E7AAFBEA1DA0F1B600F22F21 /* RSCustomTabbarDelegate.h */,
+				E73D3B2B1DC1B24700FE1773 /* RSCustomTabbarControllerLifecycleDelegte.h */,
 			);
 			path = CustomTabbarConroller;
 			sourceTree = "<group>";

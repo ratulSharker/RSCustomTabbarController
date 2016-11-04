@@ -194,14 +194,7 @@ typedef void(^collectionViewConstraintUpdated)();
     
     cell.mViewLabel.text = [NSString stringWithFormat:@"%ld", number.integerValue];
     
-    if([isSelected boolValue])
-    {
-        [cell setSelectedImage];
-    }
-    else
-    {
-        [cell setNormalImage];
-    }
+    [cell setNormalOrSelectedImage:[isSelected boolValue]];
     
     cell.delegate = self;
     return cell;
@@ -273,7 +266,7 @@ typedef void(^collectionViewConstraintUpdated)();
     tabbarInfo[TABBAR_CELL_SELECTED_KEY] = [NSNumber numberWithBool:YES];
     
     Demo4TabbarCell *cell = (Demo4TabbarCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    [cell setSelectedImage];
+    [cell setNormalOrSelectedImage:YES];
 }
 
 -(void)unselectCellAtIndexPath:(NSIndexPath*)indexPath forCollectionView:(UICollectionView*)collectionView
@@ -285,7 +278,7 @@ typedef void(^collectionViewConstraintUpdated)();
     tabbarInfo[TABBAR_CELL_SELECTED_KEY] = [NSNumber numberWithBool:NO];
     
     Demo4TabbarCell *cell = (Demo4TabbarCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    [cell setNormalImage];
+    [cell setNormalOrSelectedImage:NO];
 }
 
 -(void)refreshCollectionViewSize:(collectionViewConstraintUpdated)completion

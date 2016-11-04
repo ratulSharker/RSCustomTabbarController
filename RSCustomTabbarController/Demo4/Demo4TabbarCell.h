@@ -25,7 +25,6 @@
 @property id<Demo4TabbarCellDelegate> delegate;
 
 
--(void)setSelectedImage;
--(void)setNormalImage;
+-(void)setNormalOrSelectedImage:(BOOL)isNormal;
 
 @end

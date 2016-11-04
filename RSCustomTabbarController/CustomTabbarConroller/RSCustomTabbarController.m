@@ -376,18 +376,12 @@
             
             if(self.transitionAnimationDelegate &&
                [self.transitionAnimationDelegate respondsToSelector:@selector(customTabbarController:
-                                                                              willSwitchToViewContorller:
-                                                                              FromViewController:
                                                                               withFinalFrame:
                                                                               oldSelectedIndex:
                                                                               newSelectedIndex:
                                                                               withAnimationCompletionBlock:)])
             {
-
-                
                 [self.transitionAnimationDelegate customTabbarController:self
-                                              willSwitchToViewContorller:targetViewController
-                                                      FromViewController:previousViewControllers
                                                           withFinalFrame:self.implementationDelegate.viewControllerContainer.bounds
                                                         oldSelectedIndex:selectedIndex
                                                         newSelectedIndex:index
