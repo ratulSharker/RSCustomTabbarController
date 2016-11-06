@@ -69,4 +69,14 @@
 }
 
 
+#pragma mark public class method
++(void)moveToMenuTableViewController
+{
+    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    UINavigationController *navController = [appDelegate getCurrentNavigationController];
+    [navController popToRootViewControllerAnimated:YES];
+}
+
+
+
 @end

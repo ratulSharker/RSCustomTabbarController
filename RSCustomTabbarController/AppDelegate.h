@@ -29,6 +29,10 @@
 -(void)setCurrentNavigationController:(UINavigationController*)navigationController;
 -(UINavigationController*)getCurrentNavigationController;
 
+//
+//  moving to menu table view controller
+//
++(void)moveToMenuTableViewController;
 
 @end
 

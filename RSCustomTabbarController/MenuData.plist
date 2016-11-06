@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>menu.item.title</key>
+		<string>Demo 1</string>
+		<key>menu.item.description</key>
+		<string>A simple trivial tabbar example</string>
+		<key>menu.item.number.of.vc</key>
+		<integer>4</integer>
+		<key>menu.item.selector</key>
+		<string>showOnDemo1</string>
+	</dict>
+	<dict>
+		<key>menu.item.title</key>
+		<string>Demo 2</string>
+		<key>menu.item.description</key>
+		<string>Multiple tabbar in single tab controller</string>
+		<key>menu.item.number.of.vc</key>
+		<integer>4</integer>
+		<key>menu.item.selector</key>
+		<string>showOnDemo2</string>
+	</dict>
+	<dict>
+		<key>menu.item.title</key>
+		<string>Demo 3</string>
+		<key>menu.item.description</key>
+		<string>Movable tabbar</string>
+		<key>menu.item.number.of.vc</key>
+		<integer>3</integer>
+		<key>menu.item.selector</key>
+		<string>showOnDemo3</string>
+	</dict>
+	<dict>
+		<key>menu.item.title</key>
+		<string>Demo 4</string>
+		<key>menu.item.description</key>
+		<string>Browser like dynamic tabbar</string>
+		<key>menu.item.number.of.vc</key>
+		<integer>1</integer>
+		<key>menu.item.selector</key>
+		<string>showOnDemo4</string>
+	</dict>
+	<dict>
+		<key>menu.item.title</key>
+		<string>Demo 5</string>
+		<key>menu.item.description</key>
+		<string>Working with swift</string>
+		<key>menu.item.number.of.vc</key>
+		<integer>4</integer>
+		<key>menu.item.selector</key>
+		<string>showOnDemo5</string>
+	</dict>
+</array>
+</plist>

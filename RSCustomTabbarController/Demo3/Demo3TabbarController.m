@@ -47,17 +47,13 @@
     tabbarBtn1.tag = 1;
     tabbarBtn2.tag = 2;
     
-    btnArr = @[
-               tabbarBtn0,
+    btnArr = @[tabbarBtn0,
                tabbarBtn1,
-               tabbarBtn2
-               ];
+               tabbarBtn2];
     
-    tabbarArr = @[
-                  tabbarHolder0,
+    tabbarArr = @[tabbarHolder0,
                   tabbarHolder1,
-                  tabbarHolder2
-                  ];
+                  tabbarHolder2];
     
     //
     //  providing appropriate transition animation
@@ -254,4 +250,5 @@
 {
     tabbarHolder0.alpha = tabbarHolder1.alpha = tabbarHolder2.alpha = alpha;
 }
+
 @end

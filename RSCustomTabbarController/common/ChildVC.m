@@ -46,10 +46,7 @@
 
 - (IBAction)backToDemoList:(UIButton*)sender
 {
-    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    UINavigationController *navController = [appDelegate getCurrentNavigationController];
-    
-    [navController popViewControllerAnimated:YES];
+    [AppDelegate moveToMenuTableViewController];
 }
 
 

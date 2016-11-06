@@ -35,6 +35,7 @@
 		E7B0A2311DA825EA00BF5AE3 /* Demo4TabbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B0A2301DA825EA00BF5AE3 /* Demo4TabbarController.m */; };
 		E7B0A2341DA84F7D00BF5AE3 /* Demo4TabbarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B0A2331DA84F7D00BF5AE3 /* Demo4TabbarCell.m */; };
 		E7E8D4101DBC651400094EB3 /* SwiftChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E8D40F1DBC651400094EB3 /* SwiftChildVC.swift */; };
+		E7EE286A1DCEE0F200DF24A3 /* MenuData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E7EE28691DCEE0F200DF24A3 /* MenuData.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		E7B0A2331DA84F7D00BF5AE3 /* Demo4TabbarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo4TabbarCell.m; sourceTree = "<group>"; };
 		E7DC9B451D748AA2008DBEC9 /* RSCustomTabbarController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSCustomTabbarController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E8D40F1DBC651400094EB3 /* SwiftChildVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftChildVC.swift; sourceTree = "<group>"; };
+		E7EE28691DCEE0F200DF24A3 /* MenuData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MenuData.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				E7AAFBC71DA0B2F800F22F21 /* MenuTableCell.m */,
 				E7AAFBC81DA0B2F800F22F21 /* MenuTableViewController.h */,
 				E7AAFBC91DA0B2F800F22F21 /* MenuTableViewController.m */,
+				E7EE28691DCEE0F200DF24A3 /* MenuData.plist */,
 			);
 			path = RSCustomTabbarController;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7EE286A1DCEE0F200DF24A3 /* MenuData.plist in Resources */,
 				E7AAFBCB1DA0B2F800F22F21 /* Assets.xcassets in Resources */,
 				E71FA6771DBBC01200EBA7A4 /* demo5.storyboard in Resources */,
 				E7AAFBD51DA0B2F800F22F21 /* demo2.storyboard in Resources */,

@@ -136,10 +136,7 @@ typedef void(^collectionViewConstraintUpdated)();
 
 - (IBAction)onBackPressed:(id)sender
 {
-    AppDelegate *appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
-    UINavigationController *navController = [appDelegate getCurrentNavigationController];
-    
-    [navController popViewControllerAnimated:YES];
+    [AppDelegate moveToMenuTableViewController];
 }
 
 
@@ -262,11 +259,7 @@ typedef void(^collectionViewConstraintUpdated)();
     //
     //  change the data to selected
     //
-    NSMutableDictionary *tabbarInfo = tabbarsInfo[indexPath.row];
-    tabbarInfo[TABBAR_CELL_SELECTED_KEY] = [NSNumber numberWithBool:YES];
-    
-    Demo4TabbarCell *cell = (Demo4TabbarCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    [cell setNormalOrSelectedImage:YES];
+    [self selectUnselectTabbarInCollectionView:collectionView AtIndexPath:indexPath isSelected:YES];
 }
 
 -(void)unselectCellAtIndexPath:(NSIndexPath*)indexPath forCollectionView:(UICollectionView*)collectionView
@@ -274,11 +267,9 @@ typedef void(^collectionViewConstraintUpdated)();
     //
     //  change the data to selected
     //
-    NSMutableDictionary *tabbarInfo = tabbarsInfo[indexPath.row];
-    tabbarInfo[TABBAR_CELL_SELECTED_KEY] = [NSNumber numberWithBool:NO];
-    
-    Demo4TabbarCell *cell = (Demo4TabbarCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    [cell setNormalOrSelectedImage:NO];
+    [self selectUnselectTabbarInCollectionView:collectionView
+                                   AtIndexPath:indexPath
+                                    isSelected:NO];
 }
 
 -(void)refreshCollectionViewSize:(collectionViewConstraintUpdated)completion
@@ -293,6 +284,21 @@ typedef void(^collectionViewConstraintUpdated)();
                 if(completion)
                     completion();
             }];
+}
+
+#pragma mark private helper method
+-(void)selectUnselectTabbarInCollectionView:(UICollectionView*)collectionView
+                                AtIndexPath:(NSIndexPath*)indexPath
+                                 isSelected:(BOOL)isSelected
+{
+    //
+    //  change the data to selected
+    //
+    NSMutableDictionary *tabbarInfo = tabbarsInfo[indexPath.row];
+    tabbarInfo[TABBAR_CELL_SELECTED_KEY] = [NSNumber numberWithBool:isSelected];
+    
+    Demo4TabbarCell *cell = (Demo4TabbarCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    [cell setNormalOrSelectedImage:isSelected];
 }
 
 @end

@@ -135,7 +135,7 @@
         <!--Swift ChildVC-->
         <scene sceneID="AK3-Vq-rW4">
             <objects>
-                <viewController storyboardIdentifier="swiftVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N6h-ne-cdb" customClass="SwiftChildVC" customModule="RSCustomTabbarController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="firstVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="N6h-ne-cdb" customClass="SwiftChildVC" customModule="RSCustomTabbarController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zWQ-Pj-f0U"/>
                         <viewControllerLayoutGuide type="bottom" id="R1r-so-Hse"/>
@@ -144,7 +144,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello world Swift" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NQ-id-Yy1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello world Swift 1st" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NQ-id-Yy1">
                                 <rect key="frame" x="20" y="248" width="280" height="71"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="highlightedColor"/>
@@ -163,7 +163,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98823529409999999" green="0.46274509800000002" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="leading" secondItem="5NQ-id-Yy1" secondAttribute="leading" constant="-20" id="Snz-hc-G2t"/>
                             <constraint firstAttribute="trailing" secondItem="5NQ-id-Yy1" secondAttribute="trailing" constant="20" id="Wbq-yk-YeP"/>
@@ -180,7 +180,157 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GrS-cD-3Sj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1307" y="206"/>
+            <point key="canvasLocation" x="1335" y="218"/>
+        </scene>
+        <!--Swift ChildVC-->
+        <scene sceneID="o3D-52-qOp">
+            <objects>
+                <viewController storyboardIdentifier="secondVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Aex-mC-G0D" customClass="SwiftChildVC" customModule="RSCustomTabbarController" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j29-Ka-tj6"/>
+                        <viewControllerLayoutGuide type="bottom" id="YoM-zQ-gf3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vRR-7F-ipF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello world Swift 2nd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKh-eU-tQB">
+                                <rect key="frame" x="20" y="248" width="280" height="71"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJA-Lm-2HG">
+                                <rect key="frame" x="20" y="210" width="280" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Back to Demo List"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backToDemoList:" destination="Aex-mC-G0D" eventType="touchUpInside" id="BGV-oJ-BKm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.58431372550000005" green="0.81568627449999997" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="aJA-Lm-2HG" secondAttribute="trailing" constant="20" id="9qu-hM-6ws"/>
+                            <constraint firstItem="SKh-eU-tQB" firstAttribute="centerY" secondItem="vRR-7F-ipF" secondAttribute="centerY" id="HkK-M1-WyX"/>
+                            <constraint firstAttribute="trailing" secondItem="SKh-eU-tQB" secondAttribute="trailing" constant="20" id="RoK-Ri-nbr"/>
+                            <constraint firstItem="SKh-eU-tQB" firstAttribute="top" secondItem="aJA-Lm-2HG" secondAttribute="bottom" constant="8" id="dEw-54-dXG"/>
+                            <constraint firstAttribute="leading" secondItem="aJA-Lm-2HG" secondAttribute="leading" constant="-20" id="hXp-i1-gTv"/>
+                            <constraint firstAttribute="leading" secondItem="SKh-eU-tQB" secondAttribute="leading" constant="-20" id="wsb-Eo-mja"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="mViewLabel" destination="SKh-eU-tQB" id="3HF-Fo-txE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iY0-GE-p34" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1688" y="218"/>
+        </scene>
+        <!--Swift ChildVC-->
+        <scene sceneID="RsA-hQ-HeO">
+            <objects>
+                <viewController storyboardIdentifier="thirdVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="75h-rW-fjR" customClass="SwiftChildVC" customModule="RSCustomTabbarController" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hyh-Ll-kCq"/>
+                        <viewControllerLayoutGuide type="bottom" id="RNx-TR-Ahn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j2S-d6-8jX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello world Swift 3rd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vhh-Kb-ZMf">
+                                <rect key="frame" x="20" y="248" width="280" height="71"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEm-St-zst">
+                                <rect key="frame" x="20" y="210" width="280" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Back to Demo List"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backToDemoList:" destination="75h-rW-fjR" eventType="touchUpInside" id="HlB-oF-4Ps"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.70360386371612549" green="0.93434792757034302" blue="0.64365774393081665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VEm-St-zst" secondAttribute="trailing" constant="20" id="Dsy-KE-oO2"/>
+                            <constraint firstItem="Vhh-Kb-ZMf" firstAttribute="centerY" secondItem="j2S-d6-8jX" secondAttribute="centerY" id="FeS-bL-zAQ"/>
+                            <constraint firstAttribute="leading" secondItem="VEm-St-zst" secondAttribute="leading" constant="-20" id="GfZ-xj-qqs"/>
+                            <constraint firstAttribute="trailing" secondItem="Vhh-Kb-ZMf" secondAttribute="trailing" constant="20" id="Jfp-Ul-MGv"/>
+                            <constraint firstAttribute="leading" secondItem="Vhh-Kb-ZMf" secondAttribute="leading" constant="-20" id="PNG-Dr-EkC"/>
+                            <constraint firstItem="Vhh-Kb-ZMf" firstAttribute="top" secondItem="VEm-St-zst" secondAttribute="bottom" constant="8" id="g04-gF-2eU"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="mViewLabel" destination="Vhh-Kb-ZMf" id="OV1-08-13a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vnx-JC-dzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1335" y="838"/>
+        </scene>
+        <!--Swift ChildVC-->
+        <scene sceneID="sEQ-lc-EsF">
+            <objects>
+                <viewController storyboardIdentifier="fourthVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lJC-qY-QR7" customClass="SwiftChildVC" customModule="RSCustomTabbarController" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hw7-fV-9st"/>
+                        <viewControllerLayoutGuide type="bottom" id="MyP-vp-mDT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ey0-ge-soY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hello world Swift 4th" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECk-oJ-OZX">
+                                <rect key="frame" x="20" y="248" width="280" height="71"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OuT-MX-EaU">
+                                <rect key="frame" x="20" y="210" width="280" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Back to Demo List"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="backToDemoList:" destination="lJC-qY-QR7" eventType="touchUpInside" id="34f-wr-Mgl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.7725490196" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="leading" secondItem="ECk-oJ-OZX" secondAttribute="leading" constant="-20" id="Dkq-XN-7kf"/>
+                            <constraint firstAttribute="trailing" secondItem="OuT-MX-EaU" secondAttribute="trailing" constant="20" id="Don-fQ-K6E"/>
+                            <constraint firstItem="ECk-oJ-OZX" firstAttribute="top" secondItem="OuT-MX-EaU" secondAttribute="bottom" constant="8" id="VVr-V1-F8b"/>
+                            <constraint firstAttribute="leading" secondItem="OuT-MX-EaU" secondAttribute="leading" constant="-20" id="d01-1c-6aV"/>
+                            <constraint firstAttribute="trailing" secondItem="ECk-oJ-OZX" secondAttribute="trailing" constant="20" id="he2-tF-4NL"/>
+                            <constraint firstItem="ECk-oJ-OZX" firstAttribute="centerY" secondItem="ey0-ge-soY" secondAttribute="centerY" id="rUk-Ir-NDI"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="mViewLabel" destination="ECk-oJ-OZX" id="1uS-OR-YUK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iVM-0J-Pwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1688" y="838"/>
         </scene>
     </scenes>
     <resources>

@@ -11,13 +11,6 @@ import Foundation
 class SwiftChildVC : UIViewController
 {
     //
-    // MARK: pre loaded values
-    //
-    var VCBackgroundColor:  UIColor!;
-    var VCTitleString:      String!;
-    
-    
-    //
     // MARK: ui components
     //
     @IBOutlet var mViewLabel: UILabel!
@@ -28,16 +21,11 @@ class SwiftChildVC : UIViewController
     //
     override func viewDidLoad() {
         super.viewDidLoad();
-        
-        mViewLabel.text = VCTitleString;
-        self.view.backgroundColor = VCBackgroundColor;
     }
     
     
     @IBAction func backToDemoList(sender : UIButton)
     {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate;
-        let currentNavigation = appDelegate.getCurrentNavigationController();
-        currentNavigation.popViewControllerAnimated(true);
+        AppDelegate.moveToMenuTableViewController();
     }
 }

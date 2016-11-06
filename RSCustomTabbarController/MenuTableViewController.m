@@ -9,10 +9,7 @@
 
 #import "MenuTableViewController.h"
 #import "MenuTableCell.h"
-#import "Demo1TabbarController.h"
-#import "Demo2TabbarController.h"
-#import "Demo3TabbarController.h"
-#import "Demo4TabbarController.h"
+#import "RSCustomTabbarController.h"
 #import "RSCustomTabbarController-SWift.h"      //  this one is for importing swift classes into objective-c
 #import "AppDelegate.h"
 
@@ -21,10 +18,6 @@
 #define MENU_ITEM_NUMBER_OF_VC      @"menu.item.number.of.vc"
 #define MENU_ITEM_HANDLER_SELECTOR  @"menu.item.selector"
 
-#define VIEW_CONTROLLER_ONE_BACKGROUND_COLOR    [UIColor colorWithRed:252.0/255.0 green:118.0/255.0 blue:122.0/255.0 alpha:1.0]
-#define VIEW_CONTROLLER_TWO_BACKGROUND_COLOR    [UIColor colorWithRed:149.0/255.0 green:208.0/255.0 blue:239.0/255.0 alpha:1.0]
-#define VIEW_CONTROLLER_THREE_BACKGROUND_COLOR  [UIColor colorWithRed:175.0/255.0 green:241.0/255.0 blue:156.0/255.0 alpha:1.0]
-#define VIEW_CONTROLLER_FOUR_BACKGROUND_COLOR   [UIColor colorWithRed:246.0/255.0 green:197.0/255.0 blue:120.0/255.0 alpha:1.0]
 
 @interface MenuTableViewController ()<RSCustomTabbarDelegate>
 
@@ -34,7 +27,6 @@
 @implementation MenuTableViewController
 {
     NSArray <NSDictionary*> *menuData;
-    
     NSUInteger initialSelectedTabbarIndex;
 }
 
@@ -42,47 +34,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    
-    menuData = @[
-                 @{
-                     MENU_ITEM_TITLE_KEY : @"Demo 1",
-                     MENU_ITEM_DESCRIPTION_KEY : @"A simple trivial tabbar example",
-                     MENU_ITEM_NUMBER_OF_VC : [NSNumber numberWithInteger:4],
-                     MENU_ITEM_HANDLER_SELECTOR : NSStringFromSelector(@selector(showOnDemo1))
-                     },
-                 @{
-                     MENU_ITEM_TITLE_KEY : @"Demo 2",
-                     MENU_ITEM_DESCRIPTION_KEY : @"Multiple tabbar in single tab controlller",
-                     MENU_ITEM_NUMBER_OF_VC : [NSNumber numberWithInteger:4],
-                     MENU_ITEM_HANDLER_SELECTOR : @"showOnDemo2"
-                    
-                     },
-                 @{
-                     MENU_ITEM_TITLE_KEY: @"Demo 3",
-                     MENU_ITEM_DESCRIPTION_KEY: @"Movable tabbar",
-                     MENU_ITEM_NUMBER_OF_VC : [NSNumber numberWithInt:3],
-                     MENU_ITEM_HANDLER_SELECTOR : @"showOnDemo3"
-                     },
-                 @{
-                     MENU_ITEM_TITLE_KEY: @"Demo 4",
-                     MENU_ITEM_DESCRIPTION_KEY: @"Browser Like dynamic tabbar",
-                     MENU_ITEM_NUMBER_OF_VC : [NSNumber numberWithInt:1],
-                     MENU_ITEM_HANDLER_SELECTOR : @"showOnDemo4"
-                     },
-                 @{
-                     MENU_ITEM_TITLE_KEY: @"Demo 5",
-                     MENU_ITEM_DESCRIPTION_KEY: @"Working with Swift",
-                     MENU_ITEM_NUMBER_OF_VC : [NSNumber numberWithInt:4],
-                     MENU_ITEM_HANDLER_SELECTOR : @"showOnDemo5"
-                     }
-                 ];
-    
-    
+    NSString *menuDataFilePath = [[NSBundle mainBundle] pathForResource:@"MenuData" ofType:@"plist"];
+    menuData = [NSArray arrayWithContentsOfFile:menuDataFilePath];
     
     AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate setCurrentNavigationController:self.navigationController];
-    
     
     //
     //  for self sizing row
@@ -172,311 +128,53 @@
 #pragma mark private helper
 -(void)showOnDemo1
 {
-    UIStoryboard *childsStory = [UIStoryboard storyboardWithName:@"childs" bundle:[NSBundle mainBundle]];
-    
-    UIViewController *first = [childsStory instantiateViewControllerWithIdentifier:@"firstVC"],
-    *second = [childsStory instantiateViewControllerWithIdentifier:@"secondVC"],
-    *third = [childsStory instantiateViewControllerWithIdentifier:@"thirdVC"],
-    *fourth = [childsStory instantiateViewControllerWithIdentifier:@"fourthVC"];
-    
-    UIStoryboard *tabbarStory = [UIStoryboard storyboardWithName:@"demo1" bundle:[NSBundle mainBundle]];
-    Demo1TabbarController *tabbarController = [tabbarStory instantiateInitialViewController];
-    
-    
-    [tabbarController setViewControllers:@[first, second, third, fourth]];
-    tabbarController.implementationDelegate = tabbarController;
-    tabbarController.delegate = self;
-    
-    self.navigationController.navigationBarHidden = YES;
-    
-    
-    //
-    //  in the app delegate set the tabbar controller as the
-    //  currently working tabbar controller
-    //
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate setCurrentCustomTabbarController:tabbarController];
-    
-    if(initialSelectedTabbarIndex != CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX)
-    {
-        //
-        //  make a pending block which will
-        //  select the initial selected view controller
-        //
-        RSCustomTabbarPendingBlock pendingBlock = ^{
-            [tabbarController setSelectedViewCotnrollerAtIndex:initialSelectedTabbarIndex];
-        };
-        
-        
-        //  do it manually
-        if(![tabbarController isViewLoaded])
-        {
-            //
-            //  view of the tabbar is not loaded yet
-            //  so just add a pending block
-            //
-            [tabbarController setShouldSelectDefaultViewController:NO];
-            [tabbarController addPendingBlockIntendedToBeExecutedAfterViewDidLoad:pendingBlock];
-            
-        }
-        else
-        {
-            //
-            //  view of the tabbar is already loaded
-            //  so execute the pending block by yourself
-            //
-            //  this case is not gonna be occur, unless you
-            //  cache the tabbar controller or used it more than once
-            //
-            pendingBlock();
-        }
-    }
-    else
-    {
-        //  just let it go :P
-        [tabbarController setShouldSelectDefaultViewController:YES];
-    }
-    
-    [self.navigationController pushViewController:tabbarController animated:YES];
+    [self showDemoWithTabbarStoryboardFile:@"demo1"
+         childViewControllerStoryboardName:@"childs"
+                                childVCSID:@[@"firstVC",
+                                             @"secondVC",
+                                             @"thirdVC",
+                                             @"fourthVC"]];
 }
 
 -(void)showOnDemo2
 {
-    UIStoryboard *childsStory = [UIStoryboard storyboardWithName:@"childs" bundle:[NSBundle mainBundle]];
-    
-    UIViewController *first = [childsStory instantiateViewControllerWithIdentifier:@"firstVC"],
-    *second = [childsStory instantiateViewControllerWithIdentifier:@"secondVC"],
-    *third = [childsStory instantiateViewControllerWithIdentifier:@"thirdVC"],
-    *fourth = [childsStory instantiateViewControllerWithIdentifier:@"fourthVC"];
-    
-    UIStoryboard *tabbarStory = [UIStoryboard storyboardWithName:@"demo2" bundle:[NSBundle mainBundle]];
-    Demo2TabbarController *tabbarController = [tabbarStory instantiateInitialViewController];
-    
-    
-    [tabbarController setViewControllers:@[first, second, third, fourth]];
-    tabbarController.implementationDelegate = tabbarController;
-    tabbarController.delegate = self;
-    
-    self.navigationController.navigationBarHidden = YES;
-    
-    
-    //
-    //  in the app delegate set the tabbar controller as the
-    //  currently working tabbar controller
-    //
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate setCurrentCustomTabbarController:tabbarController];
-    
-    if(initialSelectedTabbarIndex != CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX)
-    {
-        //
-        //  make a pending block which will
-        //  select the initial selected view controller
-        //
-        RSCustomTabbarPendingBlock pendingBlock = ^{
-            [tabbarController setSelectedViewCotnrollerAtIndex:initialSelectedTabbarIndex];
-        };
-        
-        
-        //  do it manually
-        if(![tabbarController isViewLoaded])
-        {
-            //
-            //  view of the tabbar is not loaded yet
-            //  so just add a pending block
-            //
-            [tabbarController setShouldSelectDefaultViewController:NO];
-            [tabbarController addPendingBlockIntendedToBeExecutedAfterViewDidLoad:pendingBlock];
-            
-        }
-        else
-        {
-            //
-            //  view of the tabbar is already loaded
-            //  so execute the pending block by yourself
-            //
-            //  this case is not gonna be occur, unless you
-            //  cache the tabbar controller or used it more than once
-            //
-            pendingBlock();
-        }
-    }
-    else
-    {
-        //  just let it go :P
-        [tabbarController setShouldSelectDefaultViewController:YES];
-    }
-    
-    [self.navigationController pushViewController:tabbarController animated:YES];
+    [self showDemoWithTabbarStoryboardFile:@"demo2"
+         childViewControllerStoryboardName:@"childs"
+                                childVCSID:@[@"firstVC",
+                                             @"secondVC",
+                                             @"thirdVC",
+                                             @"fourthVC"]];
 }
 
 -(void)showOnDemo3
 {
-    UIStoryboard *childsStory = [UIStoryboard storyboardWithName:@"childs" bundle:[NSBundle mainBundle]];
-    
-    UIViewController *first = [childsStory instantiateViewControllerWithIdentifier:@"firstVC"],
-    *second = [childsStory instantiateViewControllerWithIdentifier:@"secondVC"],
-    *third = [childsStory instantiateViewControllerWithIdentifier:@"thirdVC"];
-    
-    UIStoryboard *tabbarStory = [UIStoryboard storyboardWithName:@"demo3" bundle:[NSBundle mainBundle]];
-    Demo3TabbarController *tabbarController = [tabbarStory instantiateInitialViewController];
-    
-    [tabbarController setViewControllers:@[first, second, third]];
-    tabbarController.implementationDelegate = tabbarController;
-    tabbarController.delegate = self;
-    
-    self.navigationController.navigationBarHidden = YES;
-    
-    
-    //
-    //  in the app delegate set the tabbar controller as the
-    //  currently working tabbar controller
-    //
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate setCurrentCustomTabbarController:tabbarController];
-    
-    
-    if(initialSelectedTabbarIndex != CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX)
-    {
-        //
-        //  make a pending block which will
-        //  select the initial selected view controller
-        //
-        RSCustomTabbarPendingBlock pendingBlock = ^{
-            [tabbarController setSelectedViewCotnrollerAtIndex:initialSelectedTabbarIndex];
-        };
-        
-        
-        //  do it manually
-        if(![tabbarController isViewLoaded])
-        {
-            //
-            //  view of the tabbar is not loaded yet
-            //  so just add a pending block
-            //
-            [tabbarController setShouldSelectDefaultViewController:NO];
-            [tabbarController addPendingBlockIntendedToBeExecutedAfterViewDidLoad:pendingBlock];
-            
-        }
-        else
-        {
-            //
-            //  view of the tabbar is already loaded
-            //  so execute the pending block by yourself
-            //
-            //  this case is not gonna be occur, unless you
-            //  cache the tabbar controller or used it more than once
-            //
-            pendingBlock();
-        }
-    }
-    else
-    {
-        //  just let it go :P
-        [tabbarController setShouldSelectDefaultViewController:YES];
-    }
-    
-    [self.navigationController pushViewController:tabbarController animated:YES];
+    [self showDemoWithTabbarStoryboardFile:@"demo3"
+         childViewControllerStoryboardName:@"childs"
+                                childVCSID:@[@"firstVC",
+                                             @"secondVC",
+                                             @"thirdVC"]];
 }
 
 -(void)showOnDemo4
 {
-
-    UIStoryboard *tabbarStory = [UIStoryboard storyboardWithName:@"demo4" bundle:[NSBundle mainBundle]];
-    Demo4TabbarController *tabbarController = [tabbarStory instantiateInitialViewController];
-    
-    tabbarController.implementationDelegate = tabbarController;
-    tabbarController.delegate = self;
-
-    self.navigationController.navigationBarHidden = YES;
-
-    
     //
-    //  in the app delegate set the tabbar controller as the
-    //  currently working tabbar controller
+    //  this is set so that, no default view controller is selected by the next function call
     //
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate setCurrentCustomTabbarController:tabbarController];
+    initialSelectedTabbarIndex = CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX;
     
-    
-    [self.navigationController pushViewController:tabbarController animated:YES];
+    [self showDemoWithTabbarStoryboardFile:@"demo4"
+         childViewControllerStoryboardName:nil
+                                childVCSID:nil];
 }
 
 -(void)showOnDemo5
 {
-    UIStoryboard *tabbarStory = [UIStoryboard storyboardWithName:@"demo5" bundle:[NSBundle mainBundle]];
-    Demo5TabbarController *tabbarController = [tabbarStory instantiateInitialViewController];
-    
-    //  instantiating swift view controllers
-    SwiftChildVC *viewController1 = [tabbarStory instantiateViewControllerWithIdentifier:@"swiftVC"],
-    *viewController2 = [tabbarStory instantiateViewControllerWithIdentifier:@"swiftVC"],
-    *viewController3 = [tabbarStory instantiateViewControllerWithIdentifier:@"swiftVC"],
-    *viewController4 = [tabbarStory instantiateViewControllerWithIdentifier:@"swiftVC"];
-    
-    
-    //  configuring swift view controller
-    viewController1.VCBackgroundColor = VIEW_CONTROLLER_ONE_BACKGROUND_COLOR;
-    viewController2.VCBackgroundColor = VIEW_CONTROLLER_TWO_BACKGROUND_COLOR;
-    viewController3.VCBackgroundColor = VIEW_CONTROLLER_THREE_BACKGROUND_COLOR;
-    viewController4.VCBackgroundColor = VIEW_CONTROLLER_FOUR_BACKGROUND_COLOR;
-    
-    viewController1.VCTitleString = @"Hello world Swift 1st";
-    viewController2.VCTitleString = @"Hello world Swift 2nd";
-    viewController3.VCTitleString = @"Hello world Swift 3rd";
-    viewController4.VCTitleString = @"Hello world Swift 4th";
-    
-    //  configuring the tabbar
-    [tabbarController setViewControllers:@[viewController1,
-                                           viewController2,
-                                           viewController3,
-                                           viewController4]];
-    tabbarController.implementationDelegate = tabbarController;
-    tabbarController.delegate = self;
-    
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate setCurrentCustomTabbarController:tabbarController];
-    
-    if(initialSelectedTabbarIndex != CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX)
-    {
-        //
-        //  make a pending block which will
-        //  select the initial selected view controller
-        //
-        RSCustomTabbarPendingBlock pendingBlock = ^{
-            [tabbarController setSelectedViewCotnrollerAtIndex:initialSelectedTabbarIndex];
-        };
-        
-        
-        //  do it manually
-        if(![tabbarController isViewLoaded])
-        {
-            //
-            //  view of the tabbar is not loaded yet
-            //  so just add a pending block
-            //
-            [tabbarController setShouldSelectDefaultViewController:NO];
-            [tabbarController addPendingBlockIntendedToBeExecutedAfterViewDidLoad:pendingBlock];
-            
-        }
-        else
-        {
-            //
-            //  view of the tabbar is already loaded
-            //  so execute the pending block by yourself
-            //
-            //  this case is not gonna be occur, unless you
-            //  cache the tabbar controller or used it more than once
-            //
-            pendingBlock();
-        }
-    }
-    else
-    {
-        //  just let it go :P
-        [tabbarController setShouldSelectDefaultViewController:YES];
-    }
-    
-    [self.navigationController pushViewController:tabbarController animated:YES];
+    [self showDemoWithTabbarStoryboardFile:@"demo5"
+         childViewControllerStoryboardName:@"demo5"
+                                childVCSID:@[@"firstVC",
+                                             @"secondVC",
+                                             @"thirdVC",
+                                             @"fourthVC"]];
 }
 
 #pragma mark CustomTabbarDelegate
@@ -485,4 +183,89 @@
     NSLog(@"We are just confirmed that, our default custom tabbar is been loaded");
 }
 
+#pragma mark private helper method
+-(NSArray<UIViewController*>*)createViewControllerFromStoryboardFile:(NSString*)fileName
+                                                   viewControllerArr:(NSArray<NSString*>*)viewControllerIDs
+{
+    if(!fileName || fileName.length == 0)
+    {
+        return @[];
+    }
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:fileName bundle:[NSBundle mainBundle]];
+    NSMutableArray<UIViewController*> *vcs = [[NSMutableArray alloc] init];
+    
+    for(NSString *viewControllerId in viewControllerIDs)
+    {
+        [vcs addObject:[storyboard instantiateViewControllerWithIdentifier:viewControllerId]];
+    }
+    
+    return [NSArray arrayWithArray:vcs];
+}
+
+-(void)showDemoWithTabbarStoryboardFile:(NSString*)tabbarStoryboardFile
+      childViewControllerStoryboardName:(NSString*)childStoryboardName
+                             childVCSID:(NSArray<NSString*>*)childViewControllersID
+{
+    NSArray <UIViewController*>*childVCs = [self createViewControllerFromStoryboardFile:childStoryboardName
+                                                                      viewControllerArr:childViewControllersID];
+    //  initiating tabbar controller
+    UIStoryboard *tabbarStory = [UIStoryboard storyboardWithName:tabbarStoryboardFile bundle:[NSBundle mainBundle]];
+    RSCustomTabbarController *tabbarController = [tabbarStory instantiateInitialViewController];
+    //  setting some implementation
+    [tabbarController setViewControllers:childVCs];
+    tabbarController.implementationDelegate = (id<RSCustomTabbarImplementationDelegate>)tabbarController;
+    tabbarController.delegate = self;
+    //  hiding the navigation controller
+    self.navigationController.navigationBarHidden = YES;
+    
+    //
+    //  in the app delegate set the tabbar controller as the
+    //  currently working tabbar controller
+    //
+    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate setCurrentCustomTabbarController:tabbarController];
+    
+    if(initialSelectedTabbarIndex != CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX)
+    {
+        //
+        //  make a pending block which will
+        //  select the initial selected view controller
+        //
+        RSCustomTabbarPendingBlock pendingBlock = ^{
+            [tabbarController setSelectedViewCotnrollerAtIndex:initialSelectedTabbarIndex];
+        };
+        
+        
+        //  do it manually
+        if(![tabbarController isViewLoaded])
+        {
+            //
+            //  view of the tabbar is not loaded yet
+            //  so just add a pending block
+            //
+            [tabbarController setShouldSelectDefaultViewController:NO];
+            [tabbarController addPendingBlockIntendedToBeExecutedAfterViewDidLoad:pendingBlock];
+            
+        }
+        else
+        {
+            //
+            //  view of the tabbar is already loaded
+            //  so execute the pending block by yourself
+            //
+            //  this case is not gonna be occur, unless you
+            //  cache the tabbar controller or used it more than once
+            //
+            pendingBlock();
+        }
+    }
+    else
+    {
+        //  just let it go :P
+        [tabbarController setShouldSelectDefaultViewController:YES];
+    }
+    
+    [self.navigationController pushViewController:tabbarController animated:YES];
+}
 @end
