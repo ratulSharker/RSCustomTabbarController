@@ -11,12 +11,6 @@
 
 @interface Demo3TabbarController : RSCustomTabbarController <RSCustomTabbarImplementationDelegate>
 
-
-
 @property IBOutlet UIView *viewControllerContainer;
-@property IBOutletCollection (NSLayoutConstraint) NSArray *tabbarContainerHeight;
-@property IBOutletCollection (NSLayoutConstraint) NSArray *tabbarWidgetHolderTop;
-
-
 
 @end

@@ -14,16 +14,11 @@
 @interface Demo1TabbarController ()
 {
     NSArray<UIButton*> *buttonArr;
-    
-    
 }
 @property (strong, nonatomic) IBOutlet UIButton *mViewBtn0;
 @property (strong, nonatomic) IBOutlet UIButton *mViewBtn1;
 @property (strong, nonatomic) IBOutlet UIButton *mViewBtn2;
 @property (strong, nonatomic) IBOutlet UIButton *mViewBtn3;
-
-
-
 
 @end
 

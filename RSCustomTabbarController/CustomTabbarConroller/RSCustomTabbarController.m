@@ -20,7 +20,6 @@
     NSMutableArray<RSCustomTabbarGeneralPurposeBlock> *viewDidLoadPendingBlocks;
 }
 
-
 #pragma mark UIViewControllerLifeCycle
 -(void)viewDidLoad
 {
@@ -140,38 +139,19 @@
     //
     //  assume here tabbar default height never changing thing
     //
+    CGFloat height = [self.implementationDelegate heightForTabbarController:self];
+    for(NSLayoutConstraint *constraint in self.implementationDelegate.tabbarContainerHeight)
+    {
+        constraint.constant = visible * height;
+    }
     
-    if(visible)
+    for(NSLayoutConstraint *constraint in self.implementationDelegate.tabbarWidgetHolderTop)
     {
-        CGFloat height = [self.implementationDelegate heightForTabbarController:self];
-        for(NSLayoutConstraint *constraint in self.implementationDelegate.tabbarContainerHeight)
-        {
-            constraint.constant = visible * height;
-        }
-        
-        for(NSLayoutConstraint *constraint in self.implementationDelegate.tabbarWidgetHolderTop)
-        {
-            constraint.active = visible;
-        }
-        
+        constraint.active = visible;
     }
-    else
-    {
-        for(NSLayoutConstraint *constraint in self.implementationDelegate.tabbarWidgetHolderTop)
-        {
-            constraint.active = visible;
-        }
-        
-        CGFloat height = [self.implementationDelegate heightForTabbarController:self];
-        for(NSLayoutConstraint *constraint in self.implementationDelegate.tabbarContainerHeight)
-        {
-            constraint.constant = visible * height;
-        }
-    }
-
     
     //
-    //
+    // do the animation if needed to
     //
     if(animated)
     {
@@ -185,8 +165,6 @@
         }
     }
 }
-
-
 
 -(void)removeViewControllerFromContainerAtIndex:(NSUInteger)index
 {
@@ -250,10 +228,6 @@
     }
 }
 
-
-
-
-
 -(BOOL)isViewLoaded
 {
     return super.isViewLoaded;
@@ -306,68 +280,58 @@
 #pragma mark private functionality
 -(void)manageViewControllerToBeInFrontContainer:(NSUInteger)index
 {
-    if(viewControllers && viewControllers.count > index)
+    UIViewController *targetViewController = [self checkTheViewControllerAtIndexForManaging:index];
+    
+    if(targetViewController)
     {
-        UIViewController *targetViewController = viewControllers[index];
+        //
+        //  adding the new view controller
+        //
+        [self addViewControllerAndView:targetViewController];
         
-        //  first of all check that is this viewController's view is in the
-        //  container view
-        if(targetViewController.parentViewController != self)
-        {
-            //
-            //  adding the new view controller
-            //
-            [self addChildViewController:targetViewController];
-            [self.implementationDelegate.viewControllerContainer addSubview:targetViewController.view];
-            targetViewController.view.frame = self.implementationDelegate.viewControllerContainer.bounds;
-            [targetViewController.view setNeedsLayout];
-            [targetViewController.view layoutIfNeeded];
-            [targetViewController didMoveToParentViewController:self];
-            
-            NSMutableSet <UIViewController*> *previousViewControllers = [[NSMutableSet alloc] initWithArray:self.childViewControllers];
-            [previousViewControllers removeObject:targetViewController];
-            
-            //
-            //  forming the completion block
-            //
-            RSCustomTabbarGeneralPurposeBlock completionBlock = ^{
-                //  though at a time only one child viewcontroller
-                //  will be in existence, but we should remove all
-                //  for sake of generality
-                for(UIViewController *childVC in previousViewControllers)
-                {
-                    [childVC willMoveToParentViewController:nil];
-                    [childVC.view removeFromSuperview];
-                    [childVC removeFromParentViewController];
-                }
-                
-                //
-                //  store the new selected index, for later use and consistency
-                //
-                selectedIndex = index;
-                
-                //
-                //  for surity
-                //
-                targetViewController.view.frame = self.implementationDelegate.viewControllerContainer.bounds;
-                
-                //
-                //  call the lifecycle viewControllerDidAppear
-                //
-                [self callViewControllerDidAppearAnimationFinishedInTabbarWithViewController:targetViewController];
-                
-            };
-            
-            
-            //
-            //  if transition animation exists, call it, otherwise call the completion block
-            //
-            if(![self callTransitionAnimationDelegateWillSwitchFrom:selectedIndex
-                                                       willSwitchTo:index
-                                                withCompletionBlock:completionBlock])
+        NSMutableSet <UIViewController*> *previousViewControllers = [[NSMutableSet alloc] initWithArray:self.childViewControllers];
+        [previousViewControllers removeObject:targetViewController];
+        
+        //
+        //  forming the completion block
+        //
+        RSCustomTabbarGeneralPurposeBlock completionBlock = ^{
+            //  though at a time only one child viewcontroller
+            //  will be in existence, but we should remove all
+            //  for sake of generality
+            for(UIViewController *childVC in previousViewControllers)
             {
-                completionBlock();
+                [childVC willMoveToParentViewController:nil];
+                [childVC.view removeFromSuperview];
+                [childVC removeFromParentViewController];
             }
+            
+            //
+            //  store the new selected index, for later use and consistency
+            //
+            selectedIndex = index;
+            
+            //
+            //  for surity
+            //
+            targetViewController.view.frame = self.implementationDelegate.viewControllerContainer.bounds;
+            
+            //
+            //  call the lifecycle viewControllerDidAppear
+            //
+            [self callViewControllerDidAppearAnimationFinishedInTabbarWithViewController:targetViewController];
+            
+        };
+        
+        
+        //
+        //  if transition animation exists, call it, otherwise call the completion block
+        //
+        if(![self callTransitionAnimationDelegateWillSwitchFrom:selectedIndex
+                                                   willSwitchTo:index
+                                            withCompletionBlock:completionBlock])
+        {
+            completionBlock();
         }
     }
     else
@@ -377,6 +341,27 @@
 }
 
 #pragma mark delegate caller helper
+-(void)addViewControllerAndView:(UIViewController*)targetViewController
+{
+    [self addChildViewController:targetViewController];
+    [self.implementationDelegate.viewControllerContainer addSubview:targetViewController.view];
+    targetViewController.view.frame = self.implementationDelegate.viewControllerContainer.bounds;
+    [targetViewController.view setNeedsLayout];
+    [targetViewController.view layoutIfNeeded];
+    [targetViewController didMoveToParentViewController:self];
+}
+-(UIViewController*)checkTheViewControllerAtIndexForManaging:(NSUInteger)index
+{
+    if(viewControllers && viewControllers.count > index)
+    {
+        //  first of all check that is this viewController's view is in the container view
+        return (viewControllers[index].parentViewController == self) ? nil : viewControllers[index];
+    }
+    else
+    {
+        return nil;
+    }
+}
 -(BOOL)callTransitionAnimationDelegateWillSwitchFrom:(NSUInteger)oldIndex
                                         willSwitchTo:(NSUInteger)newIndex
                                  withCompletionBlock:(RSCustomTabbarGeneralPurposeBlock)completionBlock
@@ -429,6 +414,4 @@
         [justAddedVC viewControllerDidAppearAnimationFinishedInTabbar:self];
     }
 }
-
-
 @end

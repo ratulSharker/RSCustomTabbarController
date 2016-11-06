@@ -14,8 +14,6 @@
 #import "FadingTabbarTransitionAnimation.h"
 
 #define TABBAR_CELL_REUSE_ID    @"tabbar.reuse.cell.id"
-
-
 //
 //  used in info dictionary
 //
@@ -39,7 +37,6 @@ typedef void(^collectionViewConstraintUpdated)();
     NSMutableArray <NSMutableDictionary*>  *tabbarsInfo;
     NSMutableArray <UIViewController*>     *mutableViewControllers;
     
-    
     IBOutlet UIButton *mViewAddBtn;
     IBOutlet UICollectionView *mViewTabbarCollectionView;
     IBOutlet NSLayoutConstraint *mViewCollectionViewWidth;
@@ -50,17 +47,14 @@ typedef void(^collectionViewConstraintUpdated)();
 
 - (void)viewDidLoad {
     tabbarsInfo = [[NSMutableArray alloc] init];
-
-    
+    mutableViewControllers = [[NSMutableArray alloc] init];
     
     mViewTabbarCollectionView.allowsSelection = YES;
     mViewTabbarCollectionView.allowsMultipleSelection = NO;
     
     broswerStoryboard = [UIStoryboard storyboardWithName:@"childs" bundle:[NSBundle mainBundle]];
-    mutableViewControllers = [[NSMutableArray alloc] init];
-    
+
     mViewAddBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    
     super.transitionAnimationDelegate = [[FadingTabbarTransitionAnimation alloc] init];
     
     [super viewDidLoad];
@@ -112,11 +106,8 @@ typedef void(^collectionViewConstraintUpdated)();
 {
     
     NSInteger count = tabbarsInfo.count;
-    [tabbarsInfo addObject:[[NSMutableDictionary alloc] initWithDictionary:@{
-                                                                             TABBAR_CELL_LABEL_KEY : [NSNumber numberWithInteger:count],
-                                                                             TABBAR_CELL_SELECTED_KEY : [NSNumber numberWithBool:YES]
-    
-                                                                             }]];
+    [tabbarsInfo addObject:[[NSMutableDictionary alloc] initWithDictionary:@{TABBAR_CELL_LABEL_KEY : [NSNumber numberWithInteger:count],
+                                                                             TABBAR_CELL_SELECTED_KEY : [NSNumber numberWithBool:YES]}]];
     
     BrowserChildVC *browserVC = [broswerStoryboard instantiateViewControllerWithIdentifier:@"browser_child_vc"];
     [mutableViewControllers addObject:browserVC];
@@ -124,12 +115,9 @@ typedef void(^collectionViewConstraintUpdated)();
     
     
     [self refreshCollectionViewSize:^{
-        
         NSIndexPath *newItemIndexPath = [NSIndexPath indexPathForRow:tabbarsInfo.count-1 inSection:0];
-        
         [mViewTabbarCollectionView insertItemsAtIndexPaths:@[newItemIndexPath]];
         [mViewTabbarCollectionView scrollToItemAtIndexPath:newItemIndexPath atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
-        
         [super setSelectedViewCotnrollerAtIndex:newItemIndexPath.row];
     }];
 }
@@ -183,14 +171,11 @@ typedef void(^collectionViewConstraintUpdated)();
 {
     Demo4TabbarCell *cell = (Demo4TabbarCell*)[collectionView dequeueReusableCellWithReuseIdentifier:TABBAR_CELL_REUSE_ID
                                                                            forIndexPath:indexPath];
-    
     NSDictionary *tabbarInfo = tabbarsInfo[indexPath.row];
-    
     NSNumber *number = tabbarInfo[TABBAR_CELL_LABEL_KEY];
     NSNumber *isSelected = tabbarInfo[TABBAR_CELL_SELECTED_KEY];
     
     cell.mViewLabel.text = [NSString stringWithFormat:@"%ld", number.integerValue];
-    
     [cell setNormalOrSelectedImage:[isSelected boolValue]];
     
     cell.delegate = self;
@@ -222,12 +207,10 @@ typedef void(^collectionViewConstraintUpdated)();
     
     return CGSizeMake(perItemWidth,
                       collectionView.bounds.size.height);
-    
 }
 
 
 #pragma mark Demo4TabbarCellDelegate
-
 -(void)crossPressedForDemo4TabbarCell:(Demo4TabbarCell*)cell
 {
     NSIndexPath *indexPath = [mViewTabbarCollectionView indexPathForCell:cell];

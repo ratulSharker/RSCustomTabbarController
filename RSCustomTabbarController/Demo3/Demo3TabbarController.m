@@ -14,51 +14,53 @@
 #define DRAGGING_LEADING_DISTANCE   8
 
 @interface Demo3TabbarController ()
+{
+    NSArray<UIButton*> *btnArr;
+    NSArray<UIView *> *tabbarArr;
+}
+@property (strong, nonatomic) IBOutlet UIButton *tabbarBtn0;
+@property (strong, nonatomic) IBOutlet UIButton *tabbarBtn1;
+@property (strong, nonatomic) IBOutlet UIButton *tabbarBtn2;
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *tabbar0Top;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *tabbar0Leading;
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *tabbar1Top;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *tabbar1Leading;
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *tabbar2Top;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *tabbar2Leading;
+
+@property (strong, nonatomic) IBOutlet UIView *tabbarHolder0;
+@property (strong, nonatomic) IBOutlet UIView *tabbarHolder1;
+@property (strong, nonatomic) IBOutlet UIView *tabbarHolder2;
 
 @end
 
 @implementation Demo3TabbarController
-{
-    IBOutlet UIButton *tabbarBtn0;
-    IBOutlet UIButton *tabbarBtn1;
-    IBOutlet UIButton *tabbarBtn2;
 
-    NSArray<UIButton*> *btnArr;
-
-    IBOutlet UIView *tabbarHolder0;
-    IBOutlet UIView *tabbarHolder1;
-    IBOutlet UIView *tabbarHolder2;
-    
-    NSArray<UIView *> *tabbarArr;
-    
-    IBOutlet NSLayoutConstraint *tabbar0Top;
-    IBOutlet NSLayoutConstraint *tabbar0Leading;
-    
-    IBOutlet NSLayoutConstraint *tabbar1Top;
-    IBOutlet NSLayoutConstraint *tabbar1Leading;
-    
-    IBOutlet NSLayoutConstraint *tabbar2Top;
-    IBOutlet NSLayoutConstraint *tabbar2Leading;
-    
-}
 - (void)viewDidLoad {
     
-    tabbarBtn0.tag = 0;
-    tabbarBtn1.tag = 1;
-    tabbarBtn2.tag = 2;
+    _tabbarBtn0.tag = 0;
+    _tabbarBtn1.tag = 1;
+    _tabbarBtn2.tag = 2;
     
-    btnArr = @[tabbarBtn0,
-               tabbarBtn1,
-               tabbarBtn2];
+    btnArr = @[_tabbarBtn0,
+               _tabbarBtn1,
+               _tabbarBtn2];
     
-    tabbarArr = @[tabbarHolder0,
-                  tabbarHolder1,
-                  tabbarHolder2];
+    tabbarArr = @[_tabbarHolder0,
+                  _tabbarHolder1,
+                  _tabbarHolder2];
     
     //
     //  providing appropriate transition animation
     //
     super.transitionAnimationDelegate = [FadingTabbarTransitionAnimation new];
+    
+    
+    //  adding gesture recognizer
+    [self addGestureRecognizerToTabbars];
     
     //
     //  we want to execute the super view did load
@@ -66,14 +68,6 @@
     //
     [super viewDidLoad];
     
-    
-    UIPanGestureRecognizer *panGesture0 = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
-    UIPanGestureRecognizer *panGesture1 = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
-    UIPanGestureRecognizer *panGesture2 = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
-    
-    [tabbarHolder0 addGestureRecognizer:panGesture0];
-    [tabbarHolder1 addGestureRecognizer:panGesture1];
-    [tabbarHolder2 addGestureRecognizer:panGesture2];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -121,31 +115,20 @@
 -(void)setTabbarVisibility:(BOOL)visible animated:(BOOL)animated
 {
     //won't call super here
-    if(animated)
-    {
+    if(animated){
         [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
         
-        if(visible)
-        {
+        if(visible){
             [self setAllTabbarHolderVisibility:YES];
             [self setAllTabbarHolderAlphaLevel:0.0];
         }
-        else
-        {
+        else{
             [self setAllTabbarHolderAlphaLevel:1.0];
         }
         
         [UIView animateWithDuration:0.5
                          animations:^{
-                             if(visible)
-                             {
-                                 [self setAllTabbarHolderAlphaLevel:1.0];
-                             }
-                             else
-                             {
-                                 [self setAllTabbarHolderAlphaLevel:0.0];
-                             }
-
+                             [self setAllTabbarHolderAlphaLevel:(CGFloat)visible];
                          }
                          completion:^(BOOL finished) {
                              [self setAllTabbarHolderVisibility:visible];
@@ -174,62 +157,26 @@
     static NSLayoutConstraint *viewLeadingConstraint, *viewTopConstraint;
     
     switch (gesture.state) {
-        case UIGestureRecognizerStateBegan:
-        {
-            //chnage the view properties to selected
-            holder.layer.borderWidth = 3.0;
-            holder.layer.borderColor = [UIColor yellowColor].CGColor;
-            
+        case UIGestureRecognizerStateBegan:{
+            [self gestureStartEndViewSettings:holder isStart:YES];
             startPoint = [gesture locationInView:holder];
             
-            if(holder == tabbarHolder0)
-            {
-                viewLeadingConstraint = tabbar0Leading;
-                viewTopConstraint = tabbar0Top;
-            }
-            else if(holder == tabbarHolder1)
-            {
-                viewLeadingConstraint = tabbar1Leading;
-                viewTopConstraint = tabbar1Top;
-            }
-            else if(holder == tabbarHolder2)
-            {
-                viewLeadingConstraint = tabbar2Leading;
-                viewTopConstraint = tabbar2Top;
-            }
-            
-            [self.view bringSubviewToFront:holder];
-            
-            
+            viewLeadingConstraint = [self getConstraintAccordingToGesture:gesture isLeading:YES];
+            viewTopConstraint = [self getConstraintAccordingToGesture:gesture isLeading:NO];
         }
             break;
-        case UIGestureRecognizerStateChanged:
-        {
-
+        case UIGestureRecognizerStateChanged:{
             //update the view constraint
-            CGPoint translatedPoint = [gesture locationInView:self.view];
-            
-            translatedPoint.x = translatedPoint.x - startPoint.x;
-            translatedPoint.y = translatedPoint.y - startPoint.y;
-            
-            if(viewLeadingConstraint && translatedPoint.x > DRAGGING_LEADING_DISTANCE)
-            {
-                viewLeadingConstraint.constant = translatedPoint.x;
-            }
-            
-            if(viewTopConstraint && translatedPoint.y > DRAGGING_TOP_DISTANCE)
-            {
-                viewTopConstraint.constant = translatedPoint.y;
-            }
+            [self translateViewAccordingToGesture:gesture
+                                   withStartPoint:startPoint
+                                leadingConstraint:viewLeadingConstraint
+                                    topConstraint:viewTopConstraint];
         }
             break;
         case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateFailed:
-        case UIGestureRecognizerStateCancelled:
-        {
-            //change the view properties to normal
-            holder.layer.borderWidth = 0;
-            holder.layer.borderColor = [UIColor clearColor].CGColor;
+        case UIGestureRecognizerStateCancelled:{
+            [self gestureStartEndViewSettings:holder isStart:NO];
             
             viewLeadingConstraint = nil;
             viewTopConstraint = nil;
@@ -244,11 +191,82 @@
 #pragma mark private helper methods
 -(void)setAllTabbarHolderVisibility:(BOOL)visibility
 {
-    tabbarHolder0.hidden = tabbarHolder1.hidden = tabbarHolder2.hidden = !visibility;
+    _tabbarHolder0.hidden = _tabbarHolder1.hidden = _tabbarHolder2.hidden = !visibility;
 }
 -(void)setAllTabbarHolderAlphaLevel:(CGFloat)alpha
 {
-    tabbarHolder0.alpha = tabbarHolder1.alpha = tabbarHolder2.alpha = alpha;
+    _tabbarHolder0.alpha = _tabbarHolder1.alpha = _tabbarHolder2.alpha = alpha;
 }
+-(void)addGestureRecognizerToTabbars
+{
+    for(UIView *tabbarHolder in tabbarArr)
+    {
+        [tabbarHolder addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self
+                                                                                   action:@selector(panGesture:)]];
+    }
+}
+
+//
+//  here starts all gesture related helper methods
+//
+-(void)gestureStartEndViewSettings:(UIView*)holderView isStart:(BOOL)gestureStart
+{
+    if(gestureStart)
+    {
+        //chnage the view properties to selected
+        holderView.layer.borderWidth = 3.0;
+        holderView.layer.borderColor = [UIColor yellowColor].CGColor;
+        [self.view bringSubviewToFront:holderView];
+    }
+    else
+    {
+        //change the view properties to normal
+        holderView.layer.borderWidth = 0;
+        holderView.layer.borderColor = [UIColor clearColor].CGColor;
+    }
+}
+
+-(NSLayoutConstraint*)getConstraintAccordingToGesture:(UIPanGestureRecognizer*)gesture isLeading:(BOOL)isLeading
+{
+    if(gesture.view == _tabbarHolder0)
+    {
+        return isLeading ? _tabbar0Leading : _tabbar0Top;
+    }
+    else if(gesture.view == _tabbarHolder1)
+    {
+        return isLeading ? _tabbar1Leading : _tabbar1Top;
+    }
+    else if(gesture.view == _tabbarHolder2)
+    {
+        return isLeading ? _tabbar2Leading : _tabbar2Top;
+    }
+    return nil;
+}
+
+
+-(void)translateViewAccordingToGesture:(UIPanGestureRecognizer *)gesture
+                        withStartPoint:(CGPoint)startPoint
+                     leadingConstraint:(NSLayoutConstraint*)viewLeadingConstraint
+                         topConstraint:(NSLayoutConstraint*)viewTopConstraint
+{
+    //update the view constraint
+    CGPoint translatedPoint = [gesture locationInView:self.view];
+    
+    translatedPoint.x = translatedPoint.x - startPoint.x;
+    translatedPoint.y = translatedPoint.y - startPoint.y;
+    
+    if(viewLeadingConstraint && translatedPoint.x > DRAGGING_LEADING_DISTANCE)
+    {
+        viewLeadingConstraint.constant = translatedPoint.x;
+    }
+    
+    if(viewTopConstraint && translatedPoint.y > DRAGGING_TOP_DISTANCE)
+    {
+        viewTopConstraint.constant = translatedPoint.y;
+    }
+    
+}
+
+
 
 @end
