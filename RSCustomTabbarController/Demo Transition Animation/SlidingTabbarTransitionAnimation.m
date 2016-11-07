@@ -12,7 +12,7 @@
 
 @implementation SlidingTabbarTransitionAnimation
 
--(void)customTabbarController:(RSCustomTabbarController *)tabbarController
+-(void)customTabbarController:(RSCustomTabbarControllerBasic *)tabbarController
           willSwitchFromIndex:(NSUInteger)oldIndex
             willSwitchToIndex:(NSUInteger)newIndex
  withAnimationCompletionBlock:(RSCustomTabbarGeneralPurposeBlock)completionBlock
@@ -20,7 +20,7 @@
     [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     
     UIViewController *toViewController = [tabbarController getViewControllerAtIndex:newIndex];
-    CGRect finalFrame = [tabbarController getViewControllerContainerFrame];
+    CGRect finalFrame = [(RSCustomTabbarController*)tabbarController getViewControllerContainerFrame];
     
     toViewController.view.alpha = 0.0;
     toViewController.view.frame = CGRectMake((newIndex > oldIndex) ? finalFrame.size.width : -finalFrame.size.width,

@@ -28,7 +28,7 @@ class PopupTabbarTransitionAnimation : NSObject, RSCustomTabbarTransitionAnimati
     willSwitchToIndex:
     withAnimationCompletionBlock:)
     
-    func customTabbarController(tabbarController: RSCustomTabbarController!, willSwitchFromIndex oldIndex: UInt, willSwitchToIndex newIndex: UInt, withAnimationCompletionBlock completionBlock: RSCustomTabbarGeneralPurposeBlock!) {
+    func customTabbarController(tabbarController: RSCustomTabbarControllerBasic!, willSwitchFromIndex oldIndex: UInt, willSwitchToIndex newIndex: UInt, withAnimationCompletionBlock completionBlock: RSCustomTabbarGeneralPurposeBlock!) {
 
         //
         //  turning off all user interaction handling by app
@@ -37,9 +37,11 @@ class PopupTabbarTransitionAnimation : NSObject, RSCustomTabbarTransitionAnimati
         //
         UIApplication.sharedApplication().beginIgnoringInteractionEvents();
         
+        let tabbar = tabbarController as! RSCustomTabbarController;
+        
         let toViewController = tabbarController.getViewControllerAtIndex(newIndex);
-
-        toViewController.view.frame = tabbarController.getViewControllerContainerFrame();
+        
+        toViewController.view.frame = tabbar.getViewControllerContainerFrame();
         toViewController.view.layer.transform = CATransform3DMakeScale(0, 0, 0);
         
         UIView.animateWithDuration(0.5, animations: { 
@@ -72,7 +74,7 @@ class PopupTabbarTransitionAnimation : NSObject, RSCustomTabbarTransitionAnimati
     willRemoveViewControllers:
     withCompletionBlock:)
     
-    func customTabbarController(tabbarController: RSCustomTabbarController!, willRemoveViewControllers removingViewControllers: [UIViewController]!, withCompletionBlock completionBlock: RSCustomTabbarGeneralPurposeBlock!) {
+    func customTabbarController(tabbarController: RSCustomTabbarControllerBasic!, willRemoveViewControllers removingViewControllers: [UIViewController]!, withCompletionBlock completionBlock: RSCustomTabbarGeneralPurposeBlock!) {
         //
         //  we are not handling any dynamic tab deletion
         //  in case of any dynamic tab deletion, this protocol must be 

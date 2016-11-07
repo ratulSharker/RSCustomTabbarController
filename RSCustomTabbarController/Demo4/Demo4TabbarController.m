@@ -28,33 +28,31 @@ typedef void(^collectionViewConstraintUpdated)();
 @interface Demo4TabbarController () <   UICollectionViewDataSource,
                                         UICollectionViewDelegateFlowLayout,
                                         Demo4TabbarCellDelegate>
-
-@end
-
-@implementation Demo4TabbarController
 {
-    
     NSMutableArray <NSMutableDictionary*>  *tabbarsInfo;
     NSMutableArray <UIViewController*>     *mutableViewControllers;
-    
-    IBOutlet UIButton *mViewAddBtn;
-    IBOutlet UICollectionView *mViewTabbarCollectionView;
-    IBOutlet NSLayoutConstraint *mViewCollectionViewWidth;
     
     UIStoryboard *broswerStoryboard;
 }
 
+@property (strong, nonatomic) IBOutlet UIButton *mViewAddBtn;
+@property (strong, nonatomic) IBOutlet UICollectionView *mViewTabbarCollectionView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *mViewCollectionViewWidth;
+
+@end
+
+@implementation Demo4TabbarController
 
 - (void)viewDidLoad {
     tabbarsInfo = [[NSMutableArray alloc] init];
     mutableViewControllers = [[NSMutableArray alloc] init];
     
-    mViewTabbarCollectionView.allowsSelection = YES;
-    mViewTabbarCollectionView.allowsMultipleSelection = NO;
+    _mViewTabbarCollectionView.allowsSelection = YES;
+    _mViewTabbarCollectionView.allowsMultipleSelection = NO;
     
     broswerStoryboard = [UIStoryboard storyboardWithName:@"childs" bundle:[NSBundle mainBundle]];
 
-    mViewAddBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    _mViewAddBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
     super.transitionAnimationDelegate = [[FadingTabbarTransitionAnimation alloc] init];
     
     [super viewDidLoad];
@@ -67,8 +65,8 @@ typedef void(^collectionViewConstraintUpdated)();
     //
     //  set the collection view's layout here
     //
-    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)mViewTabbarCollectionView.collectionViewLayout;
-    mViewTabbarCollectionView.contentInset = UIEdgeInsetsZero;
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)_mViewTabbarCollectionView.collectionViewLayout;
+    _mViewTabbarCollectionView.contentInset = UIEdgeInsetsZero;
     
     layout.sectionInset = UIEdgeInsetsZero;
     layout.minimumLineSpacing = 0.0;
@@ -76,7 +74,7 @@ typedef void(^collectionViewConstraintUpdated)();
     layout.headerReferenceSize = CGSizeZero;
     layout.footerReferenceSize = CGSizeZero;
     
-    mViewTabbarCollectionView.collectionViewLayout = layout;
+    _mViewTabbarCollectionView.collectionViewLayout = layout;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -116,8 +114,8 @@ typedef void(^collectionViewConstraintUpdated)();
     
     [self refreshCollectionViewSize:^{
         NSIndexPath *newItemIndexPath = [NSIndexPath indexPathForRow:tabbarsInfo.count-1 inSection:0];
-        [mViewTabbarCollectionView insertItemsAtIndexPaths:@[newItemIndexPath]];
-        [mViewTabbarCollectionView scrollToItemAtIndexPath:newItemIndexPath atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+        [_mViewTabbarCollectionView insertItemsAtIndexPaths:@[newItemIndexPath]];
+        [_mViewTabbarCollectionView scrollToItemAtIndexPath:newItemIndexPath atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
         [super setSelectedViewCotnrollerAtIndex:newItemIndexPath.row];
     }];
 }
@@ -141,7 +139,7 @@ typedef void(^collectionViewConstraintUpdated)();
     {
         //it's for the first item
         NSIndexPath *selectedIndexPath = [NSIndexPath indexPathForRow:newSelectedIndex inSection:0];
-        [self selectCellAtIndexPath:selectedIndexPath forCollectionView:mViewTabbarCollectionView];
+        [self selectCellAtIndexPath:selectedIndexPath forCollectionView:_mViewTabbarCollectionView];
     }
     else
     {
@@ -152,10 +150,8 @@ typedef void(^collectionViewConstraintUpdated)();
         NSIndexPath *unselectedIndexPath = [NSIndexPath indexPathForRow:oldSelectedIndex inSection:0];
         NSIndexPath *selectedIndexPath = [NSIndexPath indexPathForRow:newSelectedIndex inSection:0];
         
-        [self selectCellAtIndexPath:selectedIndexPath forCollectionView:mViewTabbarCollectionView];
-        [self unselectCellAtIndexPath:unselectedIndexPath forCollectionView:mViewTabbarCollectionView];
-        
-        
+        [self selectCellAtIndexPath:selectedIndexPath forCollectionView:_mViewTabbarCollectionView];
+        [self unselectCellAtIndexPath:unselectedIndexPath forCollectionView:_mViewTabbarCollectionView];
     }
 }
 
@@ -213,22 +209,19 @@ typedef void(^collectionViewConstraintUpdated)();
 #pragma mark Demo4TabbarCellDelegate
 -(void)crossPressedForDemo4TabbarCell:(Demo4TabbarCell*)cell
 {
-    NSIndexPath *indexPath = [mViewTabbarCollectionView indexPathForCell:cell];
+    NSIndexPath *indexPath = [_mViewTabbarCollectionView indexPathForCell:cell];
     NSInteger index = indexPath.row;
     
-    //
-    [mViewTabbarCollectionView scrollToItemAtIndexPath:indexPath
+    [_mViewTabbarCollectionView scrollToItemAtIndexPath:indexPath
                                       atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
                                               animated:YES];
     
-    //
     UIViewController *targetViewController = mutableViewControllers[index];
     [super removeViewControllerFromContainer:targetViewController];
     
-    //
     [mutableViewControllers removeObjectAtIndex:index];
     [tabbarsInfo removeObjectAtIndex:index];
-    [mViewTabbarCollectionView deleteItemsAtIndexPaths:@[indexPath]];
+    [_mViewTabbarCollectionView deleteItemsAtIndexPaths:@[indexPath]];
     
     [super setViewControllers:mutableViewControllers];
     
@@ -257,16 +250,16 @@ typedef void(^collectionViewConstraintUpdated)();
 
 -(void)refreshCollectionViewSize:(collectionViewConstraintUpdated)completion
 {
-    mViewCollectionViewWidth.constant = tabbarsInfo.count * TABBAR_MAX_WIDTH;
+    _mViewCollectionViewWidth.constant = tabbarsInfo.count * TABBAR_MAX_WIDTH;
 
-            [self.view updateConstraints];
-            [UIView animateWithDuration:0.3 animations:^{
-                [self.view layoutIfNeeded];
-    
-            } completion:^(BOOL finished) {
-                if(completion)
-                    completion();
-            }];
+    [self.view updateConstraints];
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.view layoutIfNeeded];
+
+    } completion:^(BOOL finished) {
+        if(completion)
+            completion();
+    }];
 }
 
 #pragma mark private helper method

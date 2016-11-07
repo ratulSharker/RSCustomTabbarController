@@ -9,7 +9,7 @@
 #ifndef RSCustomTabbarLifecycleDelegte_h
 #define RSCustomTabbarLifecycleDelegte_h
 
-@class RSCustomTabbarController;
+@class RSCustomTabbarControllerBasic;
 
 @protocol RSCustomTabbarControllerLifecycleDelegte <NSObject>
 
@@ -29,7 +29,7 @@
 //  just after placing everything in the right place. In either case
 //  this method will be called after everything is done.
 //
--(void)viewControllerDidAppearAnimationFinishedInTabbar:(RSCustomTabbarController*)customTabbar;
+-(void)viewControllerDidAppearAnimationFinishedInTabbar:(RSCustomTabbarControllerBasic *)customTabbar;
 
 @end
 

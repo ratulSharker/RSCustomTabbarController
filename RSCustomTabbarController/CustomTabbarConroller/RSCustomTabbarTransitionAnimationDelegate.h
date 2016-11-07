@@ -17,7 +17,7 @@
 //  to be used in the delegate method
 //  param
 //
-@class RSCustomTabbarController;
+@class RSCustomTabbarControllerBasic;
 
 //
 //  Declaration of the code block type
@@ -28,7 +28,7 @@ typedef void (^RSCustomTabbarGeneralPurposeBlock)();
 
 @protocol RSCustomTabbarTransitionAnimationDelegate<NSObject>
 
--(void)customTabbarController:(RSCustomTabbarController*)tabbarController
+-(void)customTabbarController:(RSCustomTabbarControllerBasic*)tabbarController
           willSwitchFromIndex:(NSUInteger)oldIndex
             willSwitchToIndex:(NSUInteger)newIndex
  withAnimationCompletionBlock:(RSCustomTabbarGeneralPurposeBlock)completionBlock;
@@ -37,7 +37,7 @@ typedef void (^RSCustomTabbarGeneralPurposeBlock)();
 //  TODO :  another animation delegate needed to be added,
 //  in case of removing view controller from the container
 //
--(void)customTabbarController:(RSCustomTabbarController*)tabbarController
+-(void)customTabbarController:(RSCustomTabbarControllerBasic*)tabbarController
     willRemoveViewControllers:(NSArray<UIViewController*>*)removingViewControllers
           withCompletionBlock:(RSCustomTabbarGeneralPurposeBlock)completionBlock;
 

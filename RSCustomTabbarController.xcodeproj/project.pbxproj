@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E7083E251DBCE969001563DA /* PopupTabbarTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7083E241DBCE969001563DA /* PopupTabbarTransitionAnimation.swift */; };
+		E71E18061DCF347F008F8665 /* RSCustomTabbarControllerBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = E71E18051DCF347F008F8665 /* RSCustomTabbarControllerBasic.m */; };
 		E71FA6751DBBBF4700EBA7A4 /* Demo5TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71FA6741DBBBF4700EBA7A4 /* Demo5TabbarController.swift */; };
 		E71FA6771DBBC01200EBA7A4 /* demo5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E71FA6761DBBC01200EBA7A4 /* demo5.storyboard */; };
 		E7556C2B1DA924D40024B8A5 /* BrowserChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E7556C2A1DA924D40024B8A5 /* BrowserChildVC.m */; };
@@ -40,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		E7083E241DBCE969001563DA /* PopupTabbarTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupTabbarTransitionAnimation.swift; sourceTree = "<group>"; };
+		E71E18041DCF347F008F8665 /* RSCustomTabbarControllerBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCustomTabbarControllerBasic.h; sourceTree = "<group>"; };
+		E71E18051DCF347F008F8665 /* RSCustomTabbarControllerBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSCustomTabbarControllerBasic.m; sourceTree = "<group>"; };
 		E71FA6731DBBBF4600EBA7A4 /* RSCustomTabbarController-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RSCustomTabbarController-Bridging-Header.h"; sourceTree = "<group>"; };
 		E71FA6741DBBBF4700EBA7A4 /* Demo5TabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Demo5TabbarController.swift; sourceTree = "<group>"; };
 		E71FA6761DBBC01200EBA7A4 /* demo5.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = demo5.storyboard; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 			children = (
 				E7AAFBAE1DA0B2F800F22F21 /* RSCustomTabbarController.h */,
 				E7AAFBAF1DA0B2F800F22F21 /* RSCustomTabbarController.m */,
+				E71E18041DCF347F008F8665 /* RSCustomTabbarControllerBasic.h */,
+				E71E18051DCF347F008F8665 /* RSCustomTabbarControllerBasic.m */,
 				E7AAFBDE1DA0F03100F22F21 /* RSCustomTabbarTransitionAnimationDelegate.h */,
 				E7AAFBE91DA0F0E000F22F21 /* RSCustomTabbarImplementationDelegate.h */,
 				E7AAFBEA1DA0F1B600F22F21 /* RSCustomTabbarDelegate.h */,
@@ -314,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E71E18061DCF347F008F8665 /* RSCustomTabbarControllerBasic.m in Sources */,
 				E71FA6751DBBBF4700EBA7A4 /* Demo5TabbarController.swift in Sources */,
 				E7556C2B1DA924D40024B8A5 /* BrowserChildVC.m in Sources */,
 				E7AAFBDC1DA0B2F800F22F21 /* MenuTableCell.m in Sources */,

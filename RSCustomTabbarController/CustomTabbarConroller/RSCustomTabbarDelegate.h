@@ -15,7 +15,7 @@
 //  to be used in the delegate method
 //  param
 //
-@class RSCustomTabbarController;
+@class RSCustomTabbarControllerBasic;
 
 @protocol RSCustomTabbarDelegate <NSObject>
 @optional
@@ -34,7 +34,7 @@
 //  If this delegate is not implemented then, RSCustomTabbarController will load the
 //  view controller denote by the CUSTOM_TABBAR_INITIAL_VIEWCONTROLLER_INDEX
 //
-- (void)customTabbarControllerViewDidLoaded:(RSCustomTabbarController *)tabBarController;
+- (void)customTabbarControllerViewDidLoaded:(RSCustomTabbarControllerBasic *)tabBarController;
 
 
 

@@ -15,7 +15,7 @@
 //  to be used in the delegate method
 //  param
 //
-@class RSCustomTabbarController;
+@class RSCustomTabbarControllerBasic;
 
 
 @protocol RSCustomTabbarImplementationDelegate <NSObject>
@@ -26,7 +26,7 @@
 @optional
 @property NSArray<NSLayoutConstraint*> *tabbarContainerHeight;
 @property NSArray<NSLayoutConstraint*> *tabbarWidgetHolderTop;
--(CGFloat)heightForTabbarController:(RSCustomTabbarController*)tabbarController;
+-(CGFloat)heightForTabbarController:(RSCustomTabbarControllerBasic*)tabbarController;
 
 @required
 -(void)newSelectedTabbarIndex:(NSUInteger)newSelectedIndex whereOldIndexWas:(NSUInteger)oldSelectedIndex;

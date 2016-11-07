@@ -178,7 +178,7 @@
 }
 
 #pragma mark CustomTabbarDelegate
-- (void)customTabbarControllerViewDidLoaded:(RSCustomTabbarController *)tabBarController
+- (void)customTabbarControllerViewDidLoaded:(RSCustomTabbarControllerBasic *)tabBarController
 {
     NSLog(@"We are just confirmed that, our default custom tabbar is been loaded");
 }
