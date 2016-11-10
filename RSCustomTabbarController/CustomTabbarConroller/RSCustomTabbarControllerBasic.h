@@ -38,8 +38,6 @@
 -(void)setSelectedViewCotnrollerAtIndex:(NSUInteger)index;
 -(void)setTabbarVisibility:(BOOL)visible animated:(BOOL)animated;
 
-
--(NSArray<UIViewController*>*)getViewControllers;
 -(UIViewController *)getViewControllerAtIndex:(NSUInteger)index;
 -(UIViewController *)getSelectedViewController;
 -(NSInteger)getSelectedIndex;

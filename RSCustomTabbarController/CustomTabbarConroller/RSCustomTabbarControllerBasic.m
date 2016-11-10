@@ -113,20 +113,8 @@
     //
     if(animated)
     {
-        [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
-        {
-            [UIView animateWithDuration:0.5 animations:^{
-                [self.view layoutIfNeeded];
-            } completion:^(BOOL finished) {
-                [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-            }];
-        }
+        [self animateConstraintChangesWithDuration:0.5];
     }
-}
-
--(NSArray<UIViewController*>*)getViewControllers
-{
-    return viewControllers;
 }
 
 -(UIViewController *)getViewControllerAtIndex:(NSUInteger)index
@@ -290,5 +278,17 @@
     {
         NSLog(@"LIFE Cycle callback not implemented");
     }
+}
+
+-(void)animateConstraintChangesWithDuration:(NSTimeInterval)timeInterval
+{
+    [UIView animateWithDuration:timeInterval
+                     animations:^{
+                         
+        [self.view layoutIfNeeded];
+                         
+    } completion:^(BOOL finished) {
+        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+    }];
 }
 @end
