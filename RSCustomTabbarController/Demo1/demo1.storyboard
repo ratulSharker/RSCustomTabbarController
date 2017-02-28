@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Demo1 Tabbar Controller-->
@@ -28,9 +32,9 @@
                                         <subviews>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVg-8x-HBp">
                                                 <rect key="frame" x="0.0" y="1" width="80" height="54"/>
-                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.49555495689655171" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.49555495689655171" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="tabbar0normal">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <state key="selected" image="tabbar0selected"/>
                                                 <state key="highlighted" image="tabbar0selected"/>
@@ -40,9 +44,9 @@
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q0j-JQ-51h">
                                                 <rect key="frame" x="80" y="1" width="80" height="54"/>
-                                                <color key="backgroundColor" red="0.2156862745" green="0.66274509800000003" blue="0.87843137250000003" alpha="0.50730064655172413" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.2156862745" green="0.66274509800000003" blue="0.87843137250000003" alpha="0.50730064655172413" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="tabbar1normal">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <state key="selected" image="tabbar1selected"/>
                                                 <state key="highlighted" image="tabbar1selected"/>
@@ -52,9 +56,9 @@
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rIA-u2-Uee">
                                                 <rect key="frame" x="160" y="1" width="80" height="54"/>
-                                                <color key="backgroundColor" red="0.40835790477986328" green="0.87450980389999999" blue="0.27808716604899331" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.40835790477986328" green="0.87450980389999999" blue="0.27808716604899331" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="tabbar2normal">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <state key="selected" image="tabbar2selected"/>
                                                 <state key="highlighted" image="tabbar2selected"/>
@@ -64,9 +68,9 @@
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LpQ-W0-xrr">
                                                 <rect key="frame" x="240" y="1" width="80" height="54"/>
-                                                <color key="backgroundColor" red="0.94509803920000002" green="0.56862745100000001" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.94509803920000002" green="0.56862745100000001" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="tabbar3normal">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <state key="selected" image="tabbar3selected"/>
                                                 <state key="highlighted" image="tabbar3selected"/>
@@ -75,7 +79,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="oVg-8x-HBp" firstAttribute="leading" secondItem="N5V-JP-whA" secondAttribute="leading" id="201-tA-eDW"/>
                                             <constraint firstItem="rIA-u2-Uee" firstAttribute="leading" secondItem="Q0j-JQ-51h" secondAttribute="trailing" id="9LX-Ra-FbM"/>
@@ -96,7 +100,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="N5V-JP-whA" firstAttribute="top" secondItem="yJV-EL-edg" secondAttribute="top" id="E5k-gq-jQe"/>
                                     <constraint firstAttribute="trailing" secondItem="N5V-JP-whA" secondAttribute="trailing" id="KcU-1i-He8"/>
@@ -106,7 +110,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yJV-EL-edg" secondAttribute="bottom" id="0JA-uz-cYk"/>
                             <constraint firstItem="VZ3-Os-8G0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="IXL-s2-ftf"/>
@@ -117,7 +121,6 @@
                             <constraint firstItem="yJV-EL-edg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zAP-y6-YE4"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mViewBtn0" destination="oVg-8x-HBp" id="7gE-Ia-6cR"/>
                         <outlet property="mViewBtn1" destination="Q0j-JQ-51h" id="GG2-rZ-7zy"/>

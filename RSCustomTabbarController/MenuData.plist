@@ -52,5 +52,15 @@
 		<key>menu.item.selector</key>
 		<string>showOnDemo5</string>
 	</dict>
+	<dict>
+		<key>menu.item.title</key>
+		<string>Demo 6</string>
+		<key>menu.item.description</key>
+		<string>Android View-Pager like Tabbar implementation</string>
+		<key>menu.item.number.of.vc</key>
+		<integer>4</integer>
+		<key>menu.item.selector</key>
+		<string>showOnDemo6</string>
+	</dict>
 </array>
 </plist>

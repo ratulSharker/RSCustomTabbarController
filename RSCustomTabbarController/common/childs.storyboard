@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--ChildVC-->
@@ -30,7 +34,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPR-BM-RtU">
                                 <rect key="frame" x="20" y="211" width="280" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Back to Demo List"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -42,7 +46,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.9882352941176471" green="0.46274509803921571" blue="0.47843137254901963" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.9882352941176471" green="0.46274509803921571" blue="0.47843137254901963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qK4-th-3pu" firstAttribute="top" secondItem="Nbw-CX-Dz0" secondAttribute="bottom" constant="20" id="3np-H4-s6n"/>
                             <constraint firstAttribute="leading" secondItem="JRl-Pt-i5x" secondAttribute="leading" constant="-20" id="7Hy-jI-WLc"/>
@@ -54,7 +58,6 @@
                             <constraint firstItem="Nbw-CX-Dz0" firstAttribute="centerX" secondItem="qhW-38-6sg" secondAttribute="centerX" id="tVA-nQ-MVp"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vVg-2i-z0S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -85,7 +88,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7P-kg-09J">
                                 <rect key="frame" x="20" y="210" width="280" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Back to Demo List"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -97,7 +100,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.58431372549019611" green="0.81568627450980391" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.58431372549019611" green="0.81568627450980391" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="nK2-JT-kPS" secondAttribute="trailing" constant="20" id="BLj-2Y-ZEQ"/>
                             <constraint firstItem="sIw-Sz-WOY" firstAttribute="centerX" secondItem="xFj-Kq-5jf" secondAttribute="centerX" id="JcE-jY-Y3Y"/>
@@ -109,11 +112,10 @@
                             <constraint firstAttribute="leading" secondItem="nK2-JT-kPS" secondAttribute="leading" constant="-20" id="xsX-ki-U5V"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SkL-h4-7Re" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="839" y="-271"/>
+            <point key="canvasLocation" x="1116" y="-271"/>
         </scene>
         <!--ChildVC-->
         <scene sceneID="cdG-zZ-ELb">
@@ -140,7 +142,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTz-td-ozD">
                                 <rect key="frame" x="20" y="211" width="280" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Back to Demo List"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -152,7 +154,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.68627450980392157" green="0.94509803921568625" blue="0.61176470588235299" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.68627450980392157" green="0.94509803921568625" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="yXK-e5-SUc" secondAttribute="trailing" constant="20" id="2MG-XC-XAP"/>
                             <constraint firstItem="yXK-e5-SUc" firstAttribute="top" secondItem="lTz-td-ozD" secondAttribute="bottom" constant="8" id="7c2-so-2Ko"/>
@@ -164,11 +166,10 @@
                             <constraint firstAttribute="leading" secondItem="yXK-e5-SUc" secondAttribute="leading" constant="-20" id="x2w-kf-BhF"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ZT-kq-Whj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1261" y="-271"/>
+            <point key="canvasLocation" x="1809" y="-271"/>
         </scene>
         <!--ChildVC-->
         <scene sceneID="vaG-VB-nhh">
@@ -195,7 +196,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FyK-7J-7K1">
                                 <rect key="frame" x="20" y="210" width="280" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Back to Demo List"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -207,7 +208,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.96470588235294119" green="0.77254901960784317" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.77254901960784317" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="leading" secondItem="cQ4-4d-bBg" secondAttribute="leading" constant="-20" id="9AO-6m-VGc"/>
                             <constraint firstItem="xZy-CW-tlc" firstAttribute="top" secondItem="XcJ-Wk-xzX" secondAttribute="bottom" constant="20" id="Cys-e1-CVs"/>
@@ -219,11 +220,10 @@
                             <constraint firstAttribute="leading" secondItem="FyK-7J-7K1" secondAttribute="leading" constant="-20" id="oHt-Eg-EAD"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65r-7E-3gW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="621" y="433"/>
+            <point key="canvasLocation" x="735" y="397"/>
         </scene>
         <!--Browser ChildVC-->
         <scene sceneID="yc5-PC-aUw">
@@ -254,10 +254,10 @@
                                             <constraint firstAttribute="width" constant="40" id="9V0-9t-cDr"/>
                                         </constraints>
                                         <state key="normal" title="Go">
-                                            <color key="titleColor" red="0.42246103286743164" green="0.50754827260971069" blue="0.90180355310440063" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.34822383522987366" green="0.41238182783126831" blue="0.87664163112640381" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <state key="highlighted">
-                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -272,7 +272,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.95564913749694824" green="0.95562052726745605" blue="0.95563679933547974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="kXM-ul-d7R" secondAttribute="trailing" constant="8" id="PYk-aC-z7O"/>
                                     <constraint firstItem="u2R-3n-Ycd" firstAttribute="centerY" secondItem="ntP-4q-Quv" secondAttribute="centerY" id="Sgk-X9-4Ti"/>
@@ -285,10 +285,10 @@
                             </view>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxL-o2-Q8P">
                                 <rect key="frame" x="0.0" y="68" width="320" height="500"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.28958413004875183" green="0.31462949514389038" blue="0.32950475811958313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vzo-Am-If0" firstAttribute="top" secondItem="bxL-o2-Q8P" secondAttribute="bottom" id="2Hf-oH-W0a"/>
                             <constraint firstItem="ntP-4q-Quv" firstAttribute="top" secondItem="lql-1g-xbY" secondAttribute="bottom" id="BEu-Mt-ewL"/>
@@ -299,7 +299,6 @@
                             <constraint firstAttribute="trailing" secondItem="ntP-4q-Quv" secondAttribute="trailing" id="pqd-6B-DKA"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mViewAddressTextField" destination="u2R-3n-Ycd" id="AvV-u5-TqE"/>
                         <outlet property="mViewWebView" destination="bxL-o2-Q8P" id="aP2-Ia-7pL"/>
@@ -307,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V6y-Nz-F8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1214" y="404"/>
+            <point key="canvasLocation" x="1498" y="397"/>
         </scene>
     </scenes>
 </document>

@@ -12,6 +12,9 @@
 		E71FA6751DBBBF4700EBA7A4 /* Demo5TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71FA6741DBBBF4700EBA7A4 /* Demo5TabbarController.swift */; };
 		E71FA6771DBBC01200EBA7A4 /* demo5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E71FA6761DBBC01200EBA7A4 /* demo5.storyboard */; };
 		E7556C2B1DA924D40024B8A5 /* BrowserChildVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E7556C2A1DA924D40024B8A5 /* BrowserChildVC.m */; };
+		E771F03C1E404B8100AF6B5B /* demo6.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E771F03B1E404B8100AF6B5B /* demo6.storyboard */; };
+		E771F03F1E40507B00AF6B5B /* Demo6TabbarControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E771F03E1E40507B00AF6B5B /* Demo6TabbarControllerViewController.m */; };
+		E771F0421E40573600AF6B5B /* Demo6TabbarItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E771F0411E40573600AF6B5B /* Demo6TabbarItemCell.m */; };
 		E7AAFBCA1DA0B2F800F22F21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AAFBA51DA0B2F800F22F21 /* AppDelegate.m */; };
 		E7AAFBCB1DA0B2F800F22F21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7AAFBA61DA0B2F800F22F21 /* Assets.xcassets */; };
 		E7AAFBCC1DA0B2F800F22F21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7AAFBA71DA0B2F800F22F21 /* LaunchScreen.storyboard */; };
@@ -49,6 +52,11 @@
 		E73D3B2B1DC1B24700FE1773 /* RSCustomTabbarControllerLifecycleDelegte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSCustomTabbarControllerLifecycleDelegte.h; sourceTree = "<group>"; };
 		E7556C291DA924D40024B8A5 /* BrowserChildVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserChildVC.h; sourceTree = "<group>"; };
 		E7556C2A1DA924D40024B8A5 /* BrowserChildVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserChildVC.m; sourceTree = "<group>"; };
+		E771F03B1E404B8100AF6B5B /* demo6.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = demo6.storyboard; sourceTree = "<group>"; };
+		E771F03D1E40507B00AF6B5B /* Demo6TabbarControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo6TabbarControllerViewController.h; sourceTree = "<group>"; };
+		E771F03E1E40507B00AF6B5B /* Demo6TabbarControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo6TabbarControllerViewController.m; sourceTree = "<group>"; };
+		E771F0401E40573600AF6B5B /* Demo6TabbarItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Demo6TabbarItemCell.h; sourceTree = "<group>"; };
+		E771F0411E40573600AF6B5B /* Demo6TabbarItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Demo6TabbarItemCell.m; sourceTree = "<group>"; };
 		E7AAFBA41DA0B2F800F22F21 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E7AAFBA51DA0B2F800F22F21 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E7AAFBA61DA0B2F800F22F21 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -104,6 +112,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E771F03A1E404B6600AF6B5B /* Demo6 */ = {
+			isa = PBXGroup;
+			children = (
+				E771F03B1E404B8100AF6B5B /* demo6.storyboard */,
+				E771F03D1E40507B00AF6B5B /* Demo6TabbarControllerViewController.h */,
+				E771F03E1E40507B00AF6B5B /* Demo6TabbarControllerViewController.m */,
+				E771F0401E40573600AF6B5B /* Demo6TabbarItemCell.h */,
+				E771F0411E40573600AF6B5B /* Demo6TabbarItemCell.m */,
+			);
+			path = Demo6;
+			sourceTree = "<group>";
+		};
 		E772204E1DBB9D060071EF51 /* Demo5 */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +146,7 @@
 				E7AAFBBF1DA0B2F800F22F21 /* Demo3 */,
 				E7B0A22C1DA8259200BF5AE3 /* Demo4 */,
 				E772204E1DBB9D060071EF51 /* Demo5 */,
+				E771F03A1E404B6600AF6B5B /* Demo6 */,
 				E7AAFBA41DA0B2F800F22F21 /* AppDelegate.h */,
 				E7AAFBA51DA0B2F800F22F21 /* AppDelegate.m */,
 				E7AAFBA61DA0B2F800F22F21 /* Assets.xcassets */,
@@ -272,6 +293,8 @@
 				TargetAttributes = {
 					E7DC9B441D748AA2008DBEC9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -308,6 +331,7 @@
 				E7AAFBCD1DA0B2F800F22F21 /* childs.storyboard in Resources */,
 				E7AAFBCC1DA0B2F800F22F21 /* LaunchScreen.storyboard in Resources */,
 				E7AAFBD91DA0B2F800F22F21 /* Info.plist in Resources */,
+				E771F03C1E404B8100AF6B5B /* demo6.storyboard in Resources */,
 				E7B0A22E1DA825BD00BF5AE3 /* demo4.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -333,9 +357,11 @@
 				E7AAFBD61DA0B2F800F22F21 /* Demo2TabbarController.m in Sources */,
 				E7AAFBE71DA0F07400F22F21 /* JumpInTabbarTransitionAnimation.m in Sources */,
 				E7AAFBD41DA0B2F800F22F21 /* Demo1TabbarController.m in Sources */,
+				E771F03F1E40507B00AF6B5B /* Demo6TabbarControllerViewController.m in Sources */,
 				E7B0A2341DA84F7D00BF5AE3 /* Demo4TabbarCell.m in Sources */,
 				E7AAFBE61DA0F07400F22F21 /* FadingTabbarTransitionAnimation.m in Sources */,
 				E7AAFBCA1DA0B2F800F22F21 /* AppDelegate.m in Sources */,
+				E771F0421E40573600AF6B5B /* Demo6TabbarItemCell.m in Sources */,
 				E7AAFBCE1DA0B2F800F22F21 /* ChildVC.m in Sources */,
 				E7AAFBCF1DA0B2F800F22F21 /* RSCustomTabbarController.m in Sources */,
 			);
@@ -444,6 +470,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = RSCustomTabbarController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -451,6 +478,7 @@
 				PRODUCT_NAME = RSCustomTabbarController;
 				SWIFT_OBJC_BRIDGING_HEADER = "RSCustomTabbarController/Demo5/RSCustomTabbarController-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -459,12 +487,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = "";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = RSCustomTabbarController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RSCustomTabbarController;
 				PRODUCT_NAME = RSCustomTabbarController;
 				SWIFT_OBJC_BRIDGING_HEADER = "RSCustomTabbarController/Demo5/RSCustomTabbarController-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

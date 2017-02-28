@@ -190,6 +190,16 @@
                                              @"fourthVC"]];
 }
 
+-(void)showOnDemo6
+{
+    [self showDemoWithTabbarStoryboardFile:@"demo6"
+         childViewControllerStoryboardName:@"childs"
+                                childVCSID:@[@"firstVC",
+                                             @"secondVC",
+                                             @"thirdVC",
+                                             @"fourthVC"]];
+}
+
 #pragma mark CustomTabbarDelegate
 - (void)customTabbarControllerViewDidLoaded:(RSCustomTabbarControllerBasic *)tabBarController
 {

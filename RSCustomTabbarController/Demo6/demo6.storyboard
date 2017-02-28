@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gbR-GB-K4c">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Demo6 Tabbar Controller View Controller-->
+        <scene sceneID="w7e-om-JXm">
+            <objects>
+                <viewController id="gbR-GB-K4c" customClass="Demo6TabbarControllerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qux-5k-kBL"/>
+                        <viewControllerLayoutGuide type="bottom" id="A4s-eA-FkS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0TX-x4-9Um">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3Nu-lh-ARY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.19595640897750854" green="0.19613614678382874" blue="0.19598421454429626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="7jF-kV-BcE"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aZ2-u1-rrL">
+                                    <size key="itemSize" width="121" height="44"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="demo6tabbaritemcell" id="lzl-4u-4pN" customClass="Demo6TabbarItemCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="121" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="121" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDa-3K-R49">
+                                                    <rect key="frame" x="8" y="8" width="105" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="topMargin" secondItem="EDa-3K-R49" secondAttribute="top" id="91w-Hk-FhG"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="EDa-3K-R49" secondAttribute="bottom" id="FvL-za-C4S"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="EDa-3K-R49" secondAttribute="trailing" id="Uzh-Mz-wu7"/>
+                                            <constraint firstAttribute="leadingMargin" secondItem="EDa-3K-R49" secondAttribute="leading" id="wa2-BR-in6"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="mViewTabbarItemLabel" destination="EDa-3K-R49" id="JhJ-0s-2Fk"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="gbR-GB-K4c" id="EqJ-bj-5Rf"/>
+                                    <outlet property="delegate" destination="gbR-GB-K4c" id="mXg-kD-wnG"/>
+                                </connections>
+                            </collectionView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5Y-W2-ZEW">
+                                <rect key="frame" x="0.0" y="43" width="375" height="624"/>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="3Nu-lh-ARY" secondAttribute="trailing" id="4tO-J2-lrk"/>
+                            <constraint firstItem="h5Y-W2-ZEW" firstAttribute="top" secondItem="3Nu-lh-ARY" secondAttribute="bottom" constant="-1" id="82R-3j-sDd"/>
+                            <constraint firstItem="h5Y-W2-ZEW" firstAttribute="leading" secondItem="0TX-x4-9Um" secondAttribute="leading" id="Mhx-yg-CXi"/>
+                            <constraint firstAttribute="trailing" secondItem="h5Y-W2-ZEW" secondAttribute="trailing" id="P03-ds-5cb"/>
+                            <constraint firstItem="A4s-eA-FkS" firstAttribute="top" secondItem="h5Y-W2-ZEW" secondAttribute="bottom" id="TFz-Za-EFq"/>
+                            <constraint firstItem="3Nu-lh-ARY" firstAttribute="top" secondItem="Qux-5k-kBL" secondAttribute="bottom" id="Y0y-W5-jpV"/>
+                            <constraint firstItem="3Nu-lh-ARY" firstAttribute="leading" secondItem="0TX-x4-9Um" secondAttribute="leading" id="pFJ-Gd-1d3"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="mViewTabbarCollectionView" destination="3Nu-lh-ARY" id="Dcd-qC-CkK"/>
+                        <outlet property="viewControllerContainer" destination="h5Y-W2-ZEW" id="r89-5Z-loO"/>
+                        <outletCollection property="tabbarContainerHeight" destination="7jF-kV-BcE" id="8o0-kS-EL1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OUq-mW-84h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-24.800000000000001" y="217.24137931034485"/>
+        </scene>
+    </scenes>
+</document>
