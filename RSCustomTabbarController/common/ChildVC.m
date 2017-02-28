@@ -62,5 +62,12 @@
     [AppDelegate moveToMenuTableViewController];
 }
 
+#pragma mark lifecycle delegate
+-(void)viewControllerDidAppearAnimationFinishedInTabbar:(RSCustomTabbarControllerBasic *)customTabbar
+                                                atIndex:(NSUInteger)index
+{
+    NSLog(@"view controller did appear animation %d", index);
+}
+
 
 @end

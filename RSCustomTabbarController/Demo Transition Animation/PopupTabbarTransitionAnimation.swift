@@ -42,31 +42,31 @@ class PopupTabbarTransitionAnimation : NSObject, RSCustomTabbarTransitionAnimati
     willSwitchToIndex:
     withAnimationCompletionBlock:)
     
-    func customTabbarController(tabbarController: RSCustomTabbarControllerBasic!, willSwitchFromIndex oldIndex: UInt, willSwitchToIndex newIndex: UInt, withAnimationCompletionBlock completionBlock: RSCustomTabbarGeneralPurposeBlock!) {
+    func customTabbarController(_ tabbarController: RSCustomTabbarControllerBasic!, willSwitchFrom oldIndex: UInt, willSwitchTo newIndex: UInt, withAnimationCompletionBlock completionBlock: RSCustomTabbarGeneralPurposeBlock!) {
 
         //
         //  turning off all user interaction handling by app
         //  without these, unusual behaviour may appear
         //  while switching tab too fast
         //
-        UIApplication.sharedApplication().beginIgnoringInteractionEvents();
+        UIApplication.shared.beginIgnoringInteractionEvents();
         
         let tabbar = tabbarController as! RSCustomTabbarController;
         
-        let toViewController = tabbarController.getViewControllerAtIndex(newIndex);
+        let toViewController = tabbarController.getViewController(at: newIndex);
         
-        toViewController.view.frame = tabbar.getViewControllerContainerFrame();
-        toViewController.view.layer.transform = CATransform3DMakeScale(0, 0, 0);
+        toViewController?.view.frame = tabbar.getViewControllerContainerFrame();
+        toViewController?.view.layer.transform = CATransform3DMakeScale(0, 0, 0);
         
-        UIView.animateWithDuration(0.5, animations: { 
+        UIView.animate(withDuration: 0.5, animations: { 
             
             //
             // do the animation here
             //
-            toViewController.view.layer.transform = CATransform3DIdentity;
+            toViewController?.view.layer.transform = CATransform3DIdentity;
             
             
-            }) { (completed) in
+            }, completion: { (completed) in
             
                 //
                 //  animation completed do the completion stuff
@@ -76,8 +76,8 @@ class PopupTabbarTransitionAnimation : NSObject, RSCustomTabbarTransitionAnimati
                 //
                 //  all the task are done, we should enable user interaction
                 //
-                UIApplication.sharedApplication().endIgnoringInteractionEvents();
-        };
+                UIApplication.shared.endIgnoringInteractionEvents();
+        }) ;
     }
     
     
@@ -88,7 +88,7 @@ class PopupTabbarTransitionAnimation : NSObject, RSCustomTabbarTransitionAnimati
     willRemoveViewControllers:
     withCompletionBlock:)
     
-    func customTabbarController(tabbarController: RSCustomTabbarControllerBasic!, willRemoveViewControllers removingViewControllers: [UIViewController]!, withCompletionBlock completionBlock: RSCustomTabbarGeneralPurposeBlock!) {
+    func customTabbarController(_ tabbarController: RSCustomTabbarControllerBasic!, willRemove removingViewControllers: [UIViewController]!, withCompletionBlock completionBlock: RSCustomTabbarGeneralPurposeBlock!) {
         //
         //  we are not handling any dynamic tab deletion
         //  in case of any dynamic tab deletion, this protocol must be 

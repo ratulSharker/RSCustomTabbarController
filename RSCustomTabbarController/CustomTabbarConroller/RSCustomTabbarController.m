@@ -159,6 +159,10 @@
     {
         frame = self.implementationDelegate.viewControllerContainer.bounds;
     }
+    else
+    {
+        RSCT_ERROR(@"RSCustomTabbarController implementation delegate is not properly implemented, actually the property 💔 viewControllerContainer 💔 not found");
+    }
     
     return frame;
 }

@@ -38,7 +38,7 @@ class SwiftChildVC : UIViewController
     }
     
     
-    @IBAction func backToDemoList(sender : UIButton)
+    @IBAction func backToDemoList(_ sender : UIButton)
     {
         AppDelegate.moveToMenuTableViewController();
     }

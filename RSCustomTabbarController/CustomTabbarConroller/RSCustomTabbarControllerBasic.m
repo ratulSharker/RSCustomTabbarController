@@ -99,7 +99,18 @@
         //  appropriate time for calling the tabbar
         //  button state update
         //
-        [self.implementationDelegate newSelectedTabbarIndex:index whereOldIndexWas:selectedIndex];
+        if(self.implementationDelegate &&
+           [self.implementationDelegate respondsToSelector:@selector(newSelectedTabbarIndex:
+                                                                     whereOldIndexWas:)])
+        {
+            [self.implementationDelegate newSelectedTabbarIndex:index
+                                               whereOldIndexWas:selectedIndex];
+        }
+        else
+        {
+            RSCT_ERROR(@"RSCustomTabbarController implementation delegate is not properly implemented, actually the selector 💔 newSelectedTabbarIndex:whereOldIndexWas: 💔 is not found");
+        }
+
         [self manageViewControllerToBeInFrontContainer:index];
     }
     else
@@ -113,23 +124,31 @@
     //
     //  assume here tabbar default height never changing thing
     //
-    CGFloat height = [self.implementationDelegate heightForTabbarController:self];
-    for(NSLayoutConstraint *constraint in self.implementationDelegate.tabbarContainerHeight)
+    if(self.implementationDelegate &&
+       [self.implementationDelegate respondsToSelector:@selector(heightForTabbarController:)])
     {
-        constraint.constant = visible * height;
+        CGFloat height = [self.implementationDelegate heightForTabbarController:self];
+        for(NSLayoutConstraint *constraint in self.implementationDelegate.tabbarContainerHeight)
+        {
+            constraint.constant = visible * height;
+        }
+        
+        for(NSLayoutConstraint *constraint in self.implementationDelegate.tabbarWidgetHolderTop)
+        {
+            constraint.active = visible;
+        }
+        
+        //
+        // do the animation if needed to
+        //
+        if(animated)
+        {
+            [self animateConstraintChangesWithDuration:0.5];
+        }
     }
-    
-    for(NSLayoutConstraint *constraint in self.implementationDelegate.tabbarWidgetHolderTop)
+    else
     {
-        constraint.active = visible;
-    }
-    
-    //
-    // do the animation if needed to
-    //
-    if(animated)
-    {
-        [self animateConstraintChangesWithDuration:0.5];
+        RSCT_ERROR(@"RSCustomTabbarController implementation delegate is not properly implemented, actually the selector 💔 heightForTabbarController: 💔 not found");
     }
 }
 
@@ -199,12 +218,21 @@
             //
             //  for surity
             //
-            targetViewController.view.frame = self.implementationDelegate.viewControllerContainer.bounds;
+            if(self.implementationDelegate && self.implementationDelegate.viewControllerContainer)
+            {
+                targetViewController.view.frame = self.implementationDelegate.viewControllerContainer.bounds;
+            }
+            else
+            {
+                RSCT_ERROR(@"RSCustomTabbarController implementation delegate is not properly implemented, actually the property 💔 viewControllerContainer 💔 not found");
+            }
+
             
             //
             //  call the lifecycle viewControllerDidAppear
             //
-            [self callViewControllerDidAppearAnimationFinishedIn:targetViewController];
+            [self callViewControllerDidAppearAnimationFinishedIn:targetViewController
+                                                         atIndex:index];
             
         };
         
@@ -228,8 +256,34 @@
 {
     if(viewControllers && viewControllers.count > index)
     {
+        //
+        //  -previous implementation.
+        //  if the view controller isn't already a child, then
+        //  add it to the child view controller. otherwise nothing to do
         //  first of all check that is this viewController's view is in the container view
-        return (viewControllers[index].parentViewController == self) ? nil : viewControllers[index];
+        //
+        //return (viewControllers[index].parentViewController == self) ? nil : viewControllers[index];
+        
+        //
+        //  -policy changes
+        //  if a view controller is already a child in the RSCustomTabbarController
+        //  in this case previously no further action was taken. But from this
+        //  revision, if there any view controller within the viewControllers array,
+        //  will be readed and their containment cycle will be re-enumerated.
+        //
+        //  -reason behind doing this.
+        //  some developer may want to add same view controller but upon tab changes
+        //  they want the whole containment cycle will be enumerated and the view controller
+        //  will be notified of that index changes. To support this scenario this policy changes
+        //  are done.
+        //
+        //  NB:: beware doing any animation with setting same view controller instance in
+        //  multiple tabbar. in that case, you may ending up in a situation like treating
+        //  the same view controller as the previously selected view controller and new selected
+        //  view controller. This sort of animation can't be supported in any such criteria.
+        //
+        //
+        return viewControllers[index];
     }
     else
     {
@@ -239,12 +293,20 @@
 
 -(void)addViewControllerAndView:(UIViewController*)targetViewController
 {
-    [self addChildViewController:targetViewController];
-    [self.implementationDelegate.viewControllerContainer addSubview:targetViewController.view];
-    targetViewController.view.frame = self.implementationDelegate.viewControllerContainer.bounds;
-    [targetViewController.view setNeedsLayout];
-    [targetViewController.view layoutIfNeeded];
-    [targetViewController didMoveToParentViewController:self];
+    if(self.implementationDelegate && self.implementationDelegate.viewControllerContainer)
+    {
+        [self addChildViewController:targetViewController];
+        [self.implementationDelegate.viewControllerContainer addSubview:targetViewController.view];
+        targetViewController.view.frame = self.implementationDelegate.viewControllerContainer.bounds;
+        [targetViewController.view setNeedsLayout];
+        [targetViewController.view layoutIfNeeded];
+        [targetViewController didMoveToParentViewController:self];
+    }
+    else
+    {
+        RSCT_ERROR(@"RSCustomTabbarController implementation delegate not properly implemented, actually the property 💔 viewControllerContainer 💔 not found");
+    }
+
 }
 -(BOOL)callTransitionAnimationDelegateWillSwitchFrom:(NSUInteger)oldIndex
                                         willSwitchTo:(NSUInteger)newIndex
@@ -283,12 +345,15 @@
 }
 
 -(void)callViewControllerDidAppearAnimationFinishedIn:(UIViewController*)targetViewController
+                                              atIndex:(NSUInteger)index
 {
     id<RSCustomTabbarControllerLifecycleDelegte> justAddedVC = (id<RSCustomTabbarControllerLifecycleDelegte>)targetViewController;
     
-    if([justAddedVC respondsToSelector:@selector(viewControllerDidAppearAnimationFinishedInTabbar:)])
+    if([justAddedVC respondsToSelector:@selector(viewControllerDidAppearAnimationFinishedInTabbar:
+                                                 atIndex:)])
     {
-        [justAddedVC viewControllerDidAppearAnimationFinishedInTabbar:self];
+        [justAddedVC viewControllerDidAppearAnimationFinishedInTabbar:self
+                                                              atIndex:index];
     }
     else
     {

@@ -73,10 +73,10 @@ class Demo5TabbarController: RSCustomTabbarController, RSCustomTabbarImplementat
         tabbars = [tabbar0, tabbar1, tabbar2, tabbar3];
         
         //  just fascinated ui things
-        tabbar0.imageView?.contentMode = UIViewContentMode.ScaleAspectFit;
-        tabbar1.imageView?.contentMode = UIViewContentMode.ScaleAspectFit;
-        tabbar2.imageView?.contentMode = UIViewContentMode.ScaleAspectFit;
-        tabbar3.imageView?.contentMode = UIViewContentMode.ScaleAspectFit;
+        tabbar0.imageView?.contentMode = UIViewContentMode.scaleAspectFit;
+        tabbar1.imageView?.contentMode = UIViewContentMode.scaleAspectFit;
+        tabbar2.imageView?.contentMode = UIViewContentMode.scaleAspectFit;
+        tabbar3.imageView?.contentMode = UIViewContentMode.scaleAspectFit;
         
         //  storing the index in the tag, so that we can access tabbars faster while handle button actions
         tabbar0.tag = 0;
@@ -85,7 +85,7 @@ class Demo5TabbarController: RSCustomTabbarController, RSCustomTabbarImplementat
         tabbar3.tag = 3;
         
         self.setTabbarVisibility(false, animated: false);
-        mViewTabbarHideShowBtn.selected = true;
+        mViewTabbarHideShowBtn.isSelected = true;
         
         //
         //  assigning the PopupTabbarTransitionAnimation as a animation handler
@@ -95,24 +95,24 @@ class Demo5TabbarController: RSCustomTabbarController, RSCustomTabbarImplementat
         super.viewDidLoad();
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         
-        self.navigationController?.navigationBarHidden = true;
+        self.navigationController?.isNavigationBarHidden = true;
         
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated);
         
-        self.navigationController?.navigationBarHidden = false;
+        self.navigationController?.isNavigationBarHidden = false;
     }
     
     
     //
     // MARK:    RSCustomTabbarController overidden method
     //
-    override func setTabbarVisibility(visible: Bool, animated: Bool) {
+    override func setTabbarVisibility(_ visible: Bool, animated: Bool) {
         
         if(animated)
         {
@@ -120,12 +120,12 @@ class Demo5TabbarController: RSCustomTabbarController, RSCustomTabbarImplementat
             if(visible)
             {
                 mViewTabbarHolder.alpha = 0.0;
-                mViewTabbarHolder.hidden = false;
+                mViewTabbarHolder.isHidden = false;
             }
             
-            UIView.animateWithDuration(0.5, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 
-                self.mViewTabbarHolder.alpha = CGFloat(visible);
+                self.mViewTabbarHolder.alpha = visible ? 1.0 : 0.0;
                 self.mConstraintTabHolderWidth.constant = CGFloat((visible ? TABBAR_SHOWN_SIZE : TABBAR_HIDDEN_SIZE));
                 
                 self.view.layoutIfNeeded();
@@ -133,7 +133,7 @@ class Demo5TabbarController: RSCustomTabbarController, RSCustomTabbarImplementat
                 }, completion: { (completed) in
                     if(!visible)
                     {
-                        self.mViewTabbarHolder.hidden = false;
+                        self.mViewTabbarHolder.isHidden = false;
                         self.mViewTabbarHolder.alpha = 1.0;     //  restoring alpha
                     }
             });
@@ -142,7 +142,7 @@ class Demo5TabbarController: RSCustomTabbarController, RSCustomTabbarImplementat
         {
             //  just hide or show, no animation needed
             mConstraintTabHolderWidth.constant = CGFloat(visible ? TABBAR_SHOWN_SIZE : TABBAR_HIDDEN_SIZE);
-            mViewTabbarHolder.hidden = !visible;
+            mViewTabbarHolder.isHidden = !visible;
         }
         
     }
@@ -151,7 +151,7 @@ class Demo5TabbarController: RSCustomTabbarController, RSCustomTabbarImplementat
     //
     // MARK:    RSCustomTabbarImplementationDelegate method
     //
-    func newSelectedTabbarIndex(newSelectedIndex: UInt,
+    func newSelectedTabbarIndex(_ newSelectedIndex: UInt,
                                 whereOldIndexWas oldSelectedIndex: UInt) {
         
         if(newSelectedIndex == oldSelectedIndex)
@@ -159,36 +159,36 @@ class Demo5TabbarController: RSCustomTabbarController, RSCustomTabbarImplementat
             //
             //  this is called for the first time
             //
-            tabbars[Int(newSelectedIndex)].selected = true;
+            tabbars[Int(newSelectedIndex)].isSelected = true;
         }
         else
         {
             //
             //  subsequent call from user interaction
             //
-            tabbars[Int(newSelectedIndex)].selected = true;
-            tabbars[Int(oldSelectedIndex)].selected = false;
+            tabbars[Int(newSelectedIndex)].isSelected = true;
+            tabbars[Int(oldSelectedIndex)].isSelected = false;
         }
     }
     
     //
     // MARK:    IBAction Methods
     //
-    @IBAction func onTabbarButtonPressed(sender :UIButton!)
+    @IBAction func onTabbarButtonPressed(_ sender :UIButton!)
     {
         //
         //  this call will make the RSCustomTabbarController to 
         //  call the new select old select delegate called. 
         //  All the selection thing will be managed there.
         //
-        super.setSelectedViewCotnrollerAtIndex(UInt(sender.tag));
+        super.setSelectedViewCotnrollerAt(UInt(sender.tag));
     }
     
-    @IBAction func onTabbarShowHidePressed(sender: UIButton!)
+    @IBAction func onTabbarShowHidePressed(_ sender: UIButton!)
     {
-        sender.selected = !sender.selected;
+        sender.isSelected = !sender.isSelected;
         
-        if(sender.selected)
+        if(sender.isSelected)
         {
             self.setTabbarVisibility(false, animated: true);
         }

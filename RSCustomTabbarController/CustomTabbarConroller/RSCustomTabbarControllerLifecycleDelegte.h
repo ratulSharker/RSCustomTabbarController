@@ -45,7 +45,8 @@
 //  just after placing everything in the right place. In either case
 //  this method will be called after everything is done.
 //
--(void)viewControllerDidAppearAnimationFinishedInTabbar:(RSCustomTabbarControllerBasic *)customTabbar;
+-(void)viewControllerDidAppearAnimationFinishedInTabbar:(RSCustomTabbarControllerBasic *)customTabbar
+                                                atIndex:(NSUInteger)index;
 
 @end
 

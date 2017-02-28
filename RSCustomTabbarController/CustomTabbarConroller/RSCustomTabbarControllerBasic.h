@@ -26,6 +26,12 @@
 #import "RSCustomTabbarDelegate.h"
 #import "RSCustomTabbarControllerLifecycleDelegte.h"
 
+#define RSCT_ERROR(msg)     NSLog(@"");\
+                            NSLog(@"***********************ERROR*************************");\
+                            NSLog(@"%@", msg);\
+                            NSLog(@"*****************************************************");\
+                            NSLog(@"");
+
 //
 //  specifying if none initial view controller is set
 //  which view controller will be the initial,
